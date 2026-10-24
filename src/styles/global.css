@@ -5,12 +5,12 @@
  */
 /* Apply the custom cursor to the entire website */
 html, body {
-  cursor: url('/baatmouse.png.jpg'), auto;
+  cursor: url('/batmouse.png'), auto;
 }
 
 /* Optional: If you want a different custom cursor when hovering over links */
 a, button, .win98-menu li a {
-  cursor: url('/baatmouse.png.jpg'), pointer;
+  cursor: url('/batmouse.png'), pointer;
 }
 
 :root {
@@ -44,8 +44,7 @@ body {
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
-	background-size: 100% 600px;
+	background: #000000;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	color: rgb(var(--gray-dark));
