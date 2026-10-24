@@ -1,27 +1,171 @@
 ---
-import BlogPost from '../layouts/BlogPost.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+// Completely clean slate setup - old templates are gone
 ---
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My Website</title>
+    </head>
+    <body>
+        <div id="container">
+            <div id="headerArea">
+                <div id="header"></div>
+                <nav id="navbar">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                    </ul>
+                </nav>
+            </div>
 
-<BlogPost title={SITE_TITLE} description={SITE_DESCRIPTION}>
-	<h1>Welcome to My Blog!</h1>
-	<p>
-		Hello! I am building this space using Astro and Cloudflare Workers to share my journey, 
-		ideas, and development projects. 
-	</p>
-	<p>
-		This site serves as a lightweight, clean corner of the internet where I can document what I learn 
-		and write about tech, design, and everything in between.
-	</p>
-	
-	<h2>What you'll find here:</h2>
-	<ul>
-		<li><strong>Articles & Insights:</strong> Thoughts on web infrastructure, front-end development, and serverless workflows.</li>
-		<li><strong>Project Devlogs:</strong> Behind-the-scenes logs of things I am actively designing and launching.</li>
-		<li><strong>Personal Musings:</strong> A space to write down thoughts on creative processes and continuous learning.</li>
-	</ul>
-	
-	<p>
-		Stay tuned as I add more content, polish up the layouts, and expand this platform. Thanks for dropping by!
-	</p>
-</BlogPost>
+            <div id="flex">
+                <aside id="leftSidebar">
+                    <h2>Updates</h2>
+                    <div class="box">
+                        <p>Welcome to my fresh space!</p>
+                        <ul style="padding-left:10px;">
+                            <li>Completely wiped the old templates clean.</li>
+                            <li>Integrated Sadgrl layout structures.</li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <main>
+                    <h1>Welcome to my Layout Maker!</h1>
+                    <p><strong>Please read this first!</strong></p>
+                    <p>This tool generates a layout that is responsive, which means it looks great on phones! Use dropdowns above to customize your layout's general features.</p>
+
+                    <p> - Cat Ipsum - </p>
+                    <p>Rub my belly hiss swipe at owner's legs sniff catnip and act crazy growl at dogs in my sleep sit on the laptop for hiss at vacuum cleaner i like to spend my days sleeping and eating fishes that my human fished for me.</p>
+                </main>
+
+                <aside id="rightSidebar">
+                    <h2>Hi there!</h2>
+                    <h3>Links</h3>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/blog">Blog Entries</a></li>
+                    </ul>
+                </aside>
+            </div>
+            <footer id="footer">CC0 Public Domain, 2026</footer>
+        </div>
+    </body>
+</html>
+
+<style>
+    :root {
+        --header-image: url('https://sadhost.neocities.org/images/layouts/wp.jpeg');
+        --body-bg-image: url('https://sadhost.neocities.org/images/tiles/purplesky.gif');
+        --content: #43256E;
+    }
+
+    @font-face {
+        font-family: Nunito;
+        src: url('https://sadhost.neocities.org/fonts/Nunito-Regular.ttf');
+    }
+
+    @font-face {
+        font-family: Nunito;
+        src: url('https://sadhost.neocities.org/fonts/Nunito-Bold.ttf');
+        font-weight: bold;
+    }
+
+    body {
+        font-family: 'Nunito', sans-serif;
+        margin: 0;
+        background-color: #08031A;
+        background-size: 65px;
+        color: #fceaff;
+        background-image: var(--body-bg-image);
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    #container {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    #container a {
+        color: #ED64F5;
+        font-weight: bold;
+    }
+
+    #header {
+        width: 100%;
+        background-color: #5e4e8c;
+        height: 150px;
+        background-image: var(--header-image);
+        background-size: 100%;
+    }
+
+    #navbar {
+        height: 40px;
+        background-color: #13092D;
+        width: 100%;
+    }
+
+    #navbar ul {
+        display: flex;
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        justify-content: space-evenly;
+    }
+
+    #navbar li {
+        padding-top: 10px;
+    }
+
+    #navbar li a {
+        color: #ED64F5;
+        font-weight: 800;
+        text-decoration: none;
+    }
+
+    #flex {
+        display: flex;
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    main {
+        flex: 2;
+        background: rgba(19, 9, 45, 0.7);
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    #leftSidebar, #rightSidebar {
+        flex: 1;
+        background: rgba(94, 78, 140, 0.2);
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    .box {
+        background: rgba(0, 0, 0, 0.2);
+        padding: 10px;
+        border-radius: 4px;
+        font-size: 0.9em;
+    }
+
+    #footer {
+        text-align: center;
+        margin-top: 20px;
+        padding: 10px;
+        font-size: 0.8em;
+    }
+
+    /* Simple responsive styling for mobile screen display sizes */
+    @media (max-width: 768px) {
+        #flex {
+            flex-direction: column;
+        }
+    }
+</style>
