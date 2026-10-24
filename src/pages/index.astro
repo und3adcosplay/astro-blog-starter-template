@@ -1,85 +1,124 @@
 ---
-// Completely clean slate setup - old templates are gone
+// Clean Slate Homepage styled after your horror archive layout mockup!
 ---
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>My Website</title>
+        <title>UND3AD_COSPLAY | horror archive</title>
     </head>
     <body>
         <div id="container">
-            <div id="headerArea">
-                <div id="header"></div>
-                <nav id="navbar">
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/blog">Blog</a></li>
-                    </ul>
-                </nav>
-            </div>
+            <!-- HEADER SECTION -->
+            <header id="mainHeader">
+                <div class="header-logo">UND3AD_COSPLAY</div>
+                <div class="header-sub">† cosplay, art & hobbies †</div>
+                <div class="header-welcome">welcome to my horror archive...</div>
+                <div class="header-badge">pretty monsters live here...</div>
+            </header>
 
-            <div id="flex">
+            <div id="flexContainer">
+                <!-- LEFT SIDEBAR -->
                 <aside id="leftSidebar">
-                    <h2>Updates</h2>
-                    <div class="box">
-                        <p>Welcome to my fresh space!</p>
-                        <ul style="padding-left:10px;">
-                            <li>Completely wiped the old templates clean.</li>
-                            <li>Integrated Sadgrl layout structures.</li>
+                    <nav class="win98-menu">
+                        <div class="win98-title">NAVIGATION</div>
+                        <ul>
+                            <li><a href="/">HOME</a></li>
+                            <li><a href="/about">ABOUT ME</a></li>
+                            <li><a href="/gallery">COSPLAY GALLERY</a></li>
+                            <li><a href="/art">ART</a></li>
+                            <li><a href="/blog">DIARY / BLOG</a></li>
+                            <li><a href="/guestbook">GUESTBOOK</a></li>
                         </ul>
+                    </nav>
+
+                    <div class="win98-window">
+                        <div class="win98-title">ABOUT ME</div>
+                        <div class="win98-content profile-box">
+                            <p><strong>und3ad_.cosplay</strong></p>
+                            <p>she/they</p>
+                            <p>horror enthusiast / cosplayer / artist / creepypasta enjoyer</p>
+                            <p class="quote">"pretty people like scary things."</p>
+                        </div>
                     </div>
                 </aside>
 
-                <main>
-                    <h1>Welcome to my Layout Maker!</h1>
-                    <p><strong>Please read this first!</strong></p>
-                    <p>This tool generates a layout that is responsive, which means it looks great on phones! Use dropdowns above to customize your layout's general features.</p>
+                <!-- MAIN WORKSPACE -->
+                <main id="centerContent">
+                    <!-- IMAGE GRID -->
+                    <section class="horror-grid">
+                        <div class="grid-card">
+                            <div class="img-placeholder">[ BILLY / JIGSAW COSPLAY ]</div>
+                            <p class="caption">"Let's play a game..."</p>
+                        </div>
+                        <div class="grid-card">
+                            <div class="img-placeholder">[ ??? COSPLAY ]</div>
+                            <p class="caption">"still here..."</p>
+                        </div>
+                        <div class="grid-card">
+                            <div class="img-placeholder">[ ??? COSPLAY ]</div>
+                            <p class="caption">"can you see me?"</p>
+                        </div>
+                    </section>
 
-                    <p> - Cat Ipsum - </p>
-                    <p>Rub my belly hiss swipe at owner's legs sniff catnip and act crazy growl at dogs in my sleep sit on the laptop for hiss at vacuum cleaner i like to spend my days sleeping and eating fishes that my human fished for me.</p>
+                    <!-- LATEST ENTRY WINDOW -->
+                    <div class="win98-window">
+                        <div class="win98-title">📝 LATEST ENTRY <span class="win-date">10.24.2026</span></div>
+                        <div class="win98-content">
+                            <h3>a place for monsters.</h3>
+                            <p>welcome to my little corner of the internet... this is where i share my cosplays, art, and random thoughts about horror, games, and everything that inspires me. thank you for visiting. you're not alone here. ♡</p>
+                        </div>
+                    </div>
                 </main>
 
+                <!-- RIGHT SIDEBAR -->
                 <aside id="rightSidebar">
-                    <h2>Hi there!</h2>
-                    <h3>Links</h3>
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/blog">Blog Entries</a></li>
-                    </ul>
+                    <div class="win98-window">
+                        <div class="win98-title">SITE STATUS [X]</div>
+                        <div class="win98-content center-text">
+                            <p class="construction">under construction...</p>
+                            <p>better things are coming...</p>
+                        </div>
+                    </div>
+                    
+                    <div class="win98-window">
+                        <div class="win98-title">INTERESTS</div>
+                        <div class="win98-content tag-list">
+                            <span>| cosplay |</span>
+                            <span>| creepypasta |</span>
+                            <span>| horror games |</span>
+                            <span>| movies |</span>
+                            <span>| art |</span>
+                        </div>
+                    </div>
                 </aside>
             </div>
-            <footer id="footer">CC0 Public Domain, 2026</footer>
+
+            <!-- SITE BUTTONS FOOTER -->
+            <footer id="siteFooter">
+                <div class="retro-buttons">
+                    <span class="badge-btn">I ❤️ HORROR</span>
+                    <span class="badge-btn">CREEPYPASTA</span>
+                    <span class="badge-btn">SILENT HILL</span>
+                    <span class="badge-btn">BLINK-182</span>
+                </div>
+            </footer>
         </div>
     </body>
 </html>
 
 <style>
-    :root {
-        --header-image: url('https://sadhost.neocities.org/images/layouts/wp.jpeg');
-        --body-bg-image: url('https://sadhost.neocities.org/images/tiles/purplesky.gif');
-        --content: #43256E;
-    }
-
-    @font-face {
-        font-family: Nunito;
-        src: url('https://sadhost.neocities.org/fonts/Nunito-Regular.ttf');
-    }
-
-    @font-face {
-        font-family: Nunito;
-        src: url('https://sadhost.neocities.org/fonts/Nunito-Bold.ttf');
-        font-weight: bold;
-    }
-
+    /* GLOBAL RETRO HORROR STYLES */
     body {
-        font-family: 'Nunito', sans-serif;
         margin: 0;
-        background-color: #08031A;
-        background-size: 65px;
-        color: #fceaff;
-        background-image: var(--body-bg-image);
+        background-color: #0c0202;
+        /* Replace this color hex with a custom subtle grunge pattern later if you want! */
+        background-image: radial-gradient(#200505 1px, transparent 1px);
+        background-size: 16px 16px;
+        color: #e0d0d0;
+        font-family: 'Courier New', Courier, monospace;
+        padding: 10px;
     }
 
     * {
@@ -87,85 +126,192 @@
     }
 
     #container {
-        max-width: 900px;
+        max-width: 1100px;
         margin: 0 auto;
     }
 
-    #container a {
-        color: #ED64F5;
+    /* HEADER BANNER SETUP */
+    #mainHeader {
+        border: 2px solid #4a0d0d;
+        background: linear-gradient(180deg, #1a0303 0%, #000000 100%);
+        padding: 30px 20px;
+        text-align: center;
+        position: relative;
+        margin-bottom: 15px;
+        box-shadow: inset 0 0 20px #ff000033;
+    }
+
+    .header-logo {
+        font-size: 3rem;
         font-weight: bold;
+        color: #ff2a2a;
+        letter-spacing: 4px;
+        text-shadow: 0 0 8px #ff0000, 2px 2px #000;
+        font-family: Impact, Charcoal, sans-serif;
     }
 
-    #header {
-        width: 100%;
-        background-color: #5e4e8c;
-        height: 150px;
-        background-image: var(--header-image);
-        background-size: 100%;
+    .header-sub {
+        color: #8a8a8a;
+        font-size: 1.1rem;
+        margin: 5px 0;
     }
 
-    #navbar {
-        height: 40px;
-        background-color: #13092D;
-        width: 100%;
+    .header-welcome {
+        font-style: italic;
+        color: #a37272;
     }
 
-    #navbar ul {
+    .header-badge {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        font-size: 0.8rem;
+        color: #ff2a2a;
+        border: 1px dashed #ff2a2a;
+        padding: 4px;
+    }
+
+    /* THREE COLUMN LAYOUT FLEX SYSTEM */
+    #flexContainer {
         display: flex;
+        gap: 15px;
+    }
+
+    #leftSidebar { flex: 1.2; }
+    #centerContent { flex: 3; }
+    #rightSidebar { flex: 1; }
+
+    /* CLASSIC WIN98/EARLY-WEB WINDOW CONTAINER DESIGN */
+    .win98-window, .win98-menu {
+        border: 2px solid #5a1212;
+        background-color: #0b0202;
+        margin-bottom: 15px;
+        box-shadow: 3px 3px 0px #000;
+    }
+
+    .win98-title {
+        background: linear-gradient(90deg, #6b0c0c 0%, #1a0303 100%);
+        color: #fff;
+        padding: 4px 8px;
+        font-weight: bold;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #5a1212;
+    }
+
+    .win98-content {
+        padding: 12px;
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+
+    /* CUSTOM NAVIGATION STYLING */
+    .win98-menu ul {
+        list-style: none;
         padding: 0;
         margin: 0;
-        list-style-type: none;
-        justify-content: space-evenly;
     }
 
-    #navbar li {
-        padding-top: 10px;
+    .win98-menu li {
+        border-bottom: 1px dashed #3a0a0a;
     }
 
-    #navbar li a {
-        color: #ED64F5;
-        font-weight: 800;
+    .win98-menu li a {
+        display: block;
+        padding: 10px;
+        color: #ff5555;
         text-decoration: none;
+        font-weight: bold;
+        transition: all 0.2s;
     }
 
-    #flex {
+    .win98-menu li a:hover {
+        background-color: #420808;
+        color: #fff;
+        padding-left: 15px;
+    }
+
+    /* TOP GALLERY GRID SYSTEM */
+    .horror-grid {
         display: flex;
-        gap: 20px;
-        margin-top: 20px;
+        gap: 10px;
+        margin-bottom: 15px;
     }
 
-    main {
-        flex: 2;
-        background: rgba(19, 9, 45, 0.7);
-        padding: 20px;
-        border-radius: 8px;
-    }
-
-    #leftSidebar, #rightSidebar {
+    .grid-card {
         flex: 1;
-        background: rgba(94, 78, 140, 0.2);
-        padding: 15px;
-        border-radius: 8px;
-    }
-
-    .box {
-        background: rgba(0, 0, 0, 0.2);
-        padding: 10px;
-        border-radius: 4px;
-        font-size: 0.9em;
-    }
-
-    #footer {
+        background-color: #120303;
+        border: 1px solid #4a0d0d;
+        padding: 8px;
         text-align: center;
-        margin-top: 20px;
-        padding: 10px;
-        font-size: 0.8em;
     }
 
-    /* Simple responsive styling for mobile screen display sizes */
-    @media (max-width: 768px) {
-        #flex {
-            flex-direction: column;
-        }
+    .img-placeholder {
+        width: 100%;
+        height: 180px;
+        background-color: #000;
+        border: 1px solid #333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+        color: #666;
+    }
+
+    .caption {
+        font-size: 0.8rem;
+        margin: 8px 0 0 0;
+        color: #ff5555;
+        font-style: italic;
+    }
+
+    /* PROFILES & SITE STATUS ELEMENTS */
+    .profile-box p { margin: 5px 0; }
+    .quote { color: #ff5555; font-style: italic; margin-top: 10px !important; }
+    .center-text { text-align: center; }
+    .construction { color: #ffcc00; font-weight: bold; animation: blink 1.5s infinite; }
+    
+    .tag-list span {
+        display: block;
+        margin: 6px 0;
+        text-align: center;
+        color: #8a8a8a;
+    }
+
+    /* FOOTER BADGES SECTION */
+    #siteFooter {
+        margin-top: 15px;
+        border-top: 2px dashed #4a0d0d;
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    .retro-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .badge-btn {
+        background-color: #1a0505;
+        border: 1px solid #ff2a2a;
+        color: #ff8888;
+        padding: 5px 10px;
+        font-size: 0.75rem;
+        font-weight: bold;
+        box-shadow: 2px 2px 0px #000;
+    }
+
+    @keyframes blink {
+        50% { opacity: 0; }
+    }
+
+    /* RESPONSIVE LAYOUT BREAKPOINT RULES FOR MOBILE */
+    @media (max-width: 850px) {
+        #flexContainer { flex-direction: column; }
+        .horror-grid { flex-direction: column; }
     }
 </style>
