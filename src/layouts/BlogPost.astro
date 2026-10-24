@@ -1,85 +1,176 @@
 ---
-import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 
-type Props = CollectionEntry<'blog'>['data'];
-
+// This grabs all your actual blog text, titles, and dates dynamically!
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
+<!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead title={title} description={description} />
+	</head>
+	<body>
+		<div id="container">
+			<div id="header"></div>
+			<div id="headerArea">
+				<nav id="navbar">
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li><a href="/blog">Blog</a></li>
+					</ul>
+				</nav>
+			</div>
+
+			<div id="flex">
+				<main>
+					<article>
+						{heroImage && <img class="hero-image" width={1020} height={510} src={heroImage} alt="" />}
+						<div class="title">
+							<div class="date">
+								<FormattedDate date={pubDate} />
+								{
+									updatedDate && (
+										<div class="last-updated-on">
+											Last updated on <FormattedDate date={updatedDate} />
+										</div>
+									)
+								}
+							</div>
+							<h1>{title}</h1>
+							<hr />
+						</div>
+						<!-- This slot injection is where your actual blog post content gets loaded! -->
+						<slot />
+					</article>
+				</main>
+				
+				<aside id="leftSidebar">
+					<h2>Navigation</h2>
+					<div class="box">
+						<p>Welcome to my blog space!</p>
+					</div>
+					<h2>Updates</h2>
+					<ul>
+						<li>Site launched on Cloudflare Workers!</li>
+					</ul>
+				</aside>
+			</div>
+			
+			<footer id="footer">
+				<Footer />
+			</footer>
+		</div>
+
+		<!-- THIS IS YOUR NEW SADGRL LAYOUT MAKER STYLE BOX -->
 		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
+			:root {
+				--header-image: url('https://sadhost.neocities.org/images/layouts/wp.jpeg');
+				--body-bg-image: url('https://sadhost.neocities.org/images/tiles/purplesky.gif');
+				--content: #43256E;
 			}
-			.hero-image {
+
+			@font-face {
+				font-family: Nunito;
+				src: url('https://sadhost.neocities.org/fonts/Nunito-Regular.ttf');
+			}
+
+			body {
+				font-family: 'Nunito', sans-serif;
+				margin: 0;
+				background-color: #08031A;
+				background-size: 65px;
+				color: #fceaff;
+				background-image: var(--body-bg-image);
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			#container {
+				max-width: 900px;
+				margin: 0 auto;
+			}
+
+			#container a {
+				color: #ED64F5;
+				font-weight: bold;
+			}
+
+			#header {
+				width: 100%;
+				background-color: #5e4e8c;
+				height: 150px;
+				background-image: var(--header-image);
+				background-size: 100%;
+			}
+
+			#navbar {
+				height: 40px;
+				background-color: #13092D;
 				width: 100%;
 			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
+
+			#navbar ul {
+				display: flex;
+				padding: 0;
+				margin: 0;
+				list-style-type: none;
+				justify-content: space-evenly;
 			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
+
+			#navbar li {
+				padding-top: 10px;
 			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
+
+			#navbar li a {
+				color: #ED64F5;
+				font-weight: 800;
+				text-decoration: none;
 			}
+
+			#flex {
+				display: flex;
+				gap: 20px;
+				margin-top: 20px;
+			}
+
+			main {
+				flex: 3;
+				background: rgba(19, 9, 45, 0.7);
+				padding: 20px;
+				border-radius: 8px;
+			}
+
+			#leftSidebar {
+				flex: 1;
+				background: rgba(94, 78, 140, 0.2);
+				padding: 15px;
+				border-radius: 8px;
+			}
+
+			.hero-image {
+				width: 100%;
+				height: auto;
+				border-radius: 8px;
+				margin-bottom: 20px;
+			}
+
 			.title h1 {
-				margin: 0 0 0.5em 0;
+				color: #ED64F5;
+				margin: 10px 0;
 			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
+
+			.box {
+				background: rgba(0, 0, 0, 0.2);
+				padding: 10px;
+				border-radius: 4px;
+				font-size: 0.9em;
 			}
 		</style>
-	</head>
-
-	<body>
-		<Header />
-		<main>
-			<article>
-				<div class="hero-image">
-					{heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
-				</div>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-						<h1>{title}</h1>
-						<hr />
-					</div>
-					<slot />
-				</div>
-			</article>
-		</main>
-		<Footer />
 	</body>
 </html>
