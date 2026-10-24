@@ -114,19 +114,22 @@
 <style is:global>
 @import url('https://googleapis.com');
 
-    /* GLOBAL RETRO HORROR STYLES */
+      /* GLOBAL RETRO HORROR STYLES - BLOOD DRIP VARIANT */
     body {
-    margin: 0;
-    /* Change #0c0202 to #020c04 */
-    background-color: #020c04; 
-    /* Change #200505 to #05200b */
-    background-image: radial-gradient(#05200b 1px, transparent 1px); 
-    background-size: 16px 16px;
-    /* Change text from #e0d0d0 to a soft green tint #d0e0d4 */
-    color: #d0e0d4; 
-           font-family: 'DotGothic16', 'Courier New', Courier, monospace;
-    padding: 10px;
-}
+        margin: 0;
+        /* Completely pitch-black background */
+        background-color: #000000; 
+        /* Classic webmaster asset tracking directory for a seamless animated blood drip overlay */
+        background-image: url('https://64.media.tumblr.com/tumblr_m7da2fiO1y1roozkr.gif'); 
+        /* Repeats horizontally across the top without stacking downward */
+        background-repeat: repeat-x; 
+        background-position: top center;
+        color: #d0e0d4;
+        font-family: 'DotGothic16', 'Courier New', Courier, monospace;
+        padding: 10px;
+        /* Extra padding at the top so the blood animation doesn't clip your main layout header title box */
+        padding-top: 35px; 
+    }
 
 
     * {
