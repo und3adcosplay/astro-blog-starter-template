@@ -5,12 +5,12 @@
  */
 /* Apply the custom cursor to the entire website */
 html, body {
-  cursor: url('/custom-cursor.png'), auto;
+  cursor: url('/batmouse.png.webp'), auto;
 }
 
 /* Optional: If you want a different custom cursor when hovering over links */
 a, button, .win98-menu li a {
-  cursor: url('/custom-cursor-hover.png'), pointer;
+  cursor: url('/batmouse.png.webp'), pointer;
 }
 
 :root {
