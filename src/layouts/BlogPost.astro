@@ -30,16 +30,18 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 					<article>
 						{heroImage && <img class="hero-image" width={1020} height={510} src={heroImage} alt="" />}
 						<div class="title">
-							<div class="date">
-								<FormattedDate date={pubDate} />
-								{
-									updatedDate && (
-										<div class="last-updated-on">
-											Last updated on <FormattedDate date={updatedDate} />
-										</div>
-									)
-								}
-							</div>
+							{pubDate && (
+								<div class="date">
+									<FormattedDate date={pubDate} />
+									{
+										updatedDate && (
+											<div class="last-updated-on">
+												Last updated on <FormattedDate date={updatedDate} />
+											</div>
+										)
+									}
+								</div>
+							)}
 							<h1>{title}</h1>
 							<hr />
 						</div>
@@ -68,14 +70,14 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		<!-- THIS IS YOUR NEW SADGRL LAYOUT MAKER STYLE BOX -->
 		<style>
 			:root {
-				--header-image: url('https://sadhost.neocities.org/images/layouts/wp.jpeg');
-				--body-bg-image: url('https://sadhost.neocities.org/images/tiles/purplesky.gif');
+				--header-image: url('https://neocities.org');
+				--body-bg-image: url('https://neocities.org');
 				--content: #43256E;
 			}
 
 			@font-face {
 				font-family: Nunito;
-				src: url('https://sadhost.neocities.org/fonts/Nunito-Regular.ttf');
+				src: url('https://neocities.org');
 			}
 
 			body {
