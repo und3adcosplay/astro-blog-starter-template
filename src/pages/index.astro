@@ -1,39 +1,27 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import BlogPost from '../layouts/BlogPost.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>Welcome to My Blog!</h1>
-			<p>
-				Hello! I am building this space using Astro and Cloudflare Workers to share my journey, 
-				ideas, and development projects. 
-			</p>
-			<p>
-				This site serves as a lightweight, clean corner of the internet where I can document what I learn 
-				and write about tech, design, and everything in between.
-			</p>
-			
-			<h2>What you'll find here:</h2>
-			<ul>
-				<li><strong>Articles & Insights:</strong> Thoughts on web infrastructure, front-end development, and serverless workflows.</li>
-				<li><strong>Project Devlogs:</strong> Behind-the-scenes logs of things I am actively designing and launching.</li>
-				<li><strong>Personal Musings:</strong> A space to write down thoughts on creative processes and continuous learning.</li>
-			</ul>
-			
-			<p>
-				Stay tuned as I add more content, polish up the layouts, and expand this platform. Thanks for dropping by!
-			</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+<BlogPost title={SITE_TITLE} description={SITE_DESCRIPTION}>
+	<h1>Welcome to My Blog!</h1>
+	<p>
+		Hello! I am building this space using Astro and Cloudflare Workers to share my journey, 
+		ideas, and development projects. 
+	</p>
+	<p>
+		This site serves as a lightweight, clean corner of the internet where I can document what I learn 
+		and write about tech, design, and everything in between.
+	</p>
+	
+	<h2>What you'll find here:</h2>
+	<ul>
+		<li><strong>Articles & Insights:</strong> Thoughts on web infrastructure, front-end development, and serverless workflows.</li>
+		<li><strong>Project Devlogs:</strong> Behind-the-scenes logs of things I am actively designing and launching.</li>
+		<li><strong>Personal Musings:</strong> A space to write down thoughts on creative processes and continuous learning.</li>
+	</ul>
+	
+	<p>
+		Stay tuned as I add more content, polish up the layouts, and expand this platform. Thanks for dropping by!
+	</p>
+</BlogPost>
