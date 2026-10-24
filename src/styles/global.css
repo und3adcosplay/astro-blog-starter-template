@@ -5,12 +5,16 @@
  */
 /* Apply the custom cursor to the entire website */
 html, body {
-  cursor: url('/batmouse'), auto;
+  cursor: url(<!-- Syringe - https://www.cursors-4u.com/cursor/oth83 -->
+<link rel="stylesheet" href="https://cdn.cursors-4u.net/cursors/animated/oth83-46112e9e-32.css">
+<!-- End www.Cursors-4U.com Code -->), auto;
 }
 
 /* Optional: If you want a different custom cursor when hovering over links */
 a, button, .win98-menu li a {
-  cursor: url('/batmouse'), pointer;
+  cursor: url(<!-- Syringe - https://www.cursors-4u.com/cursor/oth83 -->
+<link rel="stylesheet" href="https://cdn.cursors-4u.net/cursors/animated/oth83-46112e9e-32.css">
+<!-- End www.Cursors-4U.com Code -->), pointer;
 }
 
 :root {
