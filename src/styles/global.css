@@ -3,6 +3,15 @@
   https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
+/* Apply the custom cursor to the entire website */
+html, body {
+  cursor: url('/custom-cursor.png'), auto;
+}
+
+/* Optional: If you want a different custom cursor when hovering over links */
+a, button, .win98-menu li a {
+  cursor: url('/custom-cursor-hover.png'), pointer;
+}
 
 :root {
 	--accent: #2337ff;
