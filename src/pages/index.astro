@@ -36,12 +36,12 @@
             margin: 0 15px;         
           }
         </style>
-        <title>UND3AD._COSPLAY</title>
+        <title> UND3AD._COSPLAY </title>
     </head>
     <body>
         <div id="container">
             <header id="mainHeader">
-                <div class="header-logo">UND3AD._COSPLAY</div>
+                <div class="header-logo"> UND3AD._COSPLAY </div>
                 <div class="header-sub">🩸Tʜᴇ Cᴏsᴘʟᴀʏɪɴɢ Vᴀᴍᴘɪʀᴇ🩸</div>
                 <div class="header-welcome">cosplay, art, & hobbies!</div>
             </header>
@@ -55,7 +55,7 @@
             </marquee>
 
             <div id="flexContainer">
-                <!-- LEFT SIDEBAR -->
+                <-- LEFT SIDEBAR -->
                 <aside id="leftSidebar">
                     <nav class="win98-menu">
                         <div class="win98-title">NAVIGATION</div>
@@ -78,9 +78,9 @@
                     </nav>
                 </aside>
 
-                <!-- MAIN WORKSPACE -->
+                <-- MAIN WORKSPACE -->
                 <main id="centerContent">
-                    <!-- IMAGE GRID -->
+                    <-- IMAGE GRID -->
                     <section class="horror-grid">
                         <div class="grid-card">
                             <div class="img-placeholder"></div>
@@ -96,7 +96,7 @@
                         </div>
                     </section>
 
-                    <!-- LATEST ENTRY WINDOW -->
+                    <-- LATEST ENTRY WINDOW -->
                     <div class="win98-window">
                         <div class="win98-title">📝 LATEST ENTRY <span class="win-date">10.24.2026</span></div>
                         <div class="win98-content">
@@ -106,7 +106,7 @@
                     </div>
                 </main>
 
-                <!-- RIGHT SIDEBAR -->
+                <-- RIGHT SIDEBAR -->
                 <aside id="rightSidebar">
                     <div class="win98-window">
                         <div class="win98-title">SITE STATUS [X]</div>
@@ -130,7 +130,7 @@
                 </aside>
             </div>
 
-            <!-- SITE BUTTONS FOOTER -->
+            <-- SITE BUTTONS FOOTER -->
             <footer id="siteFooter">
                 <div class="retro-buttons">
                     <span class="badge-btn">I 💚 HORROR</span>
@@ -144,7 +144,6 @@
 </html>
 
 <style is:global>
-    /* GLOBAL RETRO HORROR STYLES */
     body {
         margin: 0;
         background-color: #000000; 
@@ -159,7 +158,7 @@
         cursor: url('/batmouse.png'), pointer !important;
     }
 
-    * {
+     {
         box-sizing: border-box;
     }
 
@@ -168,7 +167,6 @@
         margin: 50px auto 0 auto;
     }
 
-    /* HEADER BANNER SETUP */
     #mainHeader {
         border: 2px solid #0d4a1b;
         background: linear-gradient(180deg, #031a07 0%, #000000 100%);
@@ -209,7 +207,6 @@
         padding: 4px;
     }
 
-    /* THREE COLUMN LAYOUT FLEX SYSTEM */
     #flexContainer {
         display: flex;
         gap: 15px;
@@ -219,7 +216,6 @@
     #centerContent { flex: 3; }
     #rightSidebar { flex: 1; }
 
-    /* CLASSIC WIN98/EARLY-WEB WINDOW CONTAINER DESIGN */
     .win98-window, .win98-menu {
         border: 2px solid #125a22;
         background-color: #020b04;
@@ -243,7 +239,6 @@
         line-height: 1.4;
     }
 
-    /* CUSTOM NAVIGATION STYLING */
     .win98-menu ul {
         list-style: none;
         padding: 0;
@@ -271,7 +266,6 @@
         padding-left: 15px;
     }
 
-    /* TOP GALLERY GRID SYSTEM */
     .horror-grid {
         display: flex;
         gap: 10px;
@@ -305,7 +299,6 @@
         font-style: italic;
     }
 
-    /* PROFILES & SITE STATUS ELEMENTS */
     .tag-list span {
         display: block;
         margin: 6px 0;
@@ -316,7 +309,6 @@
     .center-text { text-align: center; }
     .construction { color: #ffcc00; font-weight: bold; animation: blink 1.5s infinite; }
 
-    /* FOOTER BADGES SECTION */
     #siteFooter {
         margin-top: 15px;
         border-top: 2px dashed #0d4a1b;
@@ -342,8 +334,7 @@ box-shadow: 2px 2px 0px #000;
 @keyframes blink {
 50% { opacity: 0; }
 }
-/* RESPONSIVE LAYOUT BREAKPOINT RULES FOR MOBILE */
+
 @media (max-width: 850px) {
 #flexContainer { flex-direction: column; }
 .horror-grid { flex-direction: column; }
-}
