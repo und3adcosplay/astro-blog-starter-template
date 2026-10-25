@@ -1,5 +1,6 @@
 ---
-// Component Script (Frontmatter)
+// Number of Robbie the Rabbit gifs in the scrolling strip
+const marqueeCount = 9;
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -9,14 +10,60 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Creepster&family=DotGothic16&display=swap" rel="stylesheet">
-  
+  <title> UND3AD._COSPLAY </title>
+
   <style is:global>
-    .win98-menu li a img {
-      width: 20px;
-      height: 20px;
-      object-fit: contain;
-      vertical-align: middle;
+    /* ---------- Page basics ---------- */
+    * {
+      box-sizing: border-box;
     }
+    body {
+      margin: 0;
+      background-color: #000000;
+      background-image: url('/blood-drip.gif');
+      background-repeat: repeat-x;
+      background-position: top center;
+      background-size: contain;
+      color: #d0e0d4;
+      font-family: 'DotGothic16', 'Courier New', Courier, monospace;
+      padding: 10px;
+      padding-top: 100px;
+      cursor: url('/batmouse.png'), pointer !important;
+    }
+    #container {
+      max-width: 1100px;
+      margin: 50px auto 0 auto;
+    }
+
+    /* ---------- Header ---------- */
+    #mainHeader {
+      border: 2px solid #0d4a1b;
+      background: linear-gradient(180deg, #031a07 0%, #000000 100%);
+      padding: 30px 20px;
+      text-align: center;
+      position: relative;
+      margin-bottom: 15px;
+      box-shadow: inset 0 0 20px #00ff6622;
+    }
+    .header-logo {
+      font-size: 3.5rem;
+      font-weight: bold;
+      color: #00ff66;
+      letter-spacing: 5px;
+      text-shadow: 0 0 4px #00ff66, 0 0 12px #00ff66, 2px 2px 4px #000000;
+      font-family: 'Creepster', 'Chiller', 'Cracked', 'Impact', sans-serif;
+    }
+    .header-sub {
+      color: #8a8a8a;
+      font-size: 1.1rem;
+      margin: 5px 0;
+    }
+    .header-welcome {
+      font-style: italic;
+      color: #72a37d;
+    }
+
+    /* ---------- Scrolling strip ---------- */
     .terminal-marquee {
       background-color: #000000;
       padding: 8px 0;
@@ -33,8 +80,162 @@
       image-rendering: pixelated;
       margin: 0 15px;
     }
+
+    /* ---------- Three-column layout ---------- */
+    #flexContainer {
+      display: flex;
+      gap: 15px;
+    }
+    #leftSidebar {
+      flex: 1.2;
+    }
+    #centerContent {
+      flex: 3;
+    }
+    #rightSidebar {
+      flex: 1;
+    }
+
+    /* ---------- Windows & menu ---------- */
+    .win98-window, .win98-menu {
+      border: 2px solid #125a22;
+      background-color: #020b04;
+      margin-bottom: 15px;
+      box-shadow: 3px 3px 0px #000;
+    }
+    .win98-title {
+      background: linear-gradient(90deg, #0d4a1b 0%, #020b04 100%);
+      color: #00ff66;
+      padding: 4px 8px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+    .win98-content {
+      padding: 12px;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+    .win98-menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .win98-menu li {
+      border-bottom: 1px dashed #0a3a14;
+    }
+    .win98-menu .menu-divider {
+      border-bottom: 2px dashed #0a3a14;
+      margin: 10px 0;
+    }
+    .win98-menu li a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      color: #33ff77;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.2s;
+    }
+    .win98-menu li a:hover {
+      background-color: #084214;
+      color: #fff;
+      padding-left: 15px;
+    }
+    .win98-menu li a img {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+      vertical-align: middle;
+    }
+
+    /* ---------- Image grid ---------- */
+    .horror-grid {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    .grid-card {
+      flex: 1;
+      background-color: #031206;
+      border: 1px solid #0d4a1b;
+      padding: 8px;
+      text-align: center;
+    }
+    .img-placeholder {
+      width: 100%;
+      height: 180px;
+      background-color: #000;
+      border: 1px solid #222;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: #444;
+    }
+    .caption {
+      font-size: 0.8rem;
+      margin: 8px 0 0 0;
+      color: #33ff77;
+      font-style: italic;
+    }
+
+    /* ---------- Right sidebar bits ---------- */
+    .tag-list span {
+      display: block;
+      margin: 6px 0;
+      text-align: center;
+      color: #8a8a8a;
+    }
+    .center-text {
+      text-align: center;
+    }
+    .construction {
+      color: #ffcc00;
+      font-weight: bold;
+      animation: blink 1.5s infinite;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    /* ---------- Footer ---------- */
+    #siteFooter {
+      margin-top: 15px;
+      border-top: 2px dashed #0d4a1b;
+      padding: 20px 0;
+      text-align: center;
+    }
+    .retro-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .badge-btn {
+      background-color: #051a09;
+      border: 1px solid #00ff66;
+      color: #88ffaa;
+      padding: 5px 10px;
+      font-size: 0.75rem;
+      font-weight: bold;
+      box-shadow: 2px 2px 0px #000;
+    }
+
+    /* ---------- Mobile / small screens ---------- */
+    @media (max-width: 850px) {
+      #flexContainer {
+        flex-direction: column;
+      }
+      #leftSidebar, #centerContent, #rightSidebar {
+        flex: 1;
+      }
+      .horror-grid {
+        flex-direction: column;
+      }
+    }
   </style>
-  <title> UND3AD._COSPLAY </title>
 </head>
 <body>
   <div id="container">
@@ -45,43 +246,38 @@
     </header>
 
     <marquee behavior="scroll" direction="left" scrollamount="5" class="terminal-marquee" onmouseover="this.stop();" onmouseout="this.start();">
-      <img src="/robbie-the-rabbit.gif" alt="loading divider" class="marquee-gif" />
-      <img src="/robbie-the-rabbit.gif" alt="loading divider" class="marquee-gif" />
-      <img src="/robbie-the-rabbit.gif" alt="loading divider" class="marquee-gif" />
-      <img src="/robbie-the-rabbit.gif" alt="loading divider" class="marquee-gif" />
-      <img src="/robbie-the-rabbit.gif" alt="loading divider" class="marquee-gif" />
-      <img src="/robbie-the-rabbit.gif" alt="loading divider" class="marquee-gif" />
-      <img src="/robbie-the-rabbit.gif" alt="loading divider" class="marquee-gif" />
-      <img src="/robbie-the-rabbit.gif" alt="loading divider" class="marquee-gif" />
-      <img src="/robbie-the-rabbit.gif" alt="loading divider" class="marquee-gif" />
+      {Array.from({ length: marqueeCount }, () => (
+        <img src="/robbie-the-rabbit.gif" alt="" class="marquee-gif" />
+      ))}
     </marquee>
 
     <div id="flexContainer">
-    <!-- LEFT SIDEBAR -->
+      <!-- LEFT SIDEBAR -->
       <aside id="leftSidebar">
-       <nav class="win98-menu">
-         <div class="win98-title blinkie-title">
-          <img src="/blinkie-nav.gif" alt="Navigation" />
-        </div>
-    <ul>
-      <li><a href="/">HOME</a></li>
-      <li><a href="/about">ABOUT ME</a></li>
-      <li><a href="/gallery">COSPLAYS</a></li>
-      <li><a href="/art">CROSS-STITCH</a></li>
-      <li><a href="/blog">BLOG</a></li>
-      <li><a href="/guestbook">SIGN MY GUESTBOOK</a></li>
-          <li style="border-bottom: 2px dashed #0a3a14; margin: 10px 0; list-style: none;"></li>
-          
-          <li class="blinkie-subtitle" style="list-style: none;">
-            <img src="/blinkie-cos.gif" alt="Cosplays" />
-          </li>
+        <nav class="win98-menu">
+          <div class="win98-title blinkie-title">
+            <img src="/blinkie-nav.gif" alt="Navigation" />
+          </div>
+          <ul>
+            <li><a href="/">HOME</a></li>
+            <li><a href="/about">ABOUT ME</a></li>
+            <li><a href="/gallery">COSPLAYS</a></li>
+            <li><a href="/art">CROSS-STITCH</a></li>
+            <li><a href="/blog">BLOG</a></li>
+            <li><a href="/guestbook">SIGN MY GUESTBOOK</a></li>
 
-          <li><a href="/blog/silent-hill"><img src="/meta.png.jpg" width="14" height="14" alt="" /> SILENT HILL</a></li>
-          <li><a href="/blog/resident-evil"><img src="/brellaa.png.jpg" width="14" height="14" alt="" /> RESIDENT EVIL</a></li>
-          <li><a href="/blog/creepypasta"><img src="/proxxy.png.png" width="14" height="14" alt="" /> CREEPYPASTA</a></li>
-        </ul>
-      </nav>
-    </aside>
+            <li class="menu-divider"></li>
+
+            <li class="blinkie-subtitle">
+              <img src="/blinkie-cos.gif" alt="Cosplays" />
+            </li>
+
+            <li><a href="/blog/silent-hill"><img src="/meta.png.jpg" alt="" /> SILENT HILL</a></li>
+            <li><a href="/blog/resident-evil"><img src="/brellaa.png.jpg" alt="" /> RESIDENT EVIL</a></li>
+            <li><a href="/blog/creepypasta"><img src="/proxxy.png.png" alt="" /> CREEPYPASTA</a></li>
+          </ul>
+        </nav>
+      </aside>
 
       <!-- MAIN WORKSPACE -->
       <main id="centerContent">
@@ -137,8 +333,8 @@
     <!-- SITE BUTTONS FOOTER -->
     <footer id="siteFooter">
       <div class="retro-buttons">
-        <span class="badge-btn">I 💚 HORROR</span>
-        <span class="badge-btn">FUCK AI</span>
+        <span class="badge-btn">I 🫀 HORROR</span>
+        <span class="badge-btn">FUCK GEN AI</span>
         <span class="badge-btn">"In my restless dreams...</span>
         <span class="badge-btn">BUY PHYSICAL MEDIA</span>
       </div>
@@ -146,196 +342,3 @@
   </div>
 </body>
 </html>
-
-<style is:global>
-  body {
-    margin: 0;
-    background-color: #000000;
-    background-image: url('/blood-drip.gif');
-    background-repeat: repeat-x;
-    background-position: top center;
-    color: #d0e0d4;
-    font-family: 'DotGothic16', 'Courier New', Courier, monospace;
-    padding: 10px;
-    padding-top: 100px;
-    background-size: contain;
-    cursor: url('/batmouse.png'), pointer !important;
-  }
-  * {
-    box-sizing: border-box;
-  }
-  #container {
-    max-width: 1100px;
-    margin: 50px auto 0 auto;
-  }
-  #mainHeader {
-    border: 2px solid #0d4a1b;
-    background: linear-gradient(180deg, #031a07 0%, #000000 100%);
-    padding: 30px 20px;
-    text-align: center;
-    position: relative;
-    margin-bottom: 15px;
-    box-shadow: inset 0 0 20px #00ff6622;
-  }
-  .header-logo {
-    font-size: 3.5rem;
-    font-weight: bold;
-    color: #00ff66;
-    letter-spacing: 5px;
-    text-shadow: 0 0 4px #00ff66, 0 0 12px #00ff66, 2px 2px 4px #000000;
-    font-family: 'Creepster', 'Chiller', 'Cracked', 'Impact', sans-serif;
-  }
-  .header-sub {
-    color: #8a8a8a;
-    font-size: 1.1rem;
-    margin: 5px 0;
-  }
-  .header-welcome {
-    font-style: italic;
-    color: #72a37d;
-  }
-  .header-badge {
-    position: absolute;
-    right: 15px;
-    top: 15px;
-    font-size: 0.8rem;
-    color: #00ff66;
-    border: 1px dashed #00ff66;
-    padding: 4px;
-  }
-  #flexContainer {
-    display: flex;
-    gap: 15px;
-  }
-  #leftSidebar {
-    flex: 1.2;
-  }
-  #centerContent {
-    flex: 3;
-  }
-  #rightSidebar {
-    flex: 1;
-  }
-  .win98-window, .win98-menu {
-    border: 2px solid #125a22;
-    background-color: #020b04;
-    margin-bottom: 15px;
-    box-shadow: 3px 3px 0px #000;
-  }
-  .win98-title {
-    background: linear-gradient(90deg, #0d4a1b 0%, #020b04 100%);
-    color: #00ff66;
-    padding: 4px 8px;
-    font-weight: bold;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-  }
-  .win98-content {
-    padding: 12px;
-    font-size: 0.9rem;
-    line-height: 1.4;
-  }
-  .win98-menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .win98-menu li {
-    border-bottom: 1px dashed #0a3a14;
-  }
-  .win98-menu li a {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px;
-    color: #33ff77;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.2s;
-  }
-  .win98-menu li a:hover {
-    background-color: #084214;
-    color: #fff;
-    padding-left: 15px;
-  }
-  .horror-grid {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-  }
-  .grid-card {
-    flex: 1;
-    background-color: #031206;
-    border: 1px solid #0d4a1b;
-    padding: 8px;
-    text-align: center;
-  }
-  .img-placeholder {
-    width: 100%;
-    height: 180px;
-    background-color: #000;
-    border: 1px solid #222;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-    color: #444;
-  }
-  .caption {
-    font-size: 0.8rem;
-    margin: 8px 0 0 0;
-    color: #33ff77;
-    font-style: italic;
-  }
-  .tag-list span {
-    display: block;
-    margin: 6px 0;
-    text-align: center;
-    color: #8a8a8a;
-  }
-  .center-text {
-    text-align: center;
-  }
-  .construction {
-    color: #ffcc00;
-    font-weight: bold;
-    animation: blink 1.5s infinite;
-  }
-  #siteFooter {
-    margin-top: 15px;
-    border-top: 2px dashed #0d4a1b;
-    padding: 20px 0;
-    text-align: center;
-  }
-  .retro-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-  }
-  .badge-btn {
-    background-color: #051a09;
-    border: 1px solid #00ff66;
-    color: #88ffaa;
-    padding: 5px 10px;
-    font-size: 0.75rem;
-    font-weight: bold;
-    box-shadow: 2px 2px 0px #000;
-  }
-  @keyframes blink {
-    50% { opacity: 0; }
-  }
-
-  /* Responsive Design Rules */
-  @media (max-width: 850px) {
-    #flexContainer {
-      flex-direction: column;
-    }
-    #leftSidebar, #centerContent, #rightSidebar {
-      flex: 1;
-    }
-    .horror-grid {
-      flex-direction: column;
-    }
-  }
-</style>
