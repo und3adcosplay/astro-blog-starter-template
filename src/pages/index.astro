@@ -1,369 +1,68 @@
 ---
-// Number of Robbie the Rabbit gifs in the scrolling strip
-const marqueeCount = 9;
+import SiteLayout from '../layouts/SiteLayout.astro';
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=DotGothic16&display=swap" rel="stylesheet">
-  <title> UND3AD._COSPLAY </title>
-
-  <style is:global>
-    /* ---------- Page basics ---------- */
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      background-color: #000000;
-      background-image: url('/blood-drip.gif');
-      background-repeat: repeat-x;
-      background-position: top center;
-      background-size: contain;
-      color: #d0e0d4;
-      font-family: 'DotGothic16', 'Courier New', Courier, monospace;
-      padding: 10px;
-      padding-top: 100px;
-      cursor: url('/batmouse.png'), pointer !important;
-    }
-    #container {
-      max-width: 1100px;
-      margin: 50px auto 0 auto;
-    }
-
-    /* ---------- Header ---------- */
-    #mainHeader {
-      border: 2px solid #0d4a1b;
-      background: linear-gradient(180deg, #031a07 0%, #000000 100%);
-      padding: 30px 20px;
-      text-align: center;
-      position: relative;
-      margin-bottom: 15px;
-      box-shadow: inset 0 0 20px #00ff6622;
-    }
-    .header-logo {
-      font-size: 3.5rem;
-      font-weight: bold;
-      color: #00ff66;
-      letter-spacing: 5px;
-      text-shadow: 0 0 4px #00ff66, 0 0 12px #00ff66, 2px 2px 4px #000000;
-      font-family: 'Creepster', 'Chiller', 'Cracked', 'Impact', sans-serif;
-    }
-    .header-sub {
-      color: #8a8a8a;
-      font-size: 1.1rem;
-      margin: 5px 0;
-    }
-    .header-welcome {
-      font-style: italic;
-      color: #72a37d;
-    }
-
-    /* ---------- Scrolling strip ---------- */
-    .terminal-marquee {
-      background-color: #000000;
-      padding: 8px 0;
-      border-top: 2px solid #005522;
-      border-bottom: 2px solid #005522;
-      margin-top: 10px;
-      margin-bottom: 25px;
-    }
-    .marquee-gif {
-      height: 32px;
-      width: auto;
-      display: inline-block;
-      vertical-align: middle;
-      image-rendering: pixelated;
-      margin: 0 15px;
-    }
-
-    /* ---------- Three-column layout ---------- */
-    #flexContainer {
-      display: flex;
-      gap: 15px;
-    }
-    #leftSidebar {
-      flex: 0.9;
-      min-width: 150px;
-    }
-    #centerContent {
-      flex: 3;
-    }
-    #rightSidebar {
-      flex: 1;
-    }
-
-    /* ---------- Windows & menu ---------- */
-    .win98-window, .win98-menu {
-      border: 2px solid #125a22;
-      background-color: #020b04;
-      margin-bottom: 15px;
-      box-shadow: 3px 3px 0px #000;
-    }
-    .win98-title {
-      background: linear-gradient(90deg, #0d4a1b 0%, #020b04 100%);
-      color: #00ff66;
-      padding: 4px 8px;
-      font-weight: bold;
-      font-size: 0.9rem;
-      letter-spacing: 1px;
-    }
-    .win98-content {
-      padding: 12px;
-      font-size: 0.9rem;
-      line-height: 1.4;
-    }
-    .win98-menu ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .win98-menu li {
-      border-bottom: 1px dashed #0a3a14;
-    }
-    .win98-menu .menu-divider {
-      border-bottom: 2px dashed #0a3a14;
-      margin: 10px 0;
-    }
-    .win98-menu li a {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 10px;
-      font-size: 0.85rem;
-      color: #33ff77;
-      text-decoration: none;
-      font-weight: bold;
-      transition: all 0.2s;
-    }
-    .win98-menu li a:hover {
-      background-color: #084214;
-      color: #fff;
-      padding-left: 15px;
-    }
-    .win98-menu li a img {
-      width: 20px;
-      height: 20px;
-      object-fit: contain;
-      vertical-align: middle;
-    }
-
-    /* ---------- Blinkie headers (Navigation / Cosplays) ---------- */
-    .win98-title.blinkie-title {
-      background: transparent;
-      padding: 0;
-      border: none;
-      box-shadow: none;
-      margin: -1px -1px 8px -1px;
-    }
-    .blinkie-subtitle {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0;
-      margin: 5px -1px 8px -1px;
-    }
-    .blinkie-title img,
-    .blinkie-subtitle img {
-      display: block;
-      width: 100%;
-      height: auto;
-      image-rendering: pixelated;
-    }
-
-    /* ---------- Image grid ---------- */
-    .horror-grid {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 15px;
-    }
-    .grid-card {
-      flex: 1;
-      background-color: #031206;
-      border: 1px solid #0d4a1b;
-      padding: 8px;
-      text-align: center;
-    }
-    .img-placeholder {
-      width: 100%;
-      height: 180px;
-      background-color: #000;
-      border: 1px solid #222;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      color: #444;
-    }
-    .caption {
-      font-size: 0.8rem;
-      margin: 8px 0 0 0;
-      color: #33ff77;
-      font-style: italic;
-    }
-
-    /* ---------- Right sidebar bits ---------- */
-    .tag-list span {
-      display: block;
-      margin: 6px 0;
-      text-align: center;
-      color: #8a8a8a;
-    }
-    .center-text {
-      text-align: center;
-    }
-    .construction {
-      color: #ffcc00;
-      font-weight: bold;
-      animation: blink 1.5s infinite;
-    }
-    @keyframes blink {
-      50% { opacity: 0; }
-    }
-
-    /* ---------- Footer ---------- */
-    #siteFooter {
-      margin-top: 15px;
-      border-top: 2px dashed #0d4a1b;
-      padding: 20px 0;
-      text-align: center;
-    }
-    .retro-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-    .badge-btn {
-      background-color: #051a09;
-      border: 1px solid #00ff66;
-      color: #88ffaa;
-      padding: 5px 10px;
-      font-size: 0.75rem;
-      font-weight: bold;
-      box-shadow: 2px 2px 0px #000;
-    }
-
-    /* ---------- Mobile / small screens ---------- */
-    @media (max-width: 850px) {
-      #flexContainer {
-        flex-direction: column;
-      }
-      #leftSidebar, #centerContent, #rightSidebar {
-        flex: 1;
-      }
-      .horror-grid {
-        flex-direction: column;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div id="container">
-    <header id="mainHeader">
-      <div class="header-logo"> UND3AD._COSPLAY </div>
-      <div class="header-sub">🩸Tʜᴇ Cᴏsᴘʟᴀʏɪɴɢ Vᴀᴍᴘɪʀᴇ🩸</div>
-      <div class="header-welcome">cosplay, art, & hobbies!</div>
-    </header>
-
-    <marquee behavior="scroll" direction="left" scrollamount="5" class="terminal-marquee" onmouseover="this.stop();" onmouseout="this.start();">
-      {Array.from({ length: marqueeCount }, () => (
-        <img src="/robbie-the-rabbit.gif" alt="" class="marquee-gif" />
-      ))}
-    </marquee>
-
-    <div id="flexContainer">
-      <!-- LEFT SIDEBAR -->
-      <aside id="leftSidebar">
-        <nav class="win98-menu">
-          <div class="win98-title blinkie-title">
-            <img src="/blinkie-nav.gif" alt="Navigation" />
-          </div>
-          <ul>
-            <li><a href="/">HOME</a></li>
-            <li><a href="/about">ABOUT ME</a></li>
-            <li><a href="/gallery">COSPLAYS</a></li>
-            <li><a href="/art">CROSS-STITCH</a></li>
-            <li><a href="/blog">BLOG</a></li>
-            <li><a href="/guestbook">SIGN MY GUESTBOOK</a></li>
-
-            <li class="menu-divider"></li>
-
-            <li class="blinkie-subtitle">
-              <img src="/blinkie-cos.gif" alt="Cosplays" />
-            </li>
-
-            <li><a href="/blog/silent-hill"><img src="/meta.png.jpg" alt="" /> SILENT HILL</a></li>
-            <li><a href="/blog/resident-evil"><img src="/brellaa.png.jpg" alt="" /> RESIDENT EVIL</a></li>
-            <li><a href="/blog/creepypasta"><img src="/proxxy.png.png" alt="" /> CREEPYPASTA</a></li>
-          </ul>
-        </nav>
-      </aside>
-
-      <!-- MAIN WORKSPACE -->
-      <main id="centerContent">
-        <!-- IMAGE GRID -->
-        <section class="horror-grid">
-          <div class="grid-card">
-            <div class="img-placeholder"></div>
-            <p class="caption"></p>
-          </div>
-          <div class="grid-card">
-            <div class="img-placeholder"></div>
-            <p class="caption"></p>
-          </div>
-          <div class="grid-card">
-            <div class="img-placeholder"></div>
-            <p class="caption"></p>
-          </div>
-        </section>
-
-        <!-- LATEST ENTRY WINDOW -->
-        <div class="win98-window">
-          <div class="win98-title">📝 LATEST ENTRY <span class="win-date">10.24.2026</span></div>
-          <div class="win98-content">
-            <h3>a place for monsters.</h3>
-            <p>Welcome to my little corner of the internet where I share my cosplays, art, and collections. Thank you for visiting! ♡</p>
-          </div>
-        </div>
-      </main>
-
-      <!-- RIGHT SIDEBAR -->
-      <aside id="rightSidebar">
-        <div class="win98-window">
-          <div class="win98-title">SITE STATUS [X]</div>
-          <div class="win98-content center-text">
-            <p class="construction">under construction...</p>
-            <p>More to come...</p>
-          </div>
-        </div>
-        <div class="win98-window">
-          <div class="win98-title">COSPLANS</div>
-          <div class="win98-content tag-list">
-            <span>Laughing Jill</span>
-            <span>Zalgo</span>
-            <span>Liliya Bogomolova</span>
-            <span>Memory of Alessa</span>
-            <span>Alice Liddell</span>
-            <span>Rouge</span>
-          </div>
-        </div>
-      </aside>
+<SiteLayout title="UND3AD._COSPLAY">
+  <!-- IMAGE GRID -->
+  <section class="horror-grid">
+    <div class="grid-card">
+      <div class="img-placeholder"></div>
+      <p class="caption"></p>
     </div>
+    <div class="grid-card">
+      <div class="img-placeholder"></div>
+      <p class="caption"></p>
+    </div>
+    <div class="grid-card">
+      <div class="img-placeholder"></div>
+      <p class="caption"></p>
+    </div>
+  </section>
 
-    <!-- SITE BUTTONS FOOTER -->
-    <footer id="siteFooter">
-      <div class="retro-buttons">
-        <span class="badge-btn">I 💚 HORROR</span>
-        <span class="badge-btn">FUCK AI</span>
-        <span class="badge-btn">"In my restless dreams...</span>
-        <span class="badge-btn">BUY PHYSICAL MEDIA</span>
-      </div>
-    </footer>
+  <!-- LATEST ENTRY WINDOW -->
+  <div class="win98-window">
+    <div class="win98-title">📝 LATEST ENTRY <span class="win-date">10.24.2026</span></div>
+    <div class="win98-content">
+      <h3>a place for monsters.</h3>
+      <p>Welcome to my little corner of the internet where I share my cosplays, art, and collections. Thank you for visiting! ♡</p>
+    </div>
   </div>
-</body>
-</html>
+</SiteLayout>
+
+<style>
+  /* Styles that only the home page needs */
+  .horror-grid {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  .grid-card {
+    flex: 1;
+    background-color: #031206;
+    border: 1px solid #0d4a1b;
+    padding: 8px;
+    text-align: center;
+  }
+  .img-placeholder {
+    width: 100%;
+    height: 180px;
+    background-color: #000;
+    border: 1px solid #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: #444;
+  }
+  .caption {
+    font-size: 0.8rem;
+    margin: 8px 0 0 0;
+    color: #33ff77;
+    font-style: italic;
+  }
+
+  @media (max-width: 850px) {
+    .horror-grid {
+      flex-direction: column;
+    }
+  }
+</style>
