@@ -165,3 +165,42 @@ hr {
 	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
 }
+
+/* 1. Make the left sidebar narrower */
+#leftSidebar {
+  flex: 0.9 !important; /* Shrunk down from 1.2 to make it tighter */
+  min-width: 180px;      /* Prevents it from crushing too small on desktop */
+}
+
+/* 2. Strip background and force blinkies to stretch edge-to-edge */
+.win98-title.blinkie-title {
+  background: transparent !important;
+  padding: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  margin: -1px -1px 8px -1px !important; /* Negative margins pull it perfectly into the box borders */
+}
+
+/* 3. Handle the sub-navigation cosplay blinkie alignment */
+.blinkie-subtitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 !important;
+  margin: 5px -1px 8px -1px !important; /* Pulls it flush with the side borders */
+}
+
+/* 4. Force both graphics to expand to full container width cleanly */
+.blinkie-title img,
+.blinkie-subtitle img {
+  display: block;
+  width: 100% !important;   /* Stretches graphic to match the box width */
+  height: auto !important;   /* Keeps original ratio intact */
+  image-rendering: pixelated; /* Keeps crisp retro pixel textures crisp */
+}
+
+/* 5. Tweak text padding so links don't crowd the narrow box */
+.win98-menu li a {
+  padding: 8px 10px !important; /* Shrunk padding slightly for a cleaner look */
+  font-size: 0.85rem;           /* Keeps text proportional to the compact panel */
+}
