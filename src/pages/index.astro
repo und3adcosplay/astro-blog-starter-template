@@ -87,7 +87,8 @@ const marqueeCount = 9;
       gap: 15px;
     }
     #leftSidebar {
-      flex: 1.2;
+      flex: 0.9;
+      min-width: 150px;
     }
     #centerContent {
       flex: 3;
@@ -132,7 +133,8 @@ const marqueeCount = 9;
       display: flex;
       align-items: center;
       gap: 10px;
-      padding: 10px;
+      padding: 8px 10px;
+      font-size: 0.85rem;
       color: #33ff77;
       text-decoration: none;
       font-weight: bold;
@@ -148,6 +150,29 @@ const marqueeCount = 9;
       height: 20px;
       object-fit: contain;
       vertical-align: middle;
+    }
+
+    /* ---------- Blinkie headers (Navigation / Cosplays) ---------- */
+    .win98-title.blinkie-title {
+      background: transparent;
+      padding: 0;
+      border: none;
+      box-shadow: none;
+      margin: -1px -1px 8px -1px;
+    }
+    .blinkie-subtitle {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      margin: 5px -1px 8px -1px;
+    }
+    .blinkie-title img,
+    .blinkie-subtitle img {
+      display: block;
+      width: 100%;
+      height: auto;
+      image-rendering: pixelated;
     }
 
     /* ---------- Image grid ---------- */
@@ -333,8 +358,8 @@ const marqueeCount = 9;
     <!-- SITE BUTTONS FOOTER -->
     <footer id="siteFooter">
       <div class="retro-buttons">
-        <span class="badge-btn">I 🫀 HORROR</span>
-        <span class="badge-btn">FUCK GEN AI</span>
+        <span class="badge-btn">I 💚 HORROR</span>
+        <span class="badge-btn">FUCK AI</span>
         <span class="badge-btn">"In my restless dreams...</span>
         <span class="badge-btn">BUY PHYSICAL MEDIA</span>
       </div>
