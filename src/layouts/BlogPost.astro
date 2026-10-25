@@ -1,121 +1,73 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-const { title } = Astro.props;
+import SiteLayout from './SiteLayout.astro';
+
+const { title, description } = Astro.props;
 ---
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <BaseHead title={title} />
-
-    <style>
-      /* ---------- Page basics ---------- */
-      * {
-        box-sizing: border-box;
-      }
-      body {
-        font-family: 'Nunito', sans-serif;
-        margin: 0;
-        background-color: #08031A;
-        color: #fceaff;
-      }
-      #container {
-        max-width: 900px;
-        margin: 0 auto;
-      }
-      #container a {
-        color: #ED64F5;
-        font-weight: bold;
-      }
-
-      /* ---------- Header & top nav ---------- */
-      #header {
-        width: 100%;
-        height: 150px;
-        background-color: #5e4e8c;
-      }
-      #navbar {
-        height: 40px;
-        background-color: #13092D;
-        width: 100%;
-      }
-      #navbar ul {
-        display: flex;
-        padding: 0;
-        margin: 0;
-        list-style-type: none;
-        justify-content: space-evenly;
-      }
-      #navbar li {
-        padding-top: 10px;
-      }
-      #navbar li a {
-        color: #ED64F5;
-        font-weight: 800;
-        text-decoration: none;
-      }
-
-      /* ---------- Main content & sidebar ---------- */
-      #flex {
-        display: flex;
-        gap: 20px;
-        margin-top: 20px;
-      }
-      main {
-        flex: 3;
-        background: #000000;
-        padding: 20px;
-        border-radius: 8px;
-      }
-      #leftSidebar {
-        flex: 1;
-        background: #000000;
-        padding: 15px;
-        border-radius: 8px;
-      }
-      .box {
-        background: #000000;
-        padding: 10px;
-        border-radius: 4px;
-        font-size: 0.9em;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="container">
-      <div id="header"></div>
-      <div id="headerArea">
-        <nav id="navbar">
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/blog">Blog</a></li>
-          </ul>
-        </nav>
-      </div>
-
-      <div id="flex">
-        <main>
-          <article>
-            <h1>{title}</h1>
-            <hr />
-            <slot /> <!-- your content is injected here -->
-          </article>
-        </main>
-
-        <aside id="leftSidebar">
-          <h2>Navigation</h2>
-          <div class="box">
-            <p>Welcome to my blog space!</p>
-          </div>
-          <h2>Updates</h2>
-          <ul>
-            <li>Site launched on Cloudflare Workers!</li>
-          </ul>
-        </aside>
-      </div>
-
-     <Footer />
+<SiteLayout title={title} description={description}>
+  <article class="win98-window">
+    <div class="win98-title">📝 BLOG ENTRY</div>
+    <div class="win98-content post-content">
+      <h1>{title}</h1>
+      <hr />
+      <slot />
     </div>
-  </body>
-</html>
+  </article>
+</SiteLayout>
+
+<style is:global>
+  /* Look of everything inside a blog post (headings, links, images, quotes, code) */
+  .post-content h1 {
+    font-family: 'Creepster', 'Impact', sans-serif;
+    font-size: 2.2rem;
+    font-weight: normal;
+    letter-spacing: 2px;
+    color: #00ff66;
+    text-shadow: 0 0 4px #00ff66, 0 0 10px #00ff66;
+    margin: 0 0 10px 0;
+  }
+  .post-content h2,
+  .post-content h3 {
+    color: #33ff77;
+    margin: 1.2em 0 0.4em 0;
+  }
+  .post-content p {
+    margin: 0 0 1em 0;
+  }
+  .post-content a {
+    color: #33ff77;
+  }
+  .post-content a:hover {
+    color: #ffffff;
+  }
+  .post-content img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #125a22;
+  }
+  .post-content blockquote {
+    border-left: 4px solid #a00000;
+    margin: 1em 0;
+    padding-left: 14px;
+    color: #b8ccbc;
+  }
+  .post-content code {
+    background-color: #031a07;
+    color: #88ffaa;
+    padding: 2px 5px;
+  }
+  .post-content pre {
+    background-color: #031a07;
+    border: 1px solid #0d4a1b;
+    padding: 12px;
+    overflow-x: auto;
+  }
+  .post-content pre code {
+    background: none;
+    padding: 0;
+  }
+  .post-content hr {
+    border: none;
+    border-top: 2px dashed #0d4a1b;
+    margin: 12px 0;
+  }
+</style>
