@@ -169,7 +169,7 @@ hr {
 /* 1. Make the left sidebar narrower */
 #leftSidebar {
   flex: 0.9 !important; /* Shrunk down from 1.2 to make it tighter */
-  min-width: 180px;      /* Prevents it from crushing too small on desktop */
+  min-width: 150px;      /* Prevents it from crushing too small on desktop */
 }
 
 /* 2. Strip background and force blinkies to stretch edge-to-edge */
