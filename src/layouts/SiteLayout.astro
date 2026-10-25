@@ -6,14 +6,20 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title: string;
   description?: string;
+  marqueeImages?: string[];
 }
 
 const siteName = 'UND3AD._COSPLAY';
-const { title, description = 'cosplay, art, & hobbies!' } = Astro.props;
-const pageTitle = title === siteName ? siteName : `${title} | ${siteName}`;
 
-// Number of Robbie the Rabbit gifs in the scrolling strip
-const marqueeCount = 9;
+// The scrolling strip shows nine Robbie the Rabbit gifs unless a page picks its own images
+const defaultMarquee = Array.from({ length: 9 }, () => '/robbie-the-rabbit.gif');
+
+const {
+  title,
+  description = 'cosplay, art, & hobbies!',
+  marqueeImages = defaultMarquee,
+} = Astro.props;
+const pageTitle = title === siteName ? siteName : `${title} | ${siteName}`;
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -258,8 +264,8 @@ const marqueeCount = 9;
     </header>
 
     <marquee behavior="scroll" direction="left" scrollamount="5" class="terminal-marquee" onmouseover="this.stop();" onmouseout="this.start();">
-      {Array.from({ length: marqueeCount }, () => (
-        <img src="/robbie-the-rabbit.gif" alt="" class="marquee-gif" />
+      {marqueeImages.map((src) => (
+        <img src={src} alt="" class="marquee-gif" />
       ))}
     </marquee>
 
