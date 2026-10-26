@@ -211,7 +211,7 @@ const pageTitle = title === siteName ? siteName : `${title} | ${siteName}`;
     .win98-menu li a:hover {
       background-color: #084214;
       color: #fff;
-      padding-left: 15px;
+      padding-left: 15px;ff
     }
     .win98-menu li a img {
       width: 20px;
@@ -229,12 +229,18 @@ const pageTitle = title === siteName ? siteName : `${title} | ${siteName}`;
       margin: 0 0 8px 0;
     }
     .blinkie-subtitle {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0;
-      margin: 5px 0 8px 0;
-    }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0 -1px 8px -1px;
+}
+.win98-menu .blinkie-subtitle {
+  border-bottom: none;
+}
+.win98-menu li:has(+ .blinkie-subtitle) {
+  border-bottom: none;
+}
     .blinkie-title img,
     .blinkie-subtitle img {
       display: block;
