@@ -11,8 +11,30 @@ interface Props {
 
 const siteName = 'UND3AD._COSPLAY';
 
-// The scrolling strip shows nine Robbie the Rabbit gifs unless a page picks its own images
-const defaultMarquee = Array.from({ length: 9 }, () => '/robbie-the-rabbit.gif');
+// The gifs in the scrolling strip on every page (unless a page picks its own)
+const marqueeGifs = [
+  '/moon.gif',
+  '/eat.gif',
+  '/eyes.gif',
+  '/static.gif',
+  '/dead.gif',
+  '/flying.gif',
+  '/biteme.gif',
+  '/warning.gif',
+  '/alice.gif',
+  '/moon.gif',
+  '/eat.gif',
+  '/eyes.gif',
+  '/static.gif',
+  '/dead.gif',
+  '/flying.gif',
+  '/biteme.gif',
+  '/warning.gif',
+  '/alice.gif',
+];
+
+// Repeats the list so the strip is long enough to fill the screen
+const defaultMarquee = [...marqueeGifs, ...marqueeGifs, ...marqueeGifs];
 
 const {
   title,
