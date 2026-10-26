@@ -78,7 +78,7 @@ body.theme-silent-hill {
   --text: #9d8a23;
   --muted: #9d8a23;
   --muted-2: #9d8a23;
-  --logo: #485441;
+  --logo: #9d8a23;
   --logo-size: 4rem;
   --logo-spacing: 4px;
   --logo-shadow: 0 0 10px #7a2e14, 2px 2px 4px #000000;
@@ -88,7 +88,7 @@ body.theme-silent-hill {
   --border: #333f28;
   --divider: #333f28;
   --bar: #333f28;
-  --bar-text: #e6d5b0;
+  --bar-text: #9d8a23;
   --link: #c9a27a;
   --hover-bg: #2a1f16;
   --hover-text: #f2e6cc;
