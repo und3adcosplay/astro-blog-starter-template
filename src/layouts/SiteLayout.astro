@@ -148,8 +148,10 @@ const pageTitle = title === siteName ? siteName : `${title} | ${siteName}`;
       flex: 3;
       min-width: 0;
     }
-    #rightSidebar {
-      flex: 1;
+   #rightSidebar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
     }
 
     /* ---------- Windows & menu ---------- */
@@ -354,7 +356,8 @@ const pageTitle = title === siteName ? siteName : `${title} | ${siteName}`;
       </main>
 
       <!-- RIGHT SIDEBAR -->
-      <aside id="rightSidebar">
+     <aside id="rightSidebar">
+        <slot name="right">
         <div class="win98-window">
           <div class="win98-title">SITE STATUS</div>
           <div class="win98-content center-text">
@@ -372,8 +375,9 @@ const pageTitle = title === siteName ? siteName : `${title} | ${siteName}`;
             <span>Alice Liddell</span>
           </div>
         </div>
-      </aside>
-    </div>
+      </slot>
+    </aside>
+  </div>
 
     <!-- SITE BUTTONS + COPYRIGHT -->
     <div id="siteFooter">
