@@ -59,8 +59,12 @@ const pageTitle = title === siteName ? siteName : `${title} | ${siteName}`;
 }
 .drip-bar img {
   display: block;
-  width: 50%;
+  width: calc(50% + 1px);
+  flex-shrink: 0;
   height: auto;
+}
+.drip-bar img + img {
+  margin-left: -2px;
 }
 .drip-bar .flip {
   transform: scaleX(-1);
