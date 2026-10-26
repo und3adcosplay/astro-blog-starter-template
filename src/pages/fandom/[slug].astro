@@ -22,6 +22,7 @@ const { fandom } = Astro.props;
   title={fandom.name}
   description={`Cosplays, art, and collections inspired by ${fandom.name}.`}
   theme={fandom.theme}
+  headerTitle={fandom.name}
 >
   <div class="win98-window">
     <div class="win98-title">📁 {fandom.name.toUpperCase()}</div>
