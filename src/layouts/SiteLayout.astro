@@ -22,15 +22,6 @@ const marqueeGifs = [
   '/biteme.gif',
   '/warning.gif',
   '/alice.gif',
-  '/moon.gif',
-  '/eat.gif',
-  '/eyes.gif',
-  '/static.gif',
-  '/dead.gif',
-  '/flying.gif',
-  '/biteme.gif',
-  '/warning.gif',
-  '/alice.gif',
 ];
 
 // Repeats the list so the strip is long enough to fill the screen
@@ -42,6 +33,9 @@ const {
   marqueeImages = defaultMarquee,
 } = Astro.props;
 const pageTitle = title === siteName ? siteName : `${title} | ${siteName}`;
+// Repeat the list so one pass is wider than the screen (raise the number if you ever see a gap)
+const repeats = 4;
+const stripHalf = Array.from({ length: repeats }, () => marqueeImages).flat();
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -140,22 +134,40 @@ const pageTitle = title === siteName ? siteName : `${title} | ${siteName}`;
     }
 
     /* ---------- Scrolling strip ---------- */
-    .terminal-marquee {
-      background-color: #000000;
-      padding: 8px 0;
-      border-top: 1px solid #005522;
-      border-bottom: 1px solid #005522;
-      margin-top: 10px;
-      margin-bottom: 25px;
-    }
-    .marquee-gif {
-      height: 32px;
-      width: auto;
-      display: inline-block;
-      vertical-align: middle;
-      image-rendering: pixelated;
-      margin: 0 15px;
-    }
+   .terminal-marquee {
+  background-color: #000000;
+  padding: 8px 0;
+  border-top: 2px solid #005522;
+  border-bottom: 2px solid #005522;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  overflow: hidden;
+}
+.marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: marquee-right 30s linear infinite;
+}
+.terminal-marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+.marquee-gif {
+  height: 32px;
+  width: auto;
+  flex-shrink: 0;
+  image-rendering: pixelated;
+  margin: 0 15px;
+}
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
 
     /* ---------- Windows & menu ---------- */
     .win98-window, .win98-menu {
@@ -320,11 +332,13 @@ const pageTitle = title === siteName ? siteName : `${title} | ${siteName}`;
       <div class="header-welcome">cosplay, art, & hobbies!</div>
     </header>
 
-    <marquee behavior="scroll" direction="left" scrollamount="5" class="terminal-marquee" onmouseover="this.stop();" onmouseout="this.start();">
-      {marqueeImages.map((src) => (
-        <img src={src} alt="" class="marquee-gif" />
-      ))}
-    </marquee>
+   <div class="terminal-marquee" aria-hidden="true">
+  <div class="marquee-track">
+    {[...stripHalf, ...stripHalf].map((src) => (
+      <img src={src} alt="" class="marquee-gif" />
+    ))}
+  </div>
+</div>
 
     <div id="flexContainer">
       <!-- LEFT SIDEBAR -->
