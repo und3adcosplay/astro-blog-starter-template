@@ -75,10 +75,10 @@ body.themed .drip-bar {
 /* ---------- SILENT HILL: fog, rust and sepia ---------- */
 body.theme-silent-hill {
   --bg: #9a9897;
-  --text: #9d8a23;
-  --muted: #9d8a23;
-  --muted-2: #9d8a23;
-  --logo: #9d8a23;
+  --text: #ae8c23;
+  --muted: #ae8c23;
+  --muted-2: #ae8c23;
+  --logo: #ae8c23;
   --logo-size: 4rem;
   --logo-spacing: 4px;
   --logo-shadow: 0 0 10px #7a2e14, 2px 2px 4px #000000;
@@ -88,7 +88,7 @@ body.theme-silent-hill {
   --border: #333f28;
   --divider: #333f28;
   --bar: #333f28;
-  --bar-text: #9d8a23;
+  --bar-text: #ae8c23;
   --link: #c9a27a;
   --hover-bg: #2a1f16;
   --hover-text: #f2e6cc;
