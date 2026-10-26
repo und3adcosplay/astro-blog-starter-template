@@ -2,11 +2,13 @@
 // The shared frame for every page: header, scrolling strip, both sidebars and the footer.
 // Each page's own content goes in the middle, where <slot /> is.
 import Footer from '../components/Footer.astro';
+import '../styles/themes.css';
 
 interface Props {
   title: string;
   description?: string;
   marqueeImages?: string[];
+  theme?: string;
 }
 
 const siteName = 'UND3AD._COSPLAY';
@@ -31,11 +33,21 @@ const {
   title,
   description = 'cosplay, art, & hobbies!',
   marqueeImages = defaultMarquee,
+  theme,
 } = Astro.props;
 const pageTitle = title === siteName ? siteName : `${title} | ${siteName}`;
+
 // Repeat the list so one pass is wider than the screen (raise the number if you ever see a gap)
 const repeats = 4;
 const stripHalf = Array.from({ length: repeats }, () => marqueeImages).flat();
+// Extra Google Fonts for each franchise theme (loaded only on that theme's pages)
+const themeFonts: Record<string, string> = {
+  'silent-hill': 'https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Special+Elite&display=swap',
+  'resident-evil': 'https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Share+Tech+Mono&display=swap',
+  'creepypasta': 'https://fonts.googleapis.com/css2?family=Rubik+Glitch&family=VT323&display=swap',
+  'outlast-trials': 'https://fonts.googleapis.com/css2?family=Bungee&family=Courier+Prime&display=swap',
+};
+const themeFontUrl = theme ? themeFonts[theme] : undefined;
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -48,6 +60,7 @@ const stripHalf = Array.from({ length: repeats }, () => marqueeImages).flat();
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Creepster&family=DotGothic16&family=Jolly+Lodger&display=swap" rel="stylesheet">
   <title>{pageTitle}</title>
+  {themeFontUrl && <link href={themeFontUrl} rel="stylesheet" />}
 
   <style is:global>
     /* ---------- Page basics ---------- */
@@ -338,7 +351,7 @@ const stripHalf = Array.from({ length: repeats }, () => marqueeImages).flat();
     }
   </style>
 </head>
-<body>
+<body class={theme ? `themed theme-${theme}` : undefined}>
 <div class="drip-bar" aria-hidden="true">
   <div class="drip-half"><img src="/blood-drip.gif" alt="" class="flip" /></div>
   <div class="drip-half"><img src="/blood-drip.gif" alt="" /></div>
@@ -378,10 +391,10 @@ const stripHalf = Array.from({ length: repeats }, () => marqueeImages).flat();
               <img src="/blinkie-cos.gif" alt="Cosplays" />
             </li>
 
-            <li><a href="/blog/silent-hill"><img src="/meta.png.jpg" alt="" /> SILENT HILL</a></li>
-            <li><a href="/blog/resident-evil"><img src="/brellaa.png.jpg" alt="" /> RESIDENT EVIL</a></li>
-            <li><a href="/blog/creepypasta"><img src="/proxxy.png.png" alt="" /> CREEPYPASTA</a></li>
-            <li><a href="/blog/the-outlast-trials"><img src="/murk.png.jpg" alt="" /> THE OUTLAST TRIALS</a></li>
+            <li><a href="/fandom/silent-hill"><img src="/meta.png.jpg" alt="" /> SILENT HILL</a></li>
+            <li><a href="/fandom/resident-evil"><img src="/brellaa.png.jpg" alt="" /> RESIDENT EVIL</a></li>
+            <li><a href="/fandom/creepypasta"><img src="/proxxy.png.png" alt="" /> CREEPYPASTA</a></li>
+            <li><a href="/fandom/the-outlast-trials"><img src="/murk.png.jpg" alt="" /> THE OUTLAST TRIALS</a></li>
           </ul>
         </nav>
       </aside>
