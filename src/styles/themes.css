@@ -74,7 +74,7 @@ body.themed .drip-bar {
 
 /* ---------- SILENT HILL: fog, rust and sepia ---------- */
 body.theme-silent-hill {
-  --bg: #0d0d0c;
+  --bg: #9a9897;
   --text: #cfcabb;
   --muted: #8d8776;
   --muted-2: #a39d8a;
