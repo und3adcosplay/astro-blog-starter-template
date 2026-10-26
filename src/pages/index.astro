@@ -11,54 +11,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
     </div>
   </div>
 
-  <!-- IMAGE GRID -->
-  <section class="horror-grid">
-    <div class="grid-card">
-      <div class="img-placeholder"></div>
-      <p class="caption"></p>
-    </div>
-    <div class="grid-card">
-      <div class="img-placeholder"></div>
-      <p class="caption"></p>
-    </div>
-    <div class="grid-card">
-      <div class="img-placeholder"></div>
-      <p class="caption"></p>
-    </div>
-  </section>
 </SiteLayout>
-
-<style>
-  /* Styles that only the home page needs */
-  .horror-grid {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-  }
-  .grid-card {
-    flex: 1;
-    background-color: #031206;
-    border: 1px solid #0d4a1b;
-    padding: 8px;
-    text-align: center;
-  }
-  .img-placeholder {
-    width: 100%;
-    height: 180px;
-    background-color: #000;
-    border: 1px solid #222;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-    color: #444;
-  }
-  .caption {
-    font-size: 0.8rem;
-    margin: 8px 0 0 0;
-    color: #33ff77;
-    font-style: italic;
-  }
 
   @media (max-width: 850px) {
     .horror-grid {
