@@ -9,6 +9,7 @@ interface Props {
   description?: string;
   marqueeImages?: string[];
   theme?: string;
+headerTitle?: string;
 }
 
 const siteName = 'UND3AD._COSPLAY';
@@ -34,6 +35,7 @@ const {
   description = 'cosplay, art, & hobbies!',
   marqueeImages = defaultMarquee,
   theme,
+headerTitle,
 } = Astro.props;
 const pageTitle = title === siteName ? siteName : `${title} | ${siteName}`;
 
@@ -359,10 +361,12 @@ const themeFontUrl = theme ? themeFonts[theme] : undefined;
 
   <div id="container">
     <header id="mainHeader">
-      <div class="header-logo"><a href="/">{siteName}</a></div>
-      <div class="header-sub">🩸The Cosplaying Vampire🩸</div>
-      <div class="header-welcome">cosplay, art, & hobbies!</div>
-    </header>
+     <div class="header-logo"><a href="/"UND3AD._COSPLAY</a></div>
+     <div class="header-tagline">
+       <div class="header-sub">🩸The Cosplaying Vampire🩸</div>
+       <div class="header-welcome">Cosplay, art, & hobbies!</div>
+     </div>
+   </header>
 
    <div class="terminal-marquee" aria-hidden="true">
   <div class="marquee-track">
