@@ -101,7 +101,7 @@ body.theme-silent-hill {
 /* Silent Hill: the banner becomes a solid road-sign board, above the fog */
 body.theme-silent-hill #mainHeader {
   background: #2d4a3a;
-  border: 3px solid #141f18;
+  border: 3px solid #ae8c23;
   box-shadow:
     inset 0 0 0 7px #2d4a3a,
     inset 0 0 0 10px #e8e2cf,
