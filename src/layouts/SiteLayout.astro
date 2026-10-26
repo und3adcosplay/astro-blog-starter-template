@@ -48,23 +48,34 @@ const pageTitle = title === siteName ? siteName : `${title} | ${siteName}`;
 }
 
 /* Two copies of the blood drip, the right one mirrored so the middle seam is seamless */
+/* Two mirrored copies of the blood drip. --crop trims the pointed edge where they meet. */
 .drip-bar {
+  --crop: 20px;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   display: flex;
+  overflow: hidden;
   z-index: -1;
   pointer-events: none;
 }
-.drip-bar img {
+.drip-half {
+  flex: 0 0 calc(50% + 1px);
+  overflow: hidden;
+}
+.drip-half:last-child {
+  flex: 1;
+  margin-left: -1px;
+}
+.drip-half img {
   display: block;
-  width: calc(50% + 1px);
-  flex-shrink: 0;
+  width: calc(100% + var(--crop));
+  max-width: none;
   height: auto;
 }
-.drip-bar img + img {
-  margin-left: -2px;
+.drip-half:last-child img {
+  margin-left: calc(var(--crop) * -1);
 }
 .drip-bar .flip {
   transform: scaleX(-1);
@@ -287,8 +298,8 @@ const pageTitle = title === siteName ? siteName : `${title} | ${siteName}`;
 </head>
 <body>
 <div class="drip-bar" aria-hidden="true">
-  <img src="/blood-drip.gif" alt="" class="flip" />
-  <img src="/blood-drip.gif" alt="" />
+  <div class="drip-half"><img src="/blood-drip.gif" alt="" class="flip" /></div>
+  <div class="drip-half"><img src="/blood-drip.gif" alt="" /></div>
 </div>
 
   <div id="container">
