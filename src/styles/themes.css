@@ -1,0 +1,279 @@
+/*
+  Franchise themes.
+  A page that sets theme="resident-evil" (and so on) gets <body class="themed theme-resident-evil">.
+  The shared rules just below read their colors and fonts from variables,
+  so each theme only has to fill in the variables (plus any special effects).
+*/
+
+/* ---------- Shared rules: these use whatever the current theme sets ---------- */
+body.themed {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+}
+body.themed #mainHeader {
+  border-color: var(--border);
+  background: linear-gradient(180deg, var(--header-from) 0%, var(--bg) 100%);
+  box-shadow: inset 0 0 20px var(--glow-soft);
+}
+body.themed .header-logo {
+  font-family: var(--font-logo);
+  font-size: var(--logo-size);
+  font-weight: normal;
+  letter-spacing: var(--logo-spacing);
+  color: var(--logo);
+  text-shadow: var(--logo-shadow);
+}
+body.themed .header-sub {
+  color: var(--muted);
+}
+body.themed .header-welcome {
+  color: var(--muted-2);
+}
+body.themed .terminal-marquee {
+  background-color: var(--bg);
+  border-color: var(--border);
+}
+body.themed .win98-window,
+body.themed .win98-menu {
+  border-color: var(--border);
+  background-color: var(--panel);
+}
+body.themed .win98-title:not(.blinkie-title) {
+  background: var(--bar);
+  color: var(--bar-text);
+}
+body.themed .win98-menu li {
+  border-bottom-color: var(--divider);
+}
+body.themed .win98-menu li a {
+  color: var(--link);
+}
+body.themed .win98-menu li a:hover {
+  background-color: var(--hover-bg);
+  color: var(--hover-text);
+}
+body.themed .tag-list span {
+  color: var(--muted);
+}
+body.themed .construction {
+  color: var(--logo);
+}
+body.themed #siteFooter {
+  border-top-color: var(--border);
+}
+body.themed .badge-btn {
+  background-color: var(--badge-bg);
+  border-color: var(--badge-border);
+  color: var(--badge-text);
+}
+/* The blood drip at the top belongs to the main site, so themed pages hide it */
+body.themed .drip-bar {
+  display: none;
+}
+
+/* ---------- SILENT HILL: fog, rust and sepia ---------- */
+body.theme-silent-hill {
+  --bg: #0d0d0c;
+  --text: #cfcabb;
+  --muted: #8d8776;
+  --muted-2: #a39d8a;
+  --logo: #d8d4c6;
+  --logo-size: 4rem;
+  --logo-spacing: 4px;
+  --logo-shadow: 0 0 10px #7a2e14, 2px 2px 4px #000000;
+  --glow-soft: #7a2e1433;
+  --header-from: #1d1812;
+  --panel: #14120f;
+  --border: #4a3a2b;
+  --divider: #2b2418;
+  --bar: #4b2d1c;
+  --bar-text: #e6d5b0;
+  --link: #c9a27a;
+  --hover-bg: #2a1f16;
+  --hover-text: #f2e6cc;
+  --badge-bg: #181410;
+  --badge-border: #6b4a2e;
+  --badge-text: #c9a27a;
+  --font-body: 'Special Elite', 'Courier New', monospace;
+  --font-logo: 'IM Fell English SC', Georgia, serif;
+}
+/* Slowly drifting fog */
+body.theme-silent-hill::before {
+  content: "";
+  position: fixed;
+  inset: -20%;
+  z-index: 40;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(210, 205, 190, 0.10), transparent 55%),
+    radial-gradient(ellipse at 75% 60%, rgba(210, 205, 190, 0.08), transparent 55%),
+    radial-gradient(ellipse at 50% 90%, rgba(210, 205, 190, 0.10), transparent 60%);
+  animation: fog-drift 45s ease-in-out infinite alternate;
+}
+/* Dark edges, like the fog closing in */
+body.theme-silent-hill::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 41;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.7) 100%);
+}
+@keyframes fog-drift {
+  from { transform: translateX(-4%); }
+  to { transform: translateX(4%); }
+}
+
+/* ---------- RESIDENT EVIL: Umbrella red, white and clinical black ---------- */
+body.theme-resident-evil {
+  --bg: #080808;
+  --text: #e6e6e6;
+  --muted: #9a9a9a;
+  --muted-2: #c4c4c4;
+  --logo: #ffffff;
+  --logo-size: 3.2rem;
+  --logo-spacing: 6px;
+  --logo-shadow: 0 0 8px #e11b22, 3px 3px 0 #7a0a0e;
+  --glow-soft: #e11b2233;
+  --header-from: #1c0507;
+  --panel: #101010;
+  --border: #6e0c11;
+  --divider: #2a1214;
+  --bar: #a3141a;
+  --bar-text: #ffffff;
+  --link: #ff5257;
+  --hover-bg: #3a0c0f;
+  --hover-text: #ffffff;
+  --badge-bg: #1a0607;
+  --badge-border: #e11b22;
+  --badge-text: #ffb3b5;
+  --font-body: 'Share Tech Mono', 'Courier New', monospace;
+  --font-logo: 'Black Ops One', Impact, sans-serif;
+}
+/* Red and white band across the top of the screen */
+body.theme-resident-evil::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 14px;
+  z-index: 60;
+  pointer-events: none;
+  background: linear-gradient(#e11b22 0 10px, #ffffff 10px 12px, #e11b22 12px 14px);
+}
+
+/* ---------- CREEPYPASTA: static, scanlines and glitch ---------- */
+body.theme-creepypasta {
+  --bg: #040404;
+  --text: #dcdcdc;
+  --muted: #8a8a8a;
+  --muted-2: #b0b0b0;
+  --logo: #f2f2f2;
+  --logo-size: 3.2rem;
+  --logo-spacing: 3px;
+  --logo-shadow: 3px 0 #ff0033, -3px 0 #00e5ff;
+  --glow-soft: #ffffff14;
+  --header-from: #121212;
+  --panel: #090909;
+  --border: #3a3a3a;
+  --divider: #1c1c1c;
+  --bar: #1d1d1d;
+  --bar-text: #e8e8e8;
+  --link: #e8e8e8;
+  --hover-bg: #2b0000;
+  --hover-text: #ff3b3b;
+  --badge-bg: #0b0b0b;
+  --badge-border: #8a0000;
+  --badge-text: #e8e8e8;
+  --font-body: 'VT323', 'Courier New', monospace;
+  --font-logo: 'Rubik Glitch', Impact, sans-serif;
+}
+/* This font runs small, so bump the text up a little */
+body.theme-creepypasta .win98-content {
+  font-size: 1.15rem;
+}
+body.theme-creepypasta .win98-menu li a {
+  font-size: 1.1rem;
+}
+/* Old-TV scanlines */
+body.theme-creepypasta::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.035) 0,
+    rgba(255, 255, 255, 0.035) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+/* The title flickers every few seconds */
+body.theme-creepypasta .header-logo {
+  animation: glitch-flicker 3.2s infinite;
+}
+@keyframes glitch-flicker {
+  0%, 90%, 100% {
+    transform: none;
+    text-shadow: var(--logo-shadow);
+  }
+  92% {
+    transform: translateX(3px) skewX(-6deg);
+    text-shadow: -4px 0 #ff0033, 4px 0 #00e5ff;
+  }
+  95% {
+    transform: translateX(-3px);
+    text-shadow: 4px 0 #ff0033, -4px 0 #00e5ff;
+  }
+}
+
+/* ---------- THE OUTLAST TRIALS: grimy corporate yellow and caution tape ---------- */
+body.theme-outlast-trials {
+  --bg: #14130f;
+  --text: #efe6cf;
+  --muted: #a89d82;
+  --muted-2: #c9bd9f;
+  --logo: #f2b01e;
+  --logo-size: 3.2rem;
+  --logo-spacing: 4px;
+  --logo-shadow: 3px 3px 0 #5a3a00, 0 0 12px #b86a0066;
+  --glow-soft: #f2b01e22;
+  --header-from: #2a2410;
+  --panel: #1b1912;
+  --border: #6b5416;
+  --divider: #2e2812;
+  --bar: #c98a10;
+  --bar-text: #14130f;
+  --link: #f2b01e;
+  --hover-bg: #3a2e0c;
+  --hover-text: #fff6dc;
+  --badge-bg: #211d10;
+  --badge-border: #f2b01e;
+  --badge-text: #f2d48a;
+  --font-body: 'Courier Prime', 'Courier New', monospace;
+  --font-logo: 'Bungee', Impact, sans-serif;
+}
+/* Caution tape across the top of the screen */
+body.theme-outlast-trials::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 16px;
+  z-index: 60;
+  pointer-events: none;
+  background: repeating-linear-gradient(45deg, #f2b01e 0 14px, #14130f 14px 28px);
+}
+
+/* Visitors who prefer less motion get everything standing still */
+@media (prefers-reduced-motion: reduce) {
+  body.theme-silent-hill::before,
+  body.theme-creepypasta .header-logo {
+    animation: none;
+  }
+}
