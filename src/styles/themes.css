@@ -276,7 +276,9 @@ body.theme-outlast-trials::before {
   body.theme-creepypasta .header-logo {
     animation: none;
   }
-  /* Franchise pages: hide the taglines so only the franchise title shows in the banner */
+}
+
+/* Franchise pages: hide the taglines so only the franchise title shows in the banner */
 body.themed .header-tagline {
   display: none;
 }
