@@ -1,20 +1,51 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
-
-// This page keeps its own horror gifs in the scrolling strip
-const marqueeImages = [
-  '/moon.gif',
-  '/eat.gif',
-  '/eyes.gif',
-  '/flying.gif',
-  '/alice.gif',
-];
 ---
 <SiteLayout
   title="About Me"
   description="About UND3AD._COSPLAY: cosplayer, artist, and horror enthusiast."
-  marqueeImages={marqueeImages}
 >
+  <!-- TOP ROW: photo on the left, basic info on the right (both squares) -->
+  <div class="top-row">
+    <div class="win98-window square">
+      <div class="win98-title">🖼️ ME.JPG</div>
+      <div class="photo-frame">
+        <div class="photo-placeholder">your photo goes here</div>
+        <!-- Shows automatically once a file named me.jpg is in the "public" folder -->
+        <img src="/me.jpg" alt="A photo of me" onerror="this.style.display='none'" />
+      </div>
+    </div>
+
+    <div class="win98-window square">
+      <div class="win98-title">📋 BASIC INFO</div>
+      <div class="win98-content">
+        <dl class="info-list">
+          <div>
+            <dt>Name</dt>
+            <dd>UND3AD._COSPLAY</dd>
+          </div>
+          <div>
+            <dt>Age</dt>
+            <dd>???</dd>
+          </div>
+          <div>
+            <dt>Location</dt>
+            <dd>???</dd>
+          </div>
+          <div>
+            <dt>Hobbies</dt>
+            <dd>cosplay, art, cross-stitch</dd>
+          </div>
+          <div>
+            <dt>Favorite fandoms</dt>
+            <dd>Silent Hill, Resident Evil, Creepypasta, The Outlast Trials</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN PROFILE WINDOW -->
   <div class="win98-window">
     <div class="win98-title">👤 PROFILE.EXE</div>
     <div class="win98-content">
@@ -33,7 +64,74 @@ const marqueeImages = [
 </SiteLayout>
 
 <style>
-  /* Text styles that only the About page needs */
+  /* ---------- Photo + basic info row ---------- */
+  .top-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+  .square {
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin-bottom: 0;
+  }
+  .square .win98-content {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+  }
+  .photo-frame {
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    background-color: #000000;
+  }
+  .photo-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #444444;
+  }
+  .photo-frame img {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .info-list {
+    margin: 0;
+  }
+  .info-list div {
+    margin-bottom: 8px;
+  }
+  .info-list dt {
+    color: #ffcc00;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .info-list dd {
+    margin: 0;
+  }
+  @media (max-width: 600px) {
+    .top-row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ---------- Text styles for the profile window ---------- */
   .win98-content h3 {
     margin-top: 0;
     color: #00ff66;
