@@ -61,6 +61,47 @@ import SiteLayout from '../layouts/SiteLayout.astro';
       </ul>
     </div>
   </div>
+
+  <!-- RIGHT SIDEBAR: one long FAVORITES panel (replaces the default Site Status + Cosplans on this page) -->
+  <div slot="right" class="win98-window favorites">
+    <div class="win98-title">⭐ FAVORITES</div>
+    <div class="win98-content">
+      <dl class="info-list">
+        <div>
+          <dt>Game</dt>
+          <dd>???</dd>
+        </div>
+        <div>
+          <dt>Movie</dt>
+          <dd>???</dd>
+        </div>
+        <div>
+          <dt>Show</dt>
+          <dd>???</dd>
+        </div>
+        <div>
+          <dt>Music</dt>
+          <dd>???</dd>
+        </div>
+        <div>
+          <dt>Book</dt>
+          <dd>???</dd>
+        </div>
+        <div>
+          <dt>Food</dt>
+          <dd>???</dd>
+        </div>
+        <div>
+          <dt>Color</dt>
+          <dd>???</dd>
+        </div>
+        <div>
+          <dt>Character</dt>
+          <dd>???</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
 </SiteLayout>
 
 <style>
@@ -71,17 +112,27 @@ import SiteLayout from '../layouts/SiteLayout.astro';
     gap: 15px;
     margin-bottom: 15px;
   }
-  .square {
-    aspect-ratio: 1 / 1;
+  .square,
+  .favorites {
     display: flex;
     flex-direction: column;
+  }
+  .square {
+    aspect-ratio: 1 / 1;
     overflow: hidden;
     margin-bottom: 0;
   }
-  .square .win98-content {
+  /* The favorites panel grows to fill the full height of the page */
+  .favorites {
+    flex: 1;
+  }
+  .square .win98-content,
+  .favorites .win98-content {
     flex: 1;
     min-height: 0;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
   }
   .photo-frame {
     position: relative;
@@ -109,11 +160,23 @@ import SiteLayout from '../layouts/SiteLayout.astro';
     object-fit: cover;
     object-position: center;
   }
+
+  /* ---------- Info lists: rows spread out evenly with a dashed divider between them ---------- */
   .info-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
     margin: 0;
   }
   .info-list div {
-    margin-bottom: 8px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px dashed #0a3a14;
+  }
+  .info-list div:last-child {
+    border-bottom: none;
   }
   .info-list dt {
     color: #ff1a1a;
