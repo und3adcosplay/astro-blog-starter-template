@@ -1,0 +1,47 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+
+// One entry per franchise page. "theme" picks the look
+// (colors, fonts and effects live in src/styles/themes.css).
+export function getStaticPaths() {
+  const fandoms = [
+    { slug: 'silent-hill', name: 'Silent Hill', theme: 'silent-hill' },
+    { slug: 'resident-evil', name: 'Resident Evil', theme: 'resident-evil' },
+    { slug: 'creepypasta', name: 'Creepypasta', theme: 'creepypasta' },
+    { slug: 'the-outlast-trials', name: 'The Outlast Trials', theme: 'outlast-trials' },
+  ];
+  return fandoms.map((fandom) => ({
+    params: { slug: fandom.slug },
+    props: { fandom },
+  }));
+}
+
+const { fandom } = Astro.props;
+---
+<SiteLayout
+  title={fandom.name}
+  description={`Cosplays, art, and collections inspired by ${fandom.name}.`}
+  theme={fandom.theme}
+>
+  <div class="win98-window">
+    <div class="win98-title">📁 {fandom.name.toUpperCase()}</div>
+    <div class="win98-content">
+      <h3>{fandom.name}</h3>
+      <p>Cosplays, art, and collections inspired by {fandom.name}.</p>
+    </div>
+  </div>
+
+  <div class="win98-window">
+    <div class="win98-title">🗂️ POSTS</div>
+    <div class="win98-content">
+      <p>Nothing here yet... check back soon.</p>
+    </div>
+  </div>
+</SiteLayout>
+
+<style>
+  .win98-content h3 {
+    margin-top: 0;
+    color: var(--logo);
+  }
+</style>
