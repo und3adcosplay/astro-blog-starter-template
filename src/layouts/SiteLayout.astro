@@ -178,6 +178,25 @@ const stripHalf = Array.from({ length: repeats }, () => marqueeImages).flat();
   }
 }
 
+ /* ---------- Three-column layout ---------- */
+    #flexContainer {
+      display: flex;
+      gap: 15px;
+    }
+    #leftSidebar {
+      flex: 0.9;
+      min-width: 150px;
+    }
+    #centerContent {
+      flex: 3;
+      min-width: 0;
+    }
+   #rightSidebar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+    }
+
     /* ---------- Windows & menu ---------- */
     .win98-window, .win98-menu {
       border: 2px solid #125a22;
