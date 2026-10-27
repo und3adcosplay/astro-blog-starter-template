@@ -6,13 +6,24 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
 export function getStaticPaths() {
   const fandoms = [
     { slug: 'silent-hill', name: 'Silent Hill', theme: 'silent-hill',
-      gifs: ['/sh-eileen.gif', '/sh-valt.gif', '/sh-maria.gif', '/sh-thegoat.gif', '/sh-gun.gif', '/sh-imreal.gif', '/sh-lisa.gif', '/sh-theroom.gif', '/sh-hug.gif', '/sh-james.gif',,},
+      gifs: [
+        '/sh-eileen.gif',
+        '/sh-valt.gif',
+        '/sh-maria.gif',
+        '/sh-thegoat.gif',
+        '/sh-gun.gif',
+        '/sh-imreal.gif',
+        '/sh-lisa.gif',
+        '/sh-theroom.gif',
+        '/sh-hug.gif',
+        '/sh-james.gif',
+      ] },
     { slug: 'resident-evil', name: 'Resident Evil', theme: 'resident-evil',
-      gifs: ['/re-1.gif', '/re-2.gif', '/re-3.gif'] },
+      gifs: ['/robbie-the-rabbit.gif'] },
     { slug: 'creepypasta', name: 'Creepypasta', theme: 'creepypasta',
-      gifs: ['/cp-1.gif', '/cp-2.gif', '/cp-3.gif'] },
+      gifs: ['/robbie-the-rabbit.gif'] },
     { slug: 'the-outlast-trials', name: 'The Outlast Trials', theme: 'outlast-trials',
-      gifs: ['/ot-1.gif', '/ot-2.gif', '/ot-3.gif'] },
+      gifs: ['/robbie-the-rabbit.gif'] },
   ];
   return fandoms.map((fandom) => ({
     params: { slug: fandom.slug },
