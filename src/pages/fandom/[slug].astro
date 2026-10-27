@@ -5,10 +5,14 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
 // (colors, fonts and effects live in src/styles/themes.css).
 export function getStaticPaths() {
   const fandoms = [
-    { slug: 'silent-hill', name: 'Silent Hill', theme: 'silent-hill' },
-    { slug: 'resident-evil', name: 'Resident Evil', theme: 'resident-evil' },
-    { slug: 'creepypasta', name: 'Creepypasta', theme: 'creepypasta' },
-    { slug: 'the-outlast-trials', name: 'The Outlast Trials', theme: 'outlast-trials' },
+    { slug: 'silent-hill', name: 'Silent Hill', theme: 'silent-hill',
+      gifs: ['/sh-eileen.gif', '/sh-valt.gif', '/sh-maria.gif', '/sh-thegoat.gif', '/sh-gun.gif', '/sh-imreal.gif', '/sh-lisa.gif', '/sh-theroom.gif', '/sh-hug.gif', '/sh-james.gif',,},
+    { slug: 'resident-evil', name: 'Resident Evil', theme: 'resident-evil',
+      gifs: ['/re-1.gif', '/re-2.gif', '/re-3.gif'] },
+    { slug: 'creepypasta', name: 'Creepypasta', theme: 'creepypasta',
+      gifs: ['/cp-1.gif', '/cp-2.gif', '/cp-3.gif'] },
+    { slug: 'the-outlast-trials', name: 'The Outlast Trials', theme: 'outlast-trials',
+      gifs: ['/ot-1.gif', '/ot-2.gif', '/ot-3.gif'] },
   ];
   return fandoms.map((fandom) => ({
     params: { slug: fandom.slug },
@@ -23,6 +27,7 @@ const { fandom } = Astro.props;
   description={`Cosplays, art, and collections inspired by ${fandom.name}.`}
   theme={fandom.theme}
   headerTitle={fandom.name}
+  marqueeImages={fandom.gifs}
 >
   <div class="win98-window">
     <div class="win98-title">📁 {fandom.name.toUpperCase()}</div>
