@@ -87,14 +87,14 @@ body.theme-silent-hill {
   --panel: #2d4a3a;
   --border: #1c2e22;
   --divider: #1c2e22;
-  --bar: #333f28;
+  --bar: #1c2e22;
   --bar-text: #e0b122;
   --link: #c9a27a;
   --hover-bg: #2a1f16;
   --hover-text: #f2e6cc;
   --badge-bg: #2d4a3a;
-  --badge-border: #333f28;
-  --badge-text: #c9a27a;
+  --badge-border: #1c2e22;
+  --badge-text: #ffffff;
   --font-body: 'Special Elite', 'Courier New', monospace;
   --font-logo: 'IM Fell English SC', Georgia, serif;
 }
