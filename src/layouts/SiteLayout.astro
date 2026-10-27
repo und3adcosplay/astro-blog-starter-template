@@ -149,26 +149,46 @@ const themeFontUrl = theme ? themeFonts[theme] : undefined;
     }
 
     /* ---------- Scrolling strip ---------- */
-   .terminal-marquee {
-  background-color: #000000;
-  padding: 8px 0;
-  border-top: 2px solid #005522;
-  border-bottom: 2px solid #005522;
+.terminal-marquee {
+  --strip-h: 56px;
+  position: relative;
+  height: var(--strip-h);
+  padding: 0;
   margin-top: 10px;
   margin-bottom: 25px;
+  background-color: #000000;
   overflow: hidden;
+}
+/* The top and bottom lines are drawn on top of the gifs */
+.terminal-marquee::before,
+.terminal-marquee::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #005522;
+  z-index: 2;
+  pointer-events: none;
+}
+.terminal-marquee::before {
+  top: 0;
+}
+.terminal-marquee::after {
+  bottom: 0;
 }
 .marquee-track {
   display: flex;
   align-items: center;
   width: max-content;
+  height: 100%;
   animation: marquee-right 90s linear infinite;
 }
 .terminal-marquee:hover .marquee-track {
   animation-play-state: paused;
 }
 .marquee-gif {
-  height: 32px;
+  height: 100%;
   width: auto;
   flex-shrink: 0;
   image-rendering: pixelated;
