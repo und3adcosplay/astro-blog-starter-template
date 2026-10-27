@@ -79,8 +79,8 @@ body.theme-silent-hill {
   --muted: #ffffff;
   --muted-2: #ffffff;
   --logo: #e0b122;
-  --logo-size: clamp(2.5rem, 8vw, 6.5rem);
-  --logo-spacing: 10px;
+  --logo-size: 5rem;
+  --logo-spacing: 5px;
   --logo-shadow: 0 0 10px #f27029, 2px 2px 4px #000000;
   --glow-soft: #7a2e1433;
   --header-from: #485441;
@@ -146,8 +146,8 @@ body.theme-resident-evil {
   --muted: #9a9a9a;
   --muted-2: #c4c4c4;
   --logo: #ffffff;
-  --logo-size: 3.2rem;
-  --logo-spacing: 6px;
+  --logo-size: 5rem;
+  --logo-spacing: 5px;
   --logo-shadow: 0 0 8px #e11b22, 3px 3px 0 #7a0a0e;
   --glow-soft: #e11b2233;
   --header-from: #1c0507;
@@ -185,8 +185,8 @@ body.theme-creepypasta {
   --muted: #8a8a8a;
   --muted-2: #b0b0b0;
   --logo: #f2f2f2;
-  --logo-size: 3.2rem;
-  --logo-spacing: 3px;
+  --logo-size: 5rem;
+  --logo-spacing: 5px;
   --logo-shadow: 3px 0 #ff0033, -3px 0 #00e5ff;
   --glow-soft: #ffffff14;
   --header-from: #121212;
@@ -252,8 +252,8 @@ body.theme-outlast-trials {
   --muted: #a89d82;
   --muted-2: #c9bd9f;
   --logo: #f2b01e;
-  --logo-size: 3.2rem;
-  --logo-spacing: 4px;
+  --logo-size: 5rem;
+  --logo-spacing: 5px;
   --logo-shadow: 3px 3px 0 #5a3a00, 0 0 12px #b86a0066;
   --glow-soft: #f2b01e22;
   --header-from: #2a2410;
