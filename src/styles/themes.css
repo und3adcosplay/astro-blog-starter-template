@@ -79,8 +79,8 @@ body.theme-silent-hill {
   --muted: #ffffff;
   --muted-2: #ffffff;
   --logo: #e0b122;
-  --logo-size: 4rem;
-  --logo-spacing: 4px;
+  --logo-size: clamp(2.5rem, 8vw, 6.5rem);
+  --logo-spacing: 10px;
   --logo-shadow: 0 0 10px #f27029, 2px 2px 4px #000000;
   --glow-soft: #7a2e1433;
   --header-from: #485441;
@@ -97,6 +97,9 @@ body.theme-silent-hill {
   --badge-text: #ffffff;
   --font-body: 'Special Elite', 'Courier New', monospace;
   --font-logo: 'IM Fell English SC', Georgia, serif;
+}
+body.theme-silent-hill .header-logo {
+  text-transform: uppercase;
 }
 /* Silent Hill: the banner becomes a solid road-sign board, above the fog */
 body.theme-silent-hill #mainHeader {
