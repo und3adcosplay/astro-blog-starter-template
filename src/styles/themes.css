@@ -296,9 +296,21 @@ body.themed .header-tagline {
 body.themed #mainHeader {
   padding: 45px 20px;
 }
-/* The left menu always keeps a black backdrop, on every page and theme */
-body .menu-black,
-body .win98-menu,
+/* The left menu looks the same on every page and theme:
+   black backdrop, original green border, lettering and font */
 body.themed .win98-menu {
   background-color: #000000;
+  border-color: #125a22;
+  font-family: 'DotGothic16', 'Courier New', Courier, monospace;
+}
+body.themed .win98-menu li {
+  border-bottom-color: #0a3a14;
+}
+body.themed .win98-menu ul li a {
+  color: #33ff77;
+  font-size: 0.85rem;
+}
+body.themed .win98-menu ul li a:hover {
+  background-color: #084214;
+  color: #ffffff;
 }
