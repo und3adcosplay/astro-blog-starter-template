@@ -296,3 +296,9 @@ body.themed .header-tagline {
 body.themed #mainHeader {
   padding: 45px 20px;
 }
+/* The left menu always keeps a black backdrop, on every page and theme */
+body .menu-black,
+body .win98-menu,
+body.themed .win98-menu {
+  background-color: #000000;
+}
