@@ -339,6 +339,29 @@ const themeFontUrl = theme ? themeFonts[theme] : undefined;
       50% { opacity: 0; }
     }
 
+/* Right sidebar: the first panel is a perfect square, the second stretches down the page */
+#rightSidebar > .win98-window {
+  display: flex;
+  flex-direction: column;
+}
+#rightSidebar > .win98-window .win98-content {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+#rightSidebar > .win98-window:first-child:not(:last-child) {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+#rightSidebar > .win98-window:last-child:not(:first-child) {
+  flex: 1;
+}
+/* On small screens the square would be huge, so let it shrink to fit its text */
+@media (max-width: 850px) {
+  #rightSidebar > .win98-window:first-child:not(:last-child) {
+    aspect-ratio: auto;
+  }
+}
     /* ---------- Footer ---------- */
     #siteFooter {
       margin-top: 15px;
