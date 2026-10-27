@@ -84,7 +84,7 @@ body.theme-silent-hill {
   --logo-shadow: 0 0 10px #7a2e14, 2px 2px 4px #000000;
   --glow-soft: #7a2e1433;
   --header-from: #485441;
-  --panel: #485441;
+  --panel: #2d4a3a;
   --border: #333f28;
   --divider: #333f28;
   --bar: #333f28;
@@ -92,7 +92,7 @@ body.theme-silent-hill {
   --link: #c9a27a;
   --hover-bg: #2a1f16;
   --hover-text: #f2e6cc;
-  --badge-bg: #485441;
+  --badge-bg: #2d4a3a;
   --badge-border: #333f28;
   --badge-text: #c9a27a;
   --font-body: 'Special Elite', 'Courier New', monospace;
