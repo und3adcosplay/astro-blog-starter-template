@@ -19,13 +19,67 @@ export function getStaticPaths() {
         '/sh-down.gif',
         '/sh-hug.gif',
         '/sh-james.gif',
-      ] },
+      ],
+      top: {
+        title: 'QUICK FACTS',
+        lines: ['Favorite game: ???', 'First played: ???', 'Cosplays: ???'],
+      },
+      long: {
+        title: 'MY STORY WITH SILENT HILL',
+        lines: [
+          'Write your first paragraph here.',
+          'Write your second paragraph here.',
+        ],
+      },
+    },
     { slug: 'resident-evil', name: 'Resident Evil', theme: 'resident-evil',
-      gifs: ['/robbie-the-rabbit.gif'] },
+      gifs: [
+        '/robbie-the-rabbit.gif',
+ ],
+      top: {
+        title: 'QUICK FACTS',
+        lines: ['Favorite game: ???', 'First played: ???', 'Cosplays: ???'],
+      },
+      long: {
+        title: 'MY STORY WITH RESIDENT EVIL',
+        lines: [
+          'Write your first paragraph here.',
+          'Write your second paragraph here.',
+        ],
+      },
+    },
     { slug: 'creepypasta', name: 'Creepypasta', theme: 'creepypasta',
-      gifs: ['/robbie-the-rabbit.gif'] },
+      gifs: [
+        '/robbie-the-rabbit.gif',
+ ],
+      top: {
+        title: 'QUICK FACTS',
+        lines: ['Favorite game: ???', 'First played: ???', 'Cosplays: ???'],
+      },
+      long: {
+        title: 'MY STORY WITH CREEPYPASTA',
+        lines: [
+          'Write your first paragraph here.',
+          'Write your second paragraph here.',
+        ],
+      },
+    },
     { slug: 'the-outlast-trials', name: 'The Outlast Trials', theme: 'outlast-trials',
-      gifs: ['/robbie-the-rabbit.gif'] },
+      gifs: [
+        '/robbie-the-rabbit.gif',
+ ],
+      top: {
+        title: 'QUICK FACTS',
+        lines: ['Favorite game: ???', 'First played: ???', 'Cosplays: ???'],
+      },
+      long: {
+        title: 'MY STORY WITH THE OUTLAST TRIALS',
+        lines: [
+          'Write your first paragraph here.',
+          'Write your second paragraph here.',
+        ],
+      },
+    },
   ];
   return fandoms.map((fandom) => ({
     params: { slug: fandom.slug },
@@ -34,6 +88,8 @@ export function getStaticPaths() {
 }
 
 const { fandom } = Astro.props;
+const top = fandom.top ?? { title: 'INFO', lines: ['Coming soon...'] };
+const long = fandom.long ?? { title: 'MORE', lines: ['Coming soon...'] };
 ---
 <SiteLayout
   title={fandom.name}
@@ -54,6 +110,18 @@ const { fandom } = Astro.props;
     <div class="win98-title">🗂️ POSTS</div>
     <div class="win98-content">
       <p>Nothing here yet... check back soon.</p>
+    </div>
+  </div>
+  <div slot="right" class="win98-window">
+    <div class="win98-title">{top.title}</div>
+    <div class="win98-content">
+      {top.lines.map((line) => <p>{line}</p>)}
+    </div>
+  </div>
+  <div slot="right" class="win98-window">
+    <div class="win98-title">{long.title}</div>
+    <div class="win98-content">
+      {long.lines.map((line) => <p>{line}</p>)}
     </div>
   </div>
 </SiteLayout>
