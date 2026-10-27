@@ -331,3 +331,7 @@ body.themed .badge-btn {
 body.themed #siteFooter footer {
   color: #8a8a8a;
 }
+   body.themed .terminal-marquee::before,
+   body.themed .terminal-marquee::after {
+     background: var(--border);
+   }
