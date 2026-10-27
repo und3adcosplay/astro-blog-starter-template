@@ -317,3 +317,17 @@ body.themed .win98-menu ul li a:hover {
   background-color: #084214;
   color: #ffffff;
 }
+/* The footer looks the same on every page and theme:
+   original green dashed line, badges, font and copyright color */
+body.themed #siteFooter {
+  border-top-color: #0d4a1b;
+  font-family: 'DotGothic16', 'Courier New', Courier, monospace;
+}
+body.themed .badge-btn {
+  background-color: #051a09;
+  border-color: #00ff66;
+  color: #88ffaa;
+}
+body.themed #siteFooter footer {
+  color: #8a8a8a;
+}
