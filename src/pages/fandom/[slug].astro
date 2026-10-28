@@ -23,7 +23,7 @@ export function getStaticPaths() {
        top: {
     title: 'QUICK FACTS',
     image: '/halo.png',
-    alt: 'A short description of the picture',
+    alt: 'Halo of the Sun.',
     lines: ['Halo of the Sun.'],
   },
   long: {
@@ -112,7 +112,9 @@ const long = fandom.long ?? { title: 'MORE', lines: ['Coming soon...'] };
     <div class="win98-title">{top.title}</div>
     <div class="win98-content">
       {top.image && (
-        <img class="panel-photo" src={top.image} alt={top.alt ?? ''} onerror="this.style.display='none'" />
+        <div class="panel-photo-box">
+          <img class="panel-photo" src={top.image} alt={top.alt ?? ''} onerror="this.style.display='none'" />
+        </div>
       )}
       {top.lines?.map((line) => <p class="panel-caption">{line}</p>)}
     </div>
@@ -134,5 +136,46 @@ const long = fandom.long ?? { title: 'MORE', lines: ['Coming soon...'] };
   .win98-content h3 {
     margin-top: 0;
     color: var(--logo);
+  }
+
+  /* Top square panel: the picture fills the space, the caption sits underneath */
+  .panel-top .win98-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px;
+  }
+  .panel-photo-box {
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    border: 1px solid var(--border);
+  }
+  .panel-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .panel-caption {
+    margin: 0;
+    text-align: center;
+    font-size: 0.8rem;
+  }
+
+  /* Bottom panel: the list, with dashed lines between items */
+  .panel-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .panel-list li {
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--divider, #0a3a14);
+  }
+  .panel-list li:last-child {
+    border-bottom: none;
   }
 </style>
