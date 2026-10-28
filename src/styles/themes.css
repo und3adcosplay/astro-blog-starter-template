@@ -283,7 +283,46 @@ body.theme-outlast-trials::before {
   pointer-events: none;
   background: repeating-linear-gradient(45deg, #f2b01e 0 14px, #14130f 14px 28px);
 }
-
+/* ---------- HORROR MOVIES: aged VHS, grindhouse poster and film reel ---------- */
+body.theme-horror-movies {
+  --bg: #0b0a0a;
+  --text: #ece4d0;
+  --muted: #a39a85;
+  --muted-2: #c4baa2;
+  --logo: #f0e6cc;
+  --logo-size: 4.5rem;
+  --logo-spacing: 4px;
+  --logo-shadow: 3px 3px 0 #a30f0f, 0 0 14px #a30f0f66;
+  --glow-soft: #a30f0f22;
+  --header-from: #1d0e0d;
+  --panel: #120f0e;
+  --border: #5a1212;
+  --divider: #2a1414;
+  --bar: #7d0e0e;
+  --bar-text: #f0e6cc;
+  --link: #e8c9a0;
+  --hover-bg: #2e0c0c;
+  --hover-text: #ffffff;
+  --badge-bg: #1a0e0d;
+  --badge-border: #a30f0f;
+  --badge-text: #e8c9a0;
+  --font-body: 'Special Elite', 'Courier New', monospace;
+  --font-logo: 'Butcherman', Impact, sans-serif;
+}
+/* A strip of film reel across the top of the screen */
+body.theme-horror-movies::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 26px;
+  z-index: 60;
+  pointer-events: none;
+  background:
+    linear-gradient(#000000 0 8px, transparent 8px 18px, #000000 18px 26px),
+    repeating-linear-gradient(90deg, #d9cfb4 0 12px, #000000 12px 26px);
+}
 /* Visitors who prefer less motion get everything standing still */
 @media (prefers-reduced-motion: reduce) {
   body.theme-silent-hill::before,
