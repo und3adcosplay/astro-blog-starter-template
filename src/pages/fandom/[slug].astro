@@ -1,4 +1,4 @@
----
+f---
 import SiteLayout from '../../layouts/SiteLayout.astro';
 
 // One entry per franchise page. "theme" picks the look
@@ -30,7 +30,7 @@ export function getStaticPaths() {
     title: 'COSPLAYS',
     sections: [
       { heading: 'Cosplays', items: [
-'In Rework',], },
+], },
       { heading: 'Rework', items: [
 '📻Heather Mason📻',
 '🩸Lisa Garland🩸',] },
@@ -42,7 +42,7 @@ export function getStaticPaths() {
 '📃???? ??????????📃',
 '🎠?????? ?? ??????🎠',] },
       { heading: 'Retired', items: [
-'None',] },
+,] },
     ],
   },
 },
@@ -166,7 +166,7 @@ const long = fandom.long ?? { title: 'MORE', lines: ['Coming soon...'] };
               {section.items.map((item) => <li>{item}</li>)}
             </ul>
           ) : (
-            <p class="panel-empty">none yet</p>
+            <p class="panel-empty">None</p>
           )}
         </div>
       ))}
