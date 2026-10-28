@@ -20,66 +20,62 @@ export function getStaticPaths() {
         '/sh-moa.gif',
         '/sh-james.gif',
       ],
-      top: {
-        title: 'QUICK FACTS',
-        lines: ['Favorite game: ???', 'First played: ???', 'Cosplays: ???'],
-      },
-      long: {
-        title: 'COSPLAYS',
-        lines: [
-          'Write your first paragraph here.',
-          'Write your second paragraph here.',
-        ],
-      },
-    },
+       top: {
+    title: 'QUICK FACTS',
+    image: '/halo.png',
+    alt: 'A short description of the picture',
+    lines: ['The text under the picture'],
+  },
+  long: {
+    title: 'COSPLAYS',
+    items: ['First cosplay', 'Second cosplay', 'Third cosplay'],
+  },
+},
     { slug: 'resident-evil', name: 'Resident Evil', theme: 'resident-evil',
       gifs: [
         '/robbie-the-rabbit.gif',
  ],
-      top: {
-        title: 'QUICK FACTS',
-        lines: ['Favorite game: ???', 'First played: ???', 'Cosplays: ???'],
-      },
-      long: {
-        title: 'MY STORY WITH RESIDENT EVIL',
-        lines: [
-          'Write your first paragraph here.',
-          'Write your second paragraph here.',
-        ],
-      },
-    },
+       top: {
+    title: 'QUICK FACTS',
+    image: '/sh-top.jpg',
+    alt: 'A short description of the picture',
+    lines: ['The text under the picture'],
+  },
+  long: {
+    title: 'COSPLAYS',
+    items: ['First cosplay', 'Second cosplay', 'Third cosplay'],
+  },
+},
     { slug: 'creepypasta', name: 'Creepypasta', theme: 'creepypasta',
       gifs: [
         '/robbie-the-rabbit.gif',
  ],
-      top: {
-        title: 'QUICK FACTS',
-        lines: ['Favorite game: ???', 'First played: ???', 'Cosplays: ???'],
-      },
-      long: {
-        title: 'MY STORY WITH CREEPYPASTA',
-        lines: [
-          'Write your first paragraph here.',
-          'Write your second paragraph here.',
-        ],
-      },
-    },
+       top: {
+    title: 'QUICK FACTS',
+    image: '/sh-top.jpg',
+    alt: 'A short description of the picture',
+    lines: ['The text under the picture'],
+  },
+  long: {
+    title: 'COSPLAYS',
+    items: ['First cosplay', 'Second cosplay', 'Third cosplay'],
+  },
+},
     { slug: 'the-outlast-trials', name: 'The Outlast Trials', theme: 'outlast-trials',
       gifs: [
         '/robbie-the-rabbit.gif',
  ],
-      top: {
-        title: 'QUICK FACTS',
-        lines: ['Favorite game: ???', 'First played: ???', 'Cosplays: ???'],
-      },
-      long: {
-        title: 'MY STORY WITH THE OUTLAST TRIALS',
-        lines: [
-          'Write your first paragraph here.',
-          'Write your second paragraph here.',
-        ],
-      },
-    },
+       top: {
+    title: 'QUICK FACTS',
+    image: '/sh-top.jpg',
+    alt: 'A short description of the picture',
+    lines: ['The text under the picture'],
+  },
+  long: {
+    title: 'COSPLAYS',
+    items: ['First cosplay', 'Second cosplay', 'Third cosplay'],
+  },
+},
   ];
   return fandoms.map((fandom) => ({
     params: { slug: fandom.slug },
