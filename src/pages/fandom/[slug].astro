@@ -28,9 +28,14 @@ export function getStaticPaths() {
   },
   long: {
     title: 'COSPLAYS',
-    items: [
+    sections: [
+      {
+        heading: 'Cosplays',
+        items: [
 '📻Heather Mason📻',
-'🩸Lisa Garland🩸',
+'🩸Lisa Garland🩸',],
+      },
+      { heading: 'Cosplans', items: [
 '🔥Alessa Gillespie🔥',
 '🔪Angela Orosco🔪',
 '🖍️Cheryl Mason🖍️',
@@ -38,8 +43,10 @@ export function getStaticPaths() {
 '👜Eileen Galvin👜',
 '💋Maria💋',
 '📃Mary Sunderland📃',
-'🎠Memory of Alessa🎠',
-],
+'🎠Memory of Alessa🎠',] },
+      { heading: 'Returning', items: [] },
+      { heading: 'Retired', items: [] },
+    ],
   },
 },
     { slug: 'resident-evil', name: 'Resident Evil', theme: 'resident-evil',
