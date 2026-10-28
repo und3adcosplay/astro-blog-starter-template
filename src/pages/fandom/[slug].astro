@@ -44,8 +44,10 @@ export function getStaticPaths() {
 '💋Maria💋',
 '📃Mary Sunderland📃',
 '🎠Memory of Alessa🎠',] },
-      { heading: 'Returning', items: [] },
-      { heading: 'Retired', items: [] },
+      { heading: 'Returning', items: [
+      ] },
+      { heading: 'Retired', items: [
+      ] },
     ],
   },
 },
@@ -61,7 +63,28 @@ export function getStaticPaths() {
   },
   long: {
     title: 'COSPLAYS',
-    items: ['First cosplay', 'Second cosplay', 'Third cosplay'],
+    sections: [
+      {
+        heading: 'Cosplays',
+        items: [
+'⭐️Jill Valentine⭐️',
+'🧪Jill Valentine🧪',
+'🪖Lady HUNK🪖',
+❄️Rosemary Winters❄️',],
+      },
+      { heading: 'Cosplans', items: [
+'🧢Jill Valentine🧢',
+'🧬Jill Valentine🧬',
+'🐦‍⬛Jill Valentine🐦‍⬛',
+'🚢Jill Valentine🚢',
+'🏗️Jill Valentine🏗️',
+'🕶️Albert Wesker🕶️',
+'🪴Rebecca Chambers🪴',] },
+      { heading: 'Returning', items: [
+      ] },
+      { heading: 'Retired', items: [
+      ] },
+    ],
   },
 },
     { slug: 'creepypasta', name: 'Creepypasta', theme: 'creepypasta',
