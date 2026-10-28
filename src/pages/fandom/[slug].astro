@@ -141,6 +141,18 @@ const long = fandom.long ?? { title: 'MORE', lines: ['Coming soon...'] };
     <div class="win98-title">{long.title}</div>
     <div class="win98-content">
       {long.lines?.map((line) => <p>{line}</p>)}
+      {long.sections?.map((section) => (
+        <div class="panel-section">
+          <h3>{section.heading}</h3>
+          {section.items.length > 0 ? (
+            <ul class="panel-list">
+              {section.items.map((item) => <li>{item}</li>)}
+            </ul>
+          ) : (
+            <p class="panel-empty">none yet</p>
+          )}
+        </div>
+      ))}
       {long.items && (
         <ul class="panel-list">
           {long.items.map((item) => <li>{item}</li>)}
