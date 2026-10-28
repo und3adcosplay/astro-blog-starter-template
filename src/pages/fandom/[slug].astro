@@ -41,8 +41,7 @@ export function getStaticPaths() {
 '💋?????💋',
 '📃???? ??????????📃',
 '🎠?????? ?? ??????🎠',] },
-      { heading: 'Retired', items: [
-,] },
+      { heading: 'Retired', items: [] },
     ],
   },
 },
@@ -161,9 +160,9 @@ const long = fandom.long ?? { title: 'MORE', lines: ['Coming soon...'] };
       {long.sections?.map((section) => (
         <div class="panel-section">
           <h3>{section.heading}</h3>
-          {section.items.length > 0 ? (
+           {section.items.filter(Boolean).length > 0 ? (
             <ul class="panel-list">
-              {section.items.map((item) => <li>{item}</li>)}
+             {section.items.filter(Boolean).map((item) => <li>{item}</li>)}
             </ul>
           ) : (
             <p class="panel-empty">None</p>
