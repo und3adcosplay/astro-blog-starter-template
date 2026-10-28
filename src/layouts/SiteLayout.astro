@@ -355,11 +355,15 @@ const themeFontUrl = theme ? themeFonts[theme] : undefined;
 }
 #rightSidebar > .win98-window:last-child:not(:first-child) {
   flex: 1;
+  min-height: 440px;
 }
 /* On small screens the square would be huge, so let it shrink to fit its text */
 @media (max-width: 850px) {
   #rightSidebar > .win98-window:first-child:not(:last-child) {
     aspect-ratio: auto;
+  }
+  #rightSidebar > .win98-window:last-child:not(:first-child) {
+    min-height: 0;
   }
 }
     /* ---------- Footer ---------- */
