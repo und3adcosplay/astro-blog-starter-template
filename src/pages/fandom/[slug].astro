@@ -108,16 +108,24 @@ const long = fandom.long ?? { title: 'MORE', lines: ['Coming soon...'] };
       <p>Nothing here yet... check back soon.</p>
     </div>
   </div>
-  <div slot="right" class="win98-window">
+  <div slot="right" class="win98-window panel-top">
     <div class="win98-title">{top.title}</div>
     <div class="win98-content">
-      {top.lines.map((line) => <p>{line}</p>)}
+      {top.image && (
+        <img class="panel-photo" src={top.image} alt={top.alt ?? ''} onerror="this.style.display='none'" />
+      )}
+      {top.lines?.map((line) => <p class="panel-caption">{line}</p>)}
     </div>
   </div>
   <div slot="right" class="win98-window">
     <div class="win98-title">{long.title}</div>
     <div class="win98-content">
-      {long.lines.map((line) => <p>{line}</p>)}
+      {long.lines?.map((line) => <p>{line}</p>)}
+      {long.items && (
+        <ul class="panel-list">
+          {long.items.map((item) => <li>{item}</li>)}
+        </ul>
+      )}
     </div>
   </div>
 </SiteLayout>
