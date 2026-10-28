@@ -136,6 +136,24 @@ export function getStaticPaths() {
     ],
   },
 },
+    { slug: 'horror-movies', name: 'Horror Movies', theme: 'new-theme',
+      gifs: ['/robbie-the-rabbit.gif'],
+      top: {
+        title: 'QUICK FACTS',
+        image: '/new-top.png',
+        alt: 'A short description of the picture',
+        lines: ['The text under the picture'],
+      },
+      long: {
+        title: 'COSPLAYS',
+        sections: [
+          { heading: 'Cosplays', items: [] },
+          { heading: 'Reworking', items: [] },
+          { heading: 'Cosplans', items: [] },
+          { heading: 'Retired', items: [] },
+        ],
+      },
+    },
   ];
   return fandoms.map((fandom) => ({
     params: { slug: fandom.slug },
