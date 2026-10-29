@@ -1,11 +1,16 @@
-f---
+---
 import SiteLayout from '../../layouts/SiteLayout.astro';
 
 // One entry per franchise page. "theme" picks the look
 // (colors, fonts and effects live in src/styles/themes.css).
+// Every page has the same four "links" in its top-right panel:
+// image = file in the public folder, title = label under it, href = where it goes.
 export function getStaticPaths() {
   const fandoms = [
-    { slug: 'silent-hill', name: 'Silent Hill', theme: 'silent-hill',
+    {
+      slug: 'silent-hill',
+      name: 'Silent Hill',
+      theme: 'silent-hill',
       gifs: [
         '/sh-eileen.gif',
         '/sh-valt.gif',
@@ -20,156 +25,208 @@ export function getStaticPaths() {
         '/sh-moa.gif',
         '/sh-james.gif',
       ],
-       top: {
-    title: 'QUICK FACTS',
-  top: {
-    title: 'QUICK LINKS',
-    links: [
-      { image: '/folder.png', title: 'Art', href: '/blog/first-post', alt: 'Heather Mason cosplay' },
-      { image: '/folder.png', title: 'Cosplays', href: '/blog/second-post', alt: 'Lisa Garland cosplay' },
-      { image: '/folder.png', title: 'Merch', href: '#', alt: 'Alessa Gillespie cosplay' },
-      { image: '/folder.png', title: 'Other', href: 'https://example.com', alt: 'Cybil Bennett cosplay' },
-    ],
-  },
-  },
-  long: {
-    title: 'COSPLAYS',
-    sections: [
-      { heading: 'Cosplays', items: [
-], },
-      { heading: 'Reworking', items: [
-'📻Heather Mason📻',
-'🩸Lisa Garland🩸',] },
-      { heading: 'Cosplans', items: [
-'🔥?????? ????????🔥',
-'🔪?????? ??????🔪',
-'👜?????? ??????👜',
-'💋?????💋',
-'📃???? ??????????📃',
-'🎠?????? ?? ??????🎠',] },
-      { heading: 'Retired', items: [] },
-    ],
-  },
-},
-    { slug: 'resident-evil', name: 'Resident Evil', theme: 'resident-evil',
-      gifs: [
-        '/robbie-the-rabbit.gif',
- ],
-       top: {
-    title: 'QUICK FACTS',
-    image: '/halo.png',
-    alt: 'A short description of the picture',
-    lines: ['The text under the picture'],
-  },
-  long: {
-    title: 'COSPLAYS',
-    sections: [
-      { heading: 'Cosplays', items: [
-], },
-      { heading: 'Reworking', items: [
-'⭐️Jill Valentine | RE1⭐️',
-'🧪Jill Valentine | RE3🧪',
-'🪖Lady HUNK🪖',
-'❄️Rosemary Winters❄️',] },
-      { heading: 'Cosplans', items: [
-'🧢???? ????????? | RE5🧢',
-'🧬???? ????????? | RE5🧬',
-'🐦‍⬛???? ????????? | RE5🐦‍⬛',
-'🚢???? ????????? | RE:R🚢',
-'🏗️???? ????????? | RE:UC🏗️',] },
-      { heading: 'Retired', items: [] },
-    ],
-  },
-},
-    { slug: 'creepypasta', name: 'Creepypasta', theme: 'creepypasta',
-      gifs: [
-        '/robbie-the-rabbit.gif',
- ],
-       top: {
-    title: 'QUICK FACTS',
-    image: '/halo.png',
-    alt: 'A short description of the picture',
-    lines: ['The text under the picture'],
-  },
-  long: {
-    title: 'COSPLAYS',
-    sections: [
-      { heading: 'Cosplays', items: [
-], },
-      { heading: 'Reworking', items: [
-'🕰️Clockwork🕰️',
-'💉Eyeless Jack💉',
-'🔦Kate the Chaser🔦',] },
-      { heading: 'Cosplans', items: [
-'🍬???????? ????🍬',
-'🌈???????? ????🌈',
-'👄?????👄',] },
-      { heading: 'Retired', items: [
-'💧BEN Drowned💧',
-'💊Hoodie💊',
-'🔪Jeff the Killer🔪',
-'🍭Laughing Jack🍭',
-'🚬Masky🚬',
-'🧸Sally Williams🧸',
-'🐻Teddy | OC🐻',
-'🌲Ticci-Toby🌲',
-      ] },
-    ],
-  },
-},
-    { slug: 'the-outlast-trials', name: 'The Outlast Trials', theme: 'outlast-trials',
-      gifs: [
-        '/robbie-the-rabbit.gif',
- ],
-       top: {
-    title: 'QUICK FACTS',
-    image: '/halo.png',
-    alt: 'A short description of the picture',
-    lines: ['The text under the picture'],
-  },
-  long: {
-    title: 'COSPLAYS',
-    sections: [
-      { heading: 'Cosplays', items: [
-], },
-      { heading: 'Reworking', items: [
-,] },
-      { heading: 'Cosplans', items: [
-'📿?????? ??????????📿',
-'🦷?????? ??????????🦷',
-'🐑???????🐑',] },
-      { heading: 'Retired', items: [] },
-    ],
-  },
-},
-    { slug: 'horror-movies', name: 'Horror Movies', theme: 'horror-movies',
-      gifs: ['/robbie-the-rabbit.gif'],
       top: {
-        title: 'QUICK FACTS',
-        image: '/horrorvhs.jpg.png',
-        alt: 'A short description of the picture',
-        lines: ['The text under the picture'],
+        title: 'QUICK LINKS',
+        links: [
+          { image: '/folder.png', title: 'Art', href: '/blog/first-post', alt: 'Art' },
+          { image: '/folder.png', title: 'Cosplays', href: '/blog/second-post', alt: 'Cosplays' },
+          { image: '/folder.png', title: 'Merch', href: '#', alt: 'Merch' },
+          { image: '/folder.png', title: 'Other', href: 'https://example.com', alt: 'Other' },
+        ],
       },
       long: {
         title: 'COSPLAYS',
         sections: [
-          { heading: 'Cosplays', items: [
-          ] },
-          { heading: 'Reworking', items: [
-'🪚Billy The Puppet🪚',
-'🎃Laurie Strode🎃',
-'📼Sadako Yamamura📼',
-'📞Sidney Prescott📞',] },
-          { heading: 'Cosplans', items: [
-'🏚️??? ????????🏚️',
-'⏱️?????? ?????⏱️',
-'⚡️????? ?? ????????????⚡️',
-'🏕️????? ?????🏕️',
-'🛏️????? ????????🛏️',] },
-          { heading: 'Retired', items: [
-'🪣Carrie White🪣',
-'👻Ghostface👻',
-'🏥Laurie Strode🏥',] },
+          { heading: 'Cosplays', items: [] },
+          {
+            heading: 'Reworking',
+            items: [
+              '📻Heather Mason📻',
+              '🩸Lisa Garland🩸',
+            ],
+          },
+          {
+            heading: 'Cosplans',
+            items: [
+              '🔥?????? ????????🔥',
+              '🔪?????? ??????🔪',
+              '👜?????? ??????👜',
+              '💋?????💋',
+              '📃???? ??????????📃',
+              '🎠?????? ?? ??????🎠',
+            ],
+          },
+          { heading: 'Retired', items: [] },
+        ],
+      },
+    },
+    {
+      slug: 'resident-evil',
+      name: 'Resident Evil',
+      theme: 'resident-evil',
+      gifs: ['/robbie-the-rabbit.gif'],
+      top: {
+        title: 'QUICK LINKS',
+        links: [
+          { image: '/folder.png', title: 'Art', href: '#', alt: 'Art' },
+          { image: '/folder.png', title: 'Cosplays', href: '#', alt: 'Cosplays' },
+          { image: '/folder.png', title: 'Merch', href: '#', alt: 'Merch' },
+          { image: '/folder.png', title: 'Other', href: '#', alt: 'Other' },
+        ],
+      },
+      long: {
+        title: 'COSPLAYS',
+        sections: [
+          { heading: 'Cosplays', items: [] },
+          {
+            heading: 'Reworking',
+            items: [
+              '⭐️Jill Valentine | RE1⭐️',
+              '🧪Jill Valentine | RE3🧪',
+              '🪖Lady HUNK🪖',
+              '❄️Rosemary Winters❄️',
+            ],
+          },
+          {
+            heading: 'Cosplans',
+            items: [
+              '🧢???? ????????? | RE5🧢',
+              '🧬???? ????????? | RE5🧬',
+              '🐦‍⬛???? ????????? | RE5🐦‍⬛',
+              '🚢???? ????????? | RER🚢',
+              '🏗️???? ????????? | REUC🏗️',
+            ],
+          },
+          { heading: 'Retired', items: [] },
+        ],
+      },
+    },
+    {
+      slug: 'creepypasta',
+      name: 'Creepypasta',
+      theme: 'creepypasta',
+      gifs: ['/robbie-the-rabbit.gif'],
+      top: {
+        title: 'QUICK LINKS',
+        links: [
+          { image: '/folder.png', title: 'Art', href: '#', alt: 'Art' },
+          { image: '/folder.png', title: 'Cosplays', href: '#', alt: 'Cosplays' },
+          { image: '/folder.png', title: 'Merch', href: '#', alt: 'Merch' },
+          { image: '/folder.png', title: 'Other', href: '#', alt: 'Other' },
+        ],
+      },
+      long: {
+        title: 'COSPLAYS',
+        sections: [
+          { heading: 'Cosplays', items: [] },
+          {
+            heading: 'Reworking',
+            items: [
+              '🕰️Clockwork🕰️',
+              '💉Eyeless Jack💉',
+              '🔦Kate the Chaser🔦',
+            ],
+          },
+          {
+            heading: 'Cosplans',
+            items: [
+              '🍬???????? ????🍬',
+              '🌈???????? ????🌈',
+              '👄?????👄',
+            ],
+          },
+          {
+            heading: 'Retired',
+            items: [
+              '💧BEN Drowned💧',
+              '💊Hoodie💊',
+              '🔪Jeff the Killer🔪',
+              '🍭Laughing Jack🍭',
+              '🚬Masky🚬',
+              '🧸Sally Williams🧸',
+              '🐻Teddy | OC🐻',
+              '🌲Ticci-Toby🌲',
+            ],
+          },
+        ],
+      },
+    },
+    {
+      slug: 'the-outlast-trials',
+      name: 'The Outlast Trials',
+      theme: 'outlast-trials',
+      gifs: ['/robbie-the-rabbit.gif'],
+      top: {
+        title: 'QUICK LINKS',
+        links: [
+          { image: '/folder.png', title: 'Art', href: '#', alt: 'Art' },
+          { image: '/folder.png', title: 'Cosplays', href: '#', alt: 'Cosplays' },
+          { image: '/folder.png', title: 'Merch', href: '#', alt: 'Merch' },
+          { image: '/folder.png', title: 'Other', href: '#', alt: 'Other' },
+        ],
+      },
+      long: {
+        title: 'COSPLAYS',
+        sections: [
+          { heading: 'Cosplays', items: [] },
+          { heading: 'Reworking', items: [] },
+          {
+            heading: 'Cosplans',
+            items: [
+              '📿?????? ??????????📿',
+              '🦷?????? ??????????🦷',
+              '🐑???????🐑',
+            ],
+          },
+          { heading: 'Retired', items: [] },
+        ],
+      },
+    },
+    {
+      slug: 'horror-movies',
+      name: 'Horror Movies',
+      theme: 'horror-movies',
+      gifs: ['/robbie-the-rabbit.gif'],
+      top: {
+        title: 'QUICK LINKS',
+        links: [
+          { image: '/folder.png', title: 'Art', href: '#', alt: 'Art' },
+          { image: '/folder.png', title: 'Cosplays', href: '#', alt: 'Cosplays' },
+          { image: '/folder.png', title: 'Merch', href: '#', alt: 'Merch' },
+          { image: '/folder.png', title: 'Other', href: '#', alt: 'Other' },
+        ],
+      },
+      long: {
+        title: 'COSPLAYS',
+        sections: [
+          { heading: 'Cosplays', items: [] },
+          {
+            heading: 'Reworking',
+            items: [
+              '🪚Billy The Puppet🪚',
+              '🎃Laurie Strode🎃',
+              '📼Sadako Yamamura📼',
+              '📞Sidney Prescott📞',
+            ],
+          },
+          {
+            heading: 'Cosplans',
+            items: [
+              '🏚️??? ????????🏚️',
+              '⏱️?????? ?????⏱️',
+              '⚡️????? ?? ????????????⚡️',
+              '🏕️????? ?????🏕️',
+              '🛏️????? ????????🛏️',
+            ],
+          },
+          {
+            heading: 'Retired',
+            items: [
+              '🪣Carrie White🪣',
+              '👻Ghostface👻',
+              '🏥Laurie Strode🏥',
+            ],
+          },
         ],
       },
     },
@@ -292,31 +349,6 @@ const long = fandom.long ?? { title: 'MORE', lines: ['Coming soon...'] };
     font-size: 0.8rem;
   }
 
-  /* Bottom panel: the list, with dashed lines between items */
-  .panel-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  .panel-list li {
-    padding: 6px 0;
-    border-bottom: 1px dashed var(--divider, #0a3a14);
-  }
-  .panel-list li:last-child {
-    border-bottom: none;
-  }
-
-  .panel-section + .panel-section {
-    margin-top: 18px;
-  }
-  .panel-section h3 {
-    margin: 0 0 6px 0;
-  }
-  .panel-empty {
-    margin: 0;
-    font-style: italic;
-    opacity: 0.7;
-  }
   /* Top square panel: a 2 x 2 grid of linked pictures with titles underneath */
   .panel-links {
     flex: 1;
@@ -361,5 +393,30 @@ const long = fandom.long ?? { title: 'MORE', lines: ['Coming soon...'] };
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  /* Bottom panel: the sections and lists, with dashed lines between items */
+  .panel-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .panel-list li {
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--divider, #0a3a14);
+  }
+  .panel-list li:last-child {
+    border-bottom: none;
+  }
+  .panel-section + .panel-section {
+    margin-top: 18px;
+  }
+  .panel-section h3 {
+    margin: 0 0 6px 0;
+  }
+  .panel-empty {
+    margin: 0;
+    font-style: italic;
+    opacity: 0.7;
   }
 </style>
