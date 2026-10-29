@@ -194,6 +194,21 @@ const long = fandom.long ?? { title: 'MORE', lines: ['Coming soon...'] };
   <div class="win98-window">
     <div class="win98-title">📁 {fandom.name.toUpperCase()}</div>
     <div class="win98-content">
+      <h3>{fandom.name}</h3>
+      <p>Cosplays, art, and collections inspired by {fandom.name}.</p>
+    </div>
+  </div>
+
+  <div class="win98-window">
+    <div class="win98-title">🗂️ POSTS</div>
+    <div class="win98-content">
+      <p>Nothing here yet... check back soon.</p>
+    </div>
+  </div>
+
+  <div slot="right" class="win98-window panel-top">
+    <div class="win98-title">{top.title}</div>
+    <div class="win98-content">
       {top.links && (
         <div class="panel-links">
           {top.links.map((link) => (
@@ -218,24 +233,8 @@ const long = fandom.long ?? { title: 'MORE', lines: ['Coming soon...'] };
       )}
       {top.lines?.map((line) => <p class="panel-caption">{line}</p>)}
     </div>
+  </div>
 
-  <div class="win98-window">
-    <div class="win98-title">🗂️ POSTS</div>
-    <div class="win98-content">
-      <p>Nothing here yet... check back soon.</p>
-    </div>
-  </div>
-  <div slot="right" class="win98-window panel-top">
-    <div class="win98-title">{top.title}</div>
-    <div class="win98-content">
-      {top.image && (
-        <div class="panel-photo-box">
-          <img class="panel-photo" src={top.image} alt={top.alt ?? ''} onerror="this.style.display='none'" />
-        </div>
-      )}
-      {top.lines?.map((line) => <p class="panel-caption">{line}</p>)}
-    </div>
-  </div>
   <div slot="right" class="win98-window">
     <div class="win98-title">{long.title}</div>
     <div class="win98-content">
@@ -243,9 +242,9 @@ const long = fandom.long ?? { title: 'MORE', lines: ['Coming soon...'] };
       {long.sections?.map((section) => (
         <div class="panel-section">
           <h3>{section.heading}</h3>
-           {section.items.filter(Boolean).length > 0 ? (
+          {section.items.filter(Boolean).length > 0 ? (
             <ul class="panel-list">
-             {section.items.filter(Boolean).map((item) => <li>{item}</li>)}
+              {section.items.filter(Boolean).map((item) => <li>{item}</li>)}
             </ul>
           ) : (
             <p class="panel-empty">None</p>
