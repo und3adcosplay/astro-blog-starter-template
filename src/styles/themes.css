@@ -309,6 +309,122 @@ body.theme-horror-movies {
   --font-body: 'Special Elite', 'Courier New', monospace;
   --font-logo: 'Butcherman', Impact, sans-serif;
 }
+/* ---------- NINTENDO (Zelda): Hyrule green, parchment and gold ---------- */
+body.theme-zelda {
+  --bg: #08140c;
+  --text: #efe6c8;
+  --muted: #a8b08a;
+  --muted-2: #c9c9a0;
+  --logo: #f0cf5a;
+  --logo-size: 5rem;
+  --logo-spacing: 6px;
+  --logo-shadow: 0 0 12px #c9a22a99, 2px 2px 4px #000000;
+  --glow-soft: #c9a22a22;
+  --header-from: #12301a;
+  --panel: #0d1f13;
+  --border: #7a6420;
+  --divider: #1f3a24;
+  --bar: #2f6b35;
+  --bar-text: #f6efd2;
+  --link: #f0d98a;
+  --hover-bg: #1d3b20;
+  --hover-text: #ffffff;
+  --badge-bg: #0f2316;
+  --badge-border: #c9a22a;
+  --badge-text: #f0d98a;
+  --font-body: 'Almendra', Georgia, serif;
+  --font-logo: 'Cinzel Decorative', Georgia, serif;
+}
+/* A thin gold double line across the top of the screen */
+body.theme-zelda::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 14px;
+  z-index: 60;
+  pointer-events: none;
+  background: linear-gradient(#e8c547 0 3px, #1f4d24 3px 11px, #e8c547 11px 14px);
+}
+
+/* ---------- ALICE: MADNESS RETURNS: moonlit Victorian, blood red and chessboard ---------- */
+body.theme-alice {
+  --bg: #08080f;
+  --text: #dfe6ee;
+  --muted: #8f9bb3;
+  --muted-2: #b5c3dc;
+  --logo: #a9cbee;
+  --logo-size: 4.5rem;
+  --logo-spacing: 3px;
+  --logo-shadow: 0 0 12px #8b0a1a, 2px 2px 0 #3a0610;
+  --glow-soft: #8b0a1a22;
+  --header-from: #14101c;
+  --panel: #0d0e18;
+  --border: #4a5a82;
+  --divider: #1f2438;
+  --bar: #7a0f1a;
+  --bar-text: #f1f5fb;
+  --link: #a9cbee;
+  --hover-bg: #1b1f35;
+  --hover-text: #ffffff;
+  --badge-bg: #0d0e18;
+  --badge-border: #7a0f1a;
+  --badge-text: #a9cbee;
+  --font-body: 'IM Fell English', Georgia, serif;
+  --font-logo: 'Jolly Lodger', Georgia, serif;
+}
+/* A chessboard strip across the top of the screen */
+body.theme-alice::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 26px;
+  z-index: 60;
+  pointer-events: none;
+  background: repeating-conic-gradient(#08080f 0% 25%, #dfe6ee 0% 50%) 0 0 / 26px 26px;
+}
+
+/* ---------- MARVEL: comic-book red, white and halftone dots ---------- */
+body.theme-marvel {
+  --bg: #0b0b0e;
+  --text: #f2f2f2;
+  --muted: #a0a0a8;
+  --muted-2: #c8c8d0;
+  --logo: #ffffff;
+  --logo-size: 5.5rem;
+  --logo-spacing: 6px;
+  --logo-shadow: 4px 4px 0 #e62429;
+  --glow-soft: #e6242922;
+  --header-from: #1a0a0b;
+  --panel: #111116;
+  --border: #8c1317;
+  --divider: #26262e;
+  --bar: #e62429;
+  --bar-text: #ffffff;
+  --link: #ffffff;
+  --hover-bg: #8c1317;
+  --hover-text: #ffffff;
+  --badge-bg: #111116;
+  --badge-border: #e62429;
+  --badge-text: #ffffff;
+  --font-body: 'Comic Neue', 'Comic Sans MS', sans-serif;
+  --font-logo: 'Bangers', Impact, sans-serif;
+}
+/* A band of comic halftone dots across the top of the screen */
+body.theme-marvel::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 18px;
+  z-index: 60;
+  pointer-events: none;
+  background: radial-gradient(circle, #e62429 30%, transparent 32%) 0 0 / 9px 9px, #000000;
+}
 /* A strip of film reel across the top of the screen */
 body.theme-horror-movies::before {
   content: "";
