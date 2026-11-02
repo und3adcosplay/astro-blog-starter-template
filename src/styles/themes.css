@@ -247,11 +247,11 @@ body.theme-creepypasta .header-logo {
 
 /* ---------- THE OUTLAST TRIALS: grimy corporate yellow and caution tape ---------- */
 body.theme-outlast-trials {
-  --bg: #204732;
-  --text: #efe6cf;
-  --muted: #a89d82;
-  --muted-2: #c9bd9f;
-  --logo: #f2b01e;
+  --bg: #14160a;
+  --text: #939975;
+  --muted: #939975;
+  --muted-2: #939975;
+  --logo: #939975;
   --logo-size: 5rem;
   --logo-spacing: 5px;
   --logo-shadow: 3px 3px 0 #5a3a00, 0 0 12px #b86a0066;
