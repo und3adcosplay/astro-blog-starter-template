@@ -255,12 +255,12 @@ body.theme-outlast-trials {
   --logo-size: 5rem;
   --logo-spacing: 5px;
   --logo-shadow: 3px 3px 0 #5a3a00, 0 0 12px #b86a0066;
-  --glow-soft: #f2b01e22;
+  --glow-soft: #7e7f53;
   --header-from: #2a2410;
   --panel: #204430;
   --border: #204430;
   --divider: #204430;
-  --bar: #c98a10;
+  --bar: #204430;
   --bar-text: #14130f;
   --link: #f2b01e;
   --hover-bg: #3a2e0c;
