@@ -236,6 +236,78 @@ export function getStaticPaths() {
         ],
       },
     },
+    {
+      slug: 'nintendo',
+      name: 'Nintendo',
+      theme: 'zelda',
+      gifs: ['/robbie-the-rabbit.gif'],
+      top: {
+        title: 'QUICK LINKS',
+        links: [
+          { image: '/folder.png', title: 'Art', href: '#', alt: 'Art' },
+          { image: '/folder.png', title: 'Cosplays', href: '#', alt: 'Cosplays' },
+          { image: '/folder.png', title: 'Merch', href: '#', alt: 'Merch' },
+          { image: '/folder.png', title: 'Other', href: '#', alt: 'Other' },
+        ],
+      },
+      long: {
+        title: 'COSPLAYS',
+        sections: [
+          { heading: 'Cosplays', items: [] },
+          { heading: 'Reworking', items: [] },
+          { heading: 'Cosplans', items: [] },
+          { heading: 'Retired', items: [] },
+        ],
+      },
+    },
+    {
+      slug: 'alice-madness-returns',
+      name: 'Alice: Madness Returns',
+      theme: 'alice',
+      gifs: ['/robbie-the-rabbit.gif'],
+      top: {
+        title: 'QUICK LINKS',
+        links: [
+          { image: '/folder.png', title: 'Art', href: '#', alt: 'Art' },
+          { image: '/folder.png', title: 'Cosplays', href: '#', alt: 'Cosplays' },
+          { image: '/folder.png', title: 'Merch', href: '#', alt: 'Merch' },
+          { image: '/folder.png', title: 'Other', href: '#', alt: 'Other' },
+        ],
+      },
+      long: {
+        title: 'COSPLAYS',
+        sections: [
+          { heading: 'Cosplays', items: [] },
+          { heading: 'Reworking', items: [] },
+          { heading: 'Cosplans', items: [] },
+          { heading: 'Retired', items: [] },
+        ],
+      },
+    },
+    {
+      slug: 'marvel',
+      name: 'Marvel',
+      theme: 'marvel',
+      gifs: ['/robbie-the-rabbit.gif'],
+      top: {
+        title: 'QUICK LINKS',
+        links: [
+          { image: '/folder.png', title: 'Art', href: '#', alt: 'Art' },
+          { image: '/folder.png', title: 'Cosplays', href: '#', alt: 'Cosplays' },
+          { image: '/folder.png', title: 'Merch', href: '#', alt: 'Merch' },
+          { image: '/folder.png', title: 'Other', href: '#', alt: 'Other' },
+        ],
+      },
+      long: {
+        title: 'COSPLAYS',
+        sections: [
+          { heading: 'Cosplays', items: [] },
+          { heading: 'Reworking', items: [] },
+          { heading: 'Cosplans', items: [] },
+          { heading: 'Retired', items: [] },
+        ],
+      },
+    },
   ];
   return fandoms.map((fandom) => ({
     params: { slug: fandom.slug },
