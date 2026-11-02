@@ -257,7 +257,7 @@ body.theme-outlast-trials {
   --logo-shadow: 3px 3px 0 #5a3a00, 0 0 12px #b86a0066;
   --glow-soft: #f2b01e22;
   --header-from: #2a2410;
-  --panel: #1b1912;
+  --panel: #204430;
   --border: #204430;
   --divider: #204430;
   --bar: #c98a10;
@@ -270,18 +270,6 @@ body.theme-outlast-trials {
   --badge-text: #f2d48a;
   --font-body: 'Courier Prime', 'Courier New', monospace;
   --font-logo: 'Bungee', Impact, sans-serif;
-}
-/* Caution tape across the top of the screen */
-body.theme-outlast-trials::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 16px;
-  z-index: 60;
-  pointer-events: none;
-  background: repeating-linear-gradient(45deg, #f2b01e 0 14px, #14130f 14px 28px);
 }
 /* ---------- HORROR MOVIES: aged VHS, grindhouse poster and film reel ---------- */
 body.theme-horror-movies {
