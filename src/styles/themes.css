@@ -248,7 +248,7 @@ body.theme-creepypasta .header-logo {
 /* ---------- THE OUTLAST TRIALS: grimy corporate yellow and caution tape ---------- */
 body.theme-outlast-trials {
   --bg: #14160a;
-  --text: #9a9c6d;
+  --text: #ffffff;
   --muted: #939975;
   --muted-2: #939975;
   --logo: #9a9c6d;
@@ -257,9 +257,9 @@ body.theme-outlast-trials {
   --logo-shadow: 0 0 6px #9c9965, 0 0 14px #9c9965, 0 0 40px #9c9965;
   --glow-soft: transparent;
   --header-from: #000000;
-  --panel: #204430;
-  --border: #204430;
-  --divider: #204430;
+  --panel: #9a9c6d;
+  --border: #9a9c6d;
+  --divider: #9a9c6d;
   --bar: #204430;
   --bar-text: #14130f;
   --link: #f2b01e;
