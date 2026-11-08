@@ -81,7 +81,7 @@ body.theme-silent-hill {
   --logo: #e0b122;
   --logo-size: 5rem;
   --logo-spacing: 5px;
-  --logo-shadow: 0 0 10px #000000, 2px 2px 4px #f27029;
+  --logo-shadow: 0 0 10px #f27029, 2px 2px 4px #000000;
   --glow-soft: #7a2e1433;
   --header-from: #485441;
   --panel: #2d4a3a;
@@ -236,7 +236,7 @@ body.theme-creepypasta {
   --logo: #e6141d;
   --logo-size: 6rem;
   --logo-spacing: 5px;
-  --logo-shadow: 0 0 10px #ff0000c, -3px 0 #ffffff;
+  --logo-shadow: 0 0 10px #ffffffc, -3px 0 #ff0000;
   --glow-soft: #ffffff14;
   --header-from: #121212;
   --panel: #090909;
