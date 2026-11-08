@@ -236,7 +236,7 @@ body.theme-creepypasta {
   --logo: #e6141d;
   --logo-size: 6rem;
   --logo-spacing: 5px;
-  --logo-shadow: 0 0 10px #ffffff, -3px 0 #e6141d;
+  --logo-shadow: 0 0 10px #000000, -3px 0 #5c070c;
   --glow-soft: #ffffff14;
   --header-from: #121212;
   --panel: #090909;
