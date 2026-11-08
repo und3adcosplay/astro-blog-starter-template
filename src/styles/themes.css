@@ -236,12 +236,12 @@ body.theme-creepypasta {
   --logo: #e6141d;
   --logo-size: 6rem;
   --logo-spacing: 5px;
-  --logo-shadow: 0 0 10px #ffffffc, -3px 0 #ff0000;
+  --logo-shadow: 0 0 10px #ffffff, -3px 0 #ffffff;
   --glow-soft: #ffffff14;
   --header-from: #121212;
   --panel: #090909;
   --border: #e6141d;
-  --divider: #e6141d;
+  --divider: #ffffff;
   --bar: #1d1d1d;
   --bar-text: #f12c22;
   --link: #e8e8e8;
