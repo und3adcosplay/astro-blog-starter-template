@@ -234,7 +234,7 @@ body.theme-creepypasta {
   --muted: #8a8a8a;
   --muted-2: #b0b0b0;
   --logo: #e6141d;
-  --logo-size: 7rem;
+  --logo-size: 6rem;
   --logo-spacing: 5px;
   --logo-shadow: 0 0 10px #000000, -3px 0 #ffffff;
   --glow-soft: #ffffff14;
@@ -250,7 +250,7 @@ body.theme-creepypasta {
   --badge-bg: #0b0b0b;
   --badge-border: #8a0000;
   --badge-text: #e8e8e8;
-  --font-body: 'Syne Mono', 'Courier New', monospace;
+  --font-body: 'Rubik Glitch', 'Courier New', monospace;
   --font-logo: 'Creepster', Impact, sans-serif;
 }
 /* Old-TV scanlines */
