@@ -141,7 +141,7 @@ body.theme-silent-hill::after {
 
 /* ---------- RESIDENT EVIL ---------- */
 body.theme-resident-evil {
-  --bg: #141940;
+  --bg: #40596d;
   --text: #e6e6e6;
   --muted: #9a9a9a;
   --muted-2: #c4c4c4;
@@ -153,9 +153,9 @@ body.theme-resident-evil {
   --glow-soft: #000000;
   --header-from: #1c0507;
   --panel: #101010;
-  --border: #c9b30c;
-  --divider: #c9b30c;
-  --bar: #c9b30c;
+  --border: #6f7275;
+  --divider: #6f7275;
+  --bar: #6f7275;
   --bar-text: #ffffff;
   --link: #ff5257;
   --hover-bg: #3a0c0f;
