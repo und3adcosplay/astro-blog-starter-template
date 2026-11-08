@@ -155,7 +155,7 @@ body.theme-resident-evil {
   --panel: #101010;
   --border: #40596d;
   --divider: #40596d;
-  --bar: #40596d;
+  --bar: #2d3141;
   --bar-text: #ffffff;
   --link: #ff5257;
   --hover-bg: #3a0c0f;
@@ -169,7 +169,7 @@ body.theme-resident-evil {
 /* RESIDENT EVIL banner: a weathered city welcome sign */
 body.themed.theme-resident-evil #mainHeader {
   --sign: #1f4a33;
-  --sign-edge: #f1ead2;
+  --sign-edge: #cdad4c;
   background:
     radial-gradient(circle at 16px 16px, #d8ddd8 0 3px, #566058 3px 5px, transparent 5.5px),
     radial-gradient(circle at calc(100% - 16px) 16px, #d8ddd8 0 3px, #566058 3px 5px, transparent 5.5px),
