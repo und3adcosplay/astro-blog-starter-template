@@ -234,7 +234,7 @@ body.theme-creepypasta {
   --muted: #8a8a8a;
   --muted-2: #b0b0b0;
   --logo: #e6141d;
-  --logo-size: 5rem;
+  --logo-size: 7rem;
   --logo-spacing: 5px;
   --logo-shadow: 0 0 10px #000000, -3px 0 #ffffff;
   --glow-soft: #ffffff14;
@@ -252,13 +252,6 @@ body.theme-creepypasta {
   --badge-text: #e8e8e8;
   --font-body: 'Syne Mono', 'Courier New', monospace;
   --font-logo: 'Creepster', Impact, sans-serif;
-}
-/* This font runs small, so bump the text up a little */
-body.theme-creepypasta .win98-content {
-  font-size: 1.15rem;
-}
-body.theme-creepypasta .win98-menu li a {
-  font-size: 1.1rem;
 }
 /* Old-TV scanlines */
 body.theme-creepypasta::before {
