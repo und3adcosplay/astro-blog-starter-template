@@ -165,18 +165,6 @@ body.theme-resident-evil {
   --font-body: 'Share Tech Mono', 'Courier New', monospace;
   --font-logo: 'Black Ops One', Impact, sans-serif;
 }
-/* Red and white band across the top of the screen */
-body.theme-resident-evil::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 14px;
-  z-index: 60;
-  pointer-events: none;
-  background: linear-gradient(#e11b22 0 10px, #ffffff 10px 12px, #e11b22 12px 14px);
-}
 
 /* ---------- CREEPYPASTA ---------- */
 body.theme-creepypasta {
