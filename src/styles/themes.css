@@ -72,7 +72,7 @@ body.themed .drip-bar {
   display: none;
 }
 
-/* ---------- SILENT HILL: fog, rust and sepia ---------- */
+/* ---------- SILENT HILL ---------- */
 body.theme-silent-hill {
   --bg: #948ba0;
   --text: #ffffff;
@@ -139,9 +139,9 @@ body.theme-silent-hill::after {
   to { transform: translateX(4%); }
 }
 
-/* ---------- RESIDENT EVIL: Umbrella red, white and clinical black ---------- */
+/* ---------- RESIDENT EVIL ---------- */
 body.theme-resident-evil {
-  --bg: #080808;
+  --bg: #141940;
   --text: #e6e6e6;
   --muted: #9a9a9a;
   --muted-2: #c4c4c4;
@@ -178,7 +178,7 @@ body.theme-resident-evil::before {
   background: linear-gradient(#e11b22 0 10px, #ffffff 10px 12px, #e11b22 12px 14px);
 }
 
-/* ---------- CREEPYPASTA: static, scanlines and glitch ---------- */
+/* ---------- CREEPYPASTA ---------- */
 body.theme-creepypasta {
   --bg: #040404;
   --text: #dcdcdc;
@@ -245,7 +245,7 @@ body.theme-creepypasta .header-logo {
   }
 }
 
-/* ---------- THE OUTLAST TRIALS: grimy corporate yellow and caution tape ---------- */
+/* ---------- THE OUTLAST TRIALS ---------- */
 body.theme-outlast-trials {
   --bg: #14160a;
   --text: #ffffff;
@@ -271,7 +271,7 @@ body.theme-outlast-trials {
   --font-body: 'Courier Prime', 'Courier New', monospace;
   --font-logo: 'Bungee', Impact, sans-serif;
 }
-/* ---------- HORROR MOVIES: aged VHS, grindhouse poster and film reel ---------- */
+/* ---------- HORROR MOVIES ---------- */
 body.theme-horror-movies {
   --bg: #0b0a0a;
   --text: #ece4d0;
@@ -297,7 +297,7 @@ body.theme-horror-movies {
   --font-body: 'Special Elite', 'Courier New', monospace;
   --font-logo: 'Butcherman', Impact, sans-serif;
 }
-/* ---------- NINTENDO (Zelda): Hyrule green, parchment and gold ---------- */
+/* ---------- NINTENDO ---------- */
 body.theme-zelda {
   --bg: #08140c;
   --text: #efe6c8;
@@ -336,7 +336,7 @@ body.theme-zelda::before {
   background: linear-gradient(#e8c547 0 3px, #1f4d24 3px 11px, #e8c547 11px 14px);
 }
 
-/* ---------- ALICE: MADNESS RETURNS: moonlit Victorian, blood red and chessboard ---------- */
+/* ---------- ALICE: MADNESS RETURNS ---------- */
 body.theme-alice {
   --bg: #08080f;
   --text: #dfe6ee;
@@ -375,7 +375,7 @@ body.theme-alice::before {
   background: repeating-conic-gradient(#08080f 0% 25%, #dfe6ee 0% 50%) 0 0 / 26px 26px;
 }
 
-/* ---------- MARVEL: comic-book red, white and halftone dots ---------- */
+/* ---------- MARVEL ---------- */
 body.theme-marvel {
   --bg: #0b0b0e;
   --text: #f2f2f2;
