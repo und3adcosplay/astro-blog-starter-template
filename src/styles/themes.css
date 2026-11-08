@@ -146,7 +146,7 @@ body.theme-resident-evil {
   --muted: #9a9a9a;
   --muted-2: #c4c4c4;
   --logo: #f60000;
-  --logo-size: clamp(2rem, 5vw, 4rem);
+  --logo-size: 5rem;
   --logo-spacing: 5px;
   --logo-shadow: 2px 2px 0 rgba(0, 0, 0, 0.45);
   --font-logo: 'Overpass', Impact, sans-serif;
@@ -155,7 +155,7 @@ body.theme-resident-evil {
   --panel: #101010;
   --border: #40596d;
   --divider: #40596d;
-  --bar: #2d3141;
+  --bar: #939999;
   --bar-text: #ffffff;
   --link: #ff5257;
   --hover-bg: #3a0c0f;
