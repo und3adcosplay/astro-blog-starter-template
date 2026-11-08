@@ -148,14 +148,14 @@ body.theme-resident-evil {
   --logo: #f60000;
   --logo-size: 5rem;
   --logo-spacing: 5px;
-  --logo-shadow: 2px 2px 0 rgba(0, 0, 0, 0.45);
+  --logo-shadow: 5px 5px 0 rgba(0, 0, 0, 0.45);
   --font-logo: 'Overpass', Impact, sans-serif;
   --glow-soft: #000000;
   --header-from: #1c0507;
   --panel: #101010;
   --border: #40596d;
   --divider: #40596d;
-  --bar: #939999;
+  --bar: #4f6678;
   --bar-text: #ffffff;
   --link: #ff5257;
   --hover-bg: #3a0c0f;
@@ -198,7 +198,7 @@ body.theme-creepypasta {
   --logo: #f2f2f2;
   --logo-size: 5rem;
   --logo-spacing: 5px;
-  --logo-shadow: 3px 0 #ff0033, -3px 0 #00e5ff;
+  --logo-shadow: 0 0 10px #ff0033, -3px 0 #00e5ff;
   --glow-soft: #ffffff14;
   --header-from: #121212;
   --panel: #090909;
