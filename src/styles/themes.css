@@ -236,7 +236,7 @@ body.theme-creepypasta {
   --logo: #f12c22;
   --logo-size: 5rem;
   --logo-spacing: 5px;
-  --logo-shadow: 0 0 10px #ff0033, -3px 0 #00e5ff;
+  --logo-shadow: 0 0 10px #ffffff, -3px 0 #ffffff;
   --glow-soft: #ffffff14;
   --header-from: #121212;
   --panel: #090909;
@@ -250,7 +250,7 @@ body.theme-creepypasta {
   --badge-bg: #0b0b0b;
   --badge-border: #8a0000;
   --badge-text: #e8e8e8;
-  --font-body: 'VT323', 'Courier New', monospace;
+  --font-body: 'Rubik Glitch', 'Courier New', monospace;
   --font-logo: 'Creepster', Impact, sans-serif;
 }
 /* This font runs small, so bump the text up a little */
