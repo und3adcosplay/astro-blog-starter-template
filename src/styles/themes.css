@@ -230,18 +230,18 @@ body.themed.theme-resident-evil .header-logo {
 /* ---------- CREEPYPASTA ---------- */
 body.theme-creepypasta {
   --bg: #040404;
-  --text: #dcdcdc;
+  --text: #e6141d;
   --muted: #8a8a8a;
   --muted-2: #b0b0b0;
-  --logo: #f12c22;
+  --logo: #e6141d;
   --logo-size: 5rem;
   --logo-spacing: 5px;
-  --logo-shadow: 0 0 10px #ffffff, -3px 0 #ffffff;
+  --logo-shadow: 0 0 10px #000000, -3px 0 #ffffff;
   --glow-soft: #ffffff14;
   --header-from: #121212;
   --panel: #090909;
-  --border: #3a3a3a;
-  --divider: #1c1c1c;
+  --border: #e6141d;
+  --divider: #e6141d;
   --bar: #1d1d1d;
   --bar-text: #f12c22;
   --link: #e8e8e8;
@@ -250,7 +250,7 @@ body.theme-creepypasta {
   --badge-bg: #0b0b0b;
   --badge-border: #8a0000;
   --badge-text: #e8e8e8;
-  --font-body: 'Rubik Glitch', 'Courier New', monospace;
+  --font-body: 'Syne Mono', 'Courier New', monospace;
   --font-logo: 'Creepster', Impact, sans-serif;
 }
 /* This font runs small, so bump the text up a little */
