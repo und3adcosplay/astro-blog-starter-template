@@ -145,10 +145,11 @@ body.theme-resident-evil {
   --text: #e6e6e6;
   --muted: #9a9a9a;
   --muted-2: #c4c4c4;
-  --logo: #ffffff;
-  --logo-size: 5rem;
+  --logo: #f6f1dc;
+  --logo-size: clamp(2rem, 5vw, 4rem);
   --logo-spacing: 5px;
-  --logo-shadow: 0 0 8px #e11b22, 3px 3px 0 #7a0a0e;
+  --logo-shadow: 2px 2px 0 rgba(0, 0, 0, 0.45);
+  --font-logo: 'Overpass', Impact, sans-serif;
   --glow-soft: #e11b2233;
   --header-from: #1c0507;
   --panel: #101010;
@@ -164,6 +165,28 @@ body.theme-resident-evil {
   --badge-text: #ffb3b5;
   --font-body: 'Share Tech Mono', 'Courier New', monospace;
   --font-logo: 'Black Ops One', Impact, sans-serif;
+}
+/* RESIDENT EVIL banner: a weathered city welcome sign */
+body.themed.theme-resident-evil #mainHeader {
+  --sign: #1f4a33;
+  --sign-edge: #f1ead2;
+  background:
+    radial-gradient(circle at 16px 16px, #d8ddd8 0 3px, #566058 3px 5px, transparent 5.5px),
+    radial-gradient(circle at calc(100% - 16px) 16px, #d8ddd8 0 3px, #566058 3px 5px, transparent 5.5px),
+    radial-gradient(circle at 16px calc(100% - 16px), #d8ddd8 0 3px, #566058 3px 5px, transparent 5.5px),
+    radial-gradient(circle at calc(100% - 16px) calc(100% - 16px), #d8ddd8 0 3px, #566058 3px 5px, transparent 5.5px),
+    linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4) 100%),
+    var(--sign);
+  border: 3px solid #0b1710;
+  box-shadow:
+    inset 0 0 0 7px var(--sign),
+    inset 0 0 0 10px var(--sign-edge),
+    4px 4px 0 #000000;
+  padding: 55px 40px;
+}
+body.theme-resident-evil .header-logo {
+  font-weight: 800;
+  text-transform: uppercase;
 }
 
 /* ---------- CREEPYPASTA ---------- */
