@@ -182,7 +182,7 @@ body.themed.theme-resident-evil #mainHeader {
    inset 0 0 0 10px var(--sign-edge),
    4px 4px 0 #000000;
   padding: 55px 40px;
-  width: min(100%, 760px);
+  length: min(100%, 760px);
   margin: 0 auto 15px auto;
 }
 
