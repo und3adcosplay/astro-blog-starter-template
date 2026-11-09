@@ -109,6 +109,7 @@ body.theme-silent-hill #mainHeader {
     inset 0 0 0 7px #2d4a3a,
     inset 0 0 0 10px #e0b122,
     4px 4px 0 #000000;
+    padding: 22px 40px;
   position: relative;
   z-index: 50;
 }
