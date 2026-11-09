@@ -99,6 +99,7 @@ body.theme-silent-hill {
   --font-logo: 'IM Fell English SC', Georgia, serif;
 }
 body.theme-silent-hill .header-logo {
+  text-transform: uppercase;
   line-height: 1;
   padding-top: 0.14em;
   padding-left: var(--logo-spacing);
