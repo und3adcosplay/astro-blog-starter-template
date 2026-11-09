@@ -168,8 +168,8 @@ body.theme-resident-evil {
 }
 
 body.themed.theme-resident-evil #mainHeader {
-  --sign-green: #6c7375;
-  --sign-pale: #d9c5ce;
+  --sign-green: #233b3b;
+  --sign-pale: #769091;
   display: flex;
   align-items: center;
   justify-content: center;
