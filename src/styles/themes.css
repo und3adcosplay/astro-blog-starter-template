@@ -477,7 +477,3 @@ body.themed #siteFooter footer {
    body.themed .terminal-marquee::after {
      background: var(--border);
    }
-body.themed.theme-resident-evil #mainHeader {
-  border: 2px solid #f5f5f5 !important;
-  border-radius: 0 !important;
-}
