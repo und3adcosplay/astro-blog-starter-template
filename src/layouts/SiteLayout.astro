@@ -122,7 +122,12 @@ const themeFontUrl = theme ? themeFonts[theme] : undefined;
     #mainHeader {
       border: 2px solid #0d4a1b;
       background: linear-gradient(180deg, #031a07 0%, #000000 100%);
-      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 190px;
+      padding: 0 20px;
       text-align: center;
       position: relative;
       margin-bottom: 15px;
@@ -148,6 +153,13 @@ const themeFontUrl = theme ? themeFonts[theme] : undefined;
     .header-welcome {
       font-style: italic;
       color: #72a37d;
+    }
+    @media (max-width: 850px) {
+      #mainHeader {
+        height: auto;
+        min-height: 190px;
+        padding: 20px;
+      }
     }
 
     /* ---------- Scrolling strip ---------- */
