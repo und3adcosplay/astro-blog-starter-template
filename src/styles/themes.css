@@ -141,7 +141,7 @@ body.theme-silent-hill::after {
 
 /* ---------- RESIDENT EVIL ---------- */
 body.theme-resident-evil {
-  --bg: #0c161c;
+  --bg: #000000;
   --text: #e6e6e6;
   --muted: #9a9a9a;
   --muted-2: #c4c4c4;
@@ -168,7 +168,7 @@ body.theme-resident-evil {
 }
 body.themed.theme-resident-evil #mainHeader {
  --sign: #1f4a33;
- --sign-edge: #cdad4c;
+ --sign-edge: #d7dcd7;
  background:
    radial-gradient(circle at 16px 16px, #d8ddd8 0 3px, #566058 3px 5px, transparent 5.5px),
    radial-gradient(circle at calc(100% - 16px) 16px, #d8ddd8 0 3px, #566058 3px 5px, transparent 5.5px),
