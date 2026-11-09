@@ -109,7 +109,6 @@ body.theme-silent-hill #mainHeader {
     inset 0 0 0 7px #2d4a3a,
     inset 0 0 0 10px #e0b122,
     4px 4px 0 #000000;
-    padding: 22px 40px;
   position: relative;
   z-index: 50;
 }
@@ -440,7 +439,7 @@ body.themed .header-tagline {
   display: none;
 }
 body.themed #mainHeader {
-  padding: 45px 20px;
+  padding: 0 20px;
 }
 /* The left menu looks the same on every page and theme:
    black backdrop, original green border, lettering and font */
