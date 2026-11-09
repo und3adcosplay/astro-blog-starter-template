@@ -103,7 +103,6 @@ body.theme-silent-hill .header-logo {
   padding-top: 0.14em;
   padding-left: var(--logo-spacing);
 }
-}
 /* Silent Hill: the banner becomes a solid road-sign board, above the fog */
 body.theme-silent-hill #mainHeader {
   background: #2d4a3a;
