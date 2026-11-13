@@ -1,1 +1,106 @@
+---
+// A content warning shown before visitors enter the site.
+// Change the words in the box below, or the address the LEAVE button goes to.
+const leaveUrl = 'https://www.google.com';
+---
 
+<!-- If this visitor already clicked ENTER, hide the warning before it can appear -->
+<script is:inline>
+  try {
+    if (sessionStorage.getItem('entry-ok') === 'yes') {
+      document.documentElement.classList.add('entry-ok');
+    }
+  } catch (e) {}
+</script>
+
+<div id="entry-warning" role="dialog" aria-modal="true" aria-labelledby="entry-title">
+  <div class="win98-window entry-box">
+    <div class="win98-title">⚠️ WARNING.TXT</div>
+    <div class="win98-content">
+      <h2 id="entry-title">Before you enter...</h2>
+      <p>
+        This site is full of horror: <strong>blood and gore imagery, creepy themes, and flashing or flickering effects.</strong>
+      </p>
+      <p>
+        It may not be for everyone, including anyone sensitive to flashing lights. Only continue if you're comfortable with that.
+      </p>
+      <div class="entry-buttons">
+        <button id="entry-enter" class="entry-button" type="button">ENTER</button>
+        <a class="entry-button leave" href={leaveUrl} rel="noopener noreferrer">LEAVE</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Without JavaScript the button couldn't work, so don't show the warning at all -->
+<noscript><style>#entry-warning { display: none !important; }</style></noscript>
+
+<script is:inline>
+  (function () {
+    var button = document.getElementById('entry-enter');
+    if (!button) return;
+    button.addEventListener('click', function () {
+      try { sessionStorage.setItem('entry-ok', 'yes'); } catch (e) {}
+      document.documentElement.classList.add('entry-ok');
+    });
+    button.focus();
+  })();
+</script>
+
+<style is:global>
+  #entry-warning {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.94);
+  }
+  html.entry-ok #entry-warning {
+    display: none;
+  }
+  .entry-box {
+    width: min(100%, 520px);
+    margin: 0;
+  }
+  .entry-box h2 {
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #ff1a1a;
+  }
+  .entry-box p {
+    margin: 0 0 12px 0;
+  }
+  .entry-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .entry-button {
+    padding: 8px 22px;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: #88ffaa;
+    background: #051a09;
+    border: 1px solid #00ff66;
+    box-shadow: 2px 2px 0 #000000;
+    cursor: pointer;
+  }
+  .entry-button:hover,
+  .entry-button:focus-visible {
+    background: #0d4a1b;
+    color: #ffffff;
+  }
+  .entry-button.leave {
+    color: #8a8a8a;
+    border-color: #3a3a3a;
+  }
+</style>
