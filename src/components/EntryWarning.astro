@@ -13,7 +13,7 @@ const leaveUrl = 'https://www.google.com';
   } catch (e) {}
 </script>
 
-<div id="entry-warning" role="dialog" aria-modal="true" aria-labelledby="entry-title">
+<div id="entry-warning" role="dialog" aria-labelledby="entry-title">
   <div class="win98-window entry-box">
     <div class="win98-title">⚠️ WARNING.TXT</div>
     <div class="win98-content">
@@ -37,12 +37,26 @@ const leaveUrl = 'https://www.google.com';
 
 <script is:inline>
   (function () {
+    var warning = document.getElementById('entry-warning');
     var button = document.getElementById('entry-enter');
-    if (!button) return;
-    button.addEventListener('click', function () {
+    if (!warning || !button) return;
+
+    function enterSite() {
       try { sessionStorage.setItem('entry-ok', 'yes'); } catch (e) {}
       document.documentElement.classList.add('entry-ok');
-    });
+      // Take the warning out of the page completely so it can never block clicks
+      warning.remove();
+    }
+
+    button.addEventListener('click', enterSite);
+
+    // A visitor who already entered doesn't need the warning in the page at all
+    try {
+      if (sessionStorage.getItem('entry-ok') === 'yes') {
+        warning.remove();
+      }
+    } catch (e) {}
+
     button.focus();
   })();
 </script>
@@ -59,7 +73,8 @@ const leaveUrl = 'https://www.google.com';
     background: rgba(0, 0, 0, 0.94);
   }
   html.entry-ok #entry-warning {
-    display: none;
+    display: none !important;
+    pointer-events: none !important;
   }
   .entry-box {
     width: min(100%, 520px);
