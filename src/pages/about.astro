@@ -44,7 +44,8 @@ import SiteLayout from '../layouts/SiteLayout.astro';
   <div class="win98-window">
     <div class="win98-title">BIO.txt</div>
     <div class="win98-content">
-      <h3>Who is UND3AD._COSPLAY?</h3>
+        <h1 class="bio-title">Who is UND3AD._COSPLAY?</h1>
+        <hr class="bio-divider" />
       <p>Welcome to the "about me" page! As you may already know, I am a cosplayer, artist, and big Horror fan.</p>
       <p>I’ve been dressing up and crafting for as long as I can remember. Making costumes by hand is always challenging and I’m constantly learning new things. 
 Growing up, I had a passion to become an animator and tell the stories of the characters I made up, but I actually found that my real passion led me to become a cosplayer back in 2018.
@@ -234,5 +235,20 @@ I have a spinal condition. Without going into much detail, it was a bad habit th
     display: flex;
     flex-direction: column;
     justify-content: center;
+  }
+  /* Same title look as the blog entries: glowing Creepster lettering, then a dashed line */
+  .bio-title {
+    font-family: 'Creepster', 'Jolly Lodger', sans-serif;
+    font-size: 2.2rem;
+    font-weight: normal;
+    letter-spacing: 2px;
+    color: #00ff66;
+    text-shadow: 0 0 4px #00ff66, 0 0 10px #00ff66;
+    margin: 0 0 10px 0;
+  }
+  .bio-divider {
+    border: none;
+    border-top: 2px dashed #0d4a1b;
+    margin: 12px 0;
   }
 </style>
