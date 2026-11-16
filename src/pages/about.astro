@@ -214,4 +214,25 @@ I have a spinal condition. Without going into much detail, it was a bad habit th
   .info-list li {
     font-size: 1rem;
   }
+  /* Make the rows spread evenly through the Basic Info and Hobbies panels */
+  .square .win98-content,
+  .favorites .win98-content {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .info-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+  .info-list > div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 </style>
