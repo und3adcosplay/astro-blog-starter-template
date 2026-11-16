@@ -4,16 +4,9 @@
 const leaveUrl = 'https://www.google.com';
 ---
 
-<!-- If this visitor already clicked ENTER, hide the warning before it can appear -->
-<script is:inline>
-  try {
-    if (sessionStorage.getItem('entry-ok') === 'yes') {
-      document.documentElement.classList.add('entry-ok');
-    }
-  } catch (e) {}
-</script>
-
-<div id="entry-warning" role="dialog" aria-labelledby="entry-title">
+<!-- A built-in browser "dialog" box: it is hidden until the script below opens it,
+     and ENTER closes it for good. If anything ever goes wrong, the site stays usable. -->
+<dialog id="entry-warning" aria-labelledby="entry-title">
   <div class="win98-window entry-box">
     <div class="win98-title">⚠️ WARNING.TXT</div>
     <div class="win98-content">
@@ -30,54 +23,47 @@ const leaveUrl = 'https://www.google.com';
       </div>
     </div>
   </div>
-</div>
-
-<!-- Without JavaScript the button couldn't work, so don't show the warning at all -->
-<noscript><style>#entry-warning { display: none !important; }</style></noscript>
+</dialog>
 
 <script is:inline>
   (function () {
-    var warning = document.getElementById('entry-warning');
+    var dialog = document.getElementById('entry-warning');
     var button = document.getElementById('entry-enter');
-    if (!warning || !button) return;
+    if (!dialog || !button || typeof dialog.showModal !== 'function') return;
 
-    function enterSite() {
-      try { sessionStorage.setItem('entry-ok', 'yes'); } catch (e) {}
-      document.documentElement.classList.add('entry-ok');
-      // Take the warning out of the page completely so it can never block clicks
-      warning.remove();
-    }
-
-    button.addEventListener('click', enterSite);
-
-    // A visitor who already entered doesn't need the warning in the page at all
+    // Visitors who already clicked ENTER during this visit don't see it again
     try {
-      if (sessionStorage.getItem('entry-ok') === 'yes') {
-        warning.remove();
-      }
+      if (sessionStorage.getItem('entry-ok') === 'yes') return;
     } catch (e) {}
 
-    button.focus();
+    button.addEventListener('click', function () {
+      try { sessionStorage.setItem('entry-ok', 'yes'); } catch (e) {}
+      dialog.close();
+    });
+
+    // Pressing Esc shouldn't skip the warning
+    dialog.addEventListener('cancel', function (event) {
+      event.preventDefault();
+    });
+
+    dialog.showModal();
   })();
 </script>
 
 <style is:global>
   #entry-warning {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
+    width: calc(100% - 40px);
+    max-width: 520px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #d0e0d4;
+    font-family: inherit;
+  }
+  #entry-warning::backdrop {
     background: rgba(0, 0, 0, 0.94);
   }
-  html.entry-ok #entry-warning {
-    display: none !important;
-    pointer-events: none !important;
-  }
   .entry-box {
-    width: min(100%, 520px);
     margin: 0;
   }
   .entry-box h2 {
