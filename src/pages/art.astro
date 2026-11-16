@@ -82,9 +82,14 @@ const collections = [
   </div>
 </SiteLayout>
 
+<style is:global>
+  /* This page has no right sidebar, so the middle column stretches across */
+  #rightSidebar {
+    display: none !important;
+  }
+</style>
+
 <style>
-  :global(#rightSidebar) {
-    display: none;
   }
   .win98-content h3 {
     margin-top: 0;
