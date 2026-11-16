@@ -1,0 +1,158 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+
+// Add one line per piece. These are placeholders until you have your own:
+//   image = a file in the public folder
+//   title = the little label under the picture
+//   href  = where it goes when clicked (the full-size image, a blog post, a shop link...)
+//           use '#' until you have a link
+const art = [
+  { image: '/folder.png', title: 'Art piece 1', href: '#' },
+  { image: '/folder.png', title: 'Art piece 2', href: '#' },
+  { image: '/folder.png', title: 'Art piece 3', href: '#' },
+];
+
+const collections = [
+  { image: '/folder.png', title: 'Collection 1', href: '#' },
+  { image: '/folder.png', title: 'Collection 2', href: '#' },
+  { image: '/folder.png', title: 'Collection 3', href: '#' },
+];
+---
+<SiteLayout title="Art & Collections" description="Art, cross-stitch, and collections.">
+  <div class="win98-window">
+    <div class="win98-title">🖼️ ART &amp; COLLECTIONS</div>
+    <div class="win98-content">
+      <h3>Art &amp; Collections</h3>
+      <p>Jump to a section:</p>
+      <div class="jump-buttons">
+        <a class="jump-button" href="#art">ART</a>
+        <a class="jump-button" href="#collections">COLLECTIONS</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="win98-window" id="art">
+    <div class="win98-title">🎨 ART</div>
+    <div class="win98-content">
+      {art.length > 0 ? (
+        <div class="gallery-grid">
+          {art.map((item) => (
+            <a
+              class="gallery-item"
+              href={item.href}
+              target={item.href === '#' ? undefined : '_blank'}
+              rel={item.href === '#' ? undefined : 'noopener noreferrer'}
+            >
+              <div class="gallery-img">
+                <img src={item.image} alt={item.title} onerror="this.style.display='none'" />
+              </div>
+              <span class="gallery-title">{item.title}</span>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <p>Coming soon...</p>
+      )}
+    </div>
+  </div>
+
+  <div class="win98-window" id="collections">
+    <div class="win98-title">📦 COLLECTIONS</div>
+    <div class="win98-content">
+      {collections.length > 0 ? (
+        <div class="gallery-grid">
+          {collections.map((item) => (
+            <a
+              class="gallery-item"
+              href={item.href}
+              target={item.href === '#' ? undefined : '_blank'}
+              rel={item.href === '#' ? undefined : 'noopener noreferrer'}
+            >
+              <div class="gallery-img">
+                <img src={item.image} alt={item.title} onerror="this.style.display='none'" />
+              </div>
+              <span class="gallery-title">{item.title}</span>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <p>Coming soon...</p>
+      )}
+    </div>
+  </div>
+</SiteLayout>
+
+<style>
+  .win98-content h3 {
+    margin-top: 0;
+    color: #00ff66;
+  }
+
+  /* The two jump buttons at the top */
+  .jump-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .jump-button {
+    padding: 6px 18px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: #88ffaa;
+    background: #051a09;
+    border: 1px solid #00ff66;
+    box-shadow: 2px 2px 0 #000000;
+  }
+  .jump-button:hover {
+    background: #0d4a1b;
+    color: #ffffff;
+  }
+
+  /* The picture grids */
+  #art,
+  #collections {
+    scroll-margin-top: 20px;
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 14px;
+  }
+  .gallery-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+    color: #33ff77;
+    text-decoration: none;
+  }
+  .gallery-item:hover {
+    color: #ffffff;
+  }
+  .gallery-img {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    background: #000000;
+    border: 1px solid #0d4a1b;
+  }
+  .gallery-item:hover .gallery-img {
+    border-color: #00ff66;
+  }
+  .gallery-img img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .gallery-title {
+    font-size: 0.8rem;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+</style>
