@@ -83,9 +83,13 @@ const collections = [
 </SiteLayout>
 
 <style is:global>
-  /* This page has no right sidebar, so the middle column stretches across */
   #rightSidebar {
     display: none !important;
+  }
+  @media (min-width: 851px) {
+    #leftSidebar {
+      flex: 0 0 196px !important;
+    }
   }
 </style>
 
