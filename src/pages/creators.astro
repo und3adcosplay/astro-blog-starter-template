@@ -1,0 +1,165 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+
+// One block per creator. To add an creator, copy a whole block { ... }, and paste it
+// right after the last one (don't forget the comma at the end of each block).
+//   username = shown in the card's title bar and as the heading
+//   image    = a picture in the public folder (a roughly square one looks best)
+//   intro    = their introduction; each line in the list becomes its own paragraph
+//   links    = their socials: label = the button's words, href = the full web address
+//              (use '#' until you have the link)
+const creators = [
+  {
+    username: '@creator_name_one',
+    image: '/folder.png',
+    intro: [
+      'Hi! I am ... (their introduction goes here).',
+      'A second paragraph, if they want one.',
+    ],
+    links: [
+      { label: 'Instagram', href: '#' },
+      { label: 'Tumblr', href: '#' },
+      { label: 'Shop', href: '#' },
+    ],
+  },
+  {
+    username: '@creator_name_two',
+    image: '/folder.png',
+    intro: ['Hi! I am ... (their introduction goes here).'],
+    links: [
+      { label: 'Instagram', href: '#' },
+      { label: 'Twitter', href: '#' },
+    ],
+  },
+];
+---
+<SiteLayout title="Creator Recs" description="Creators I recommend, with their socials.">
+  <div class="win98-window">
+    <div class="win98-title">🎨 ARTIST RECS</div>
+    <div class="win98-content">
+      <h3>Artists I Recommend</h3>
+      <p>These are artists I love. Say hi, follow them, and show them some support!</p>
+    </div>
+  </div>
+
+  {artists.length > 0 ? (
+    artists.map((artist) => (
+      <div class="win98-window artist-card">
+        <div class="win98-title">👤 {artist.username}</div>
+        <div class="win98-content artist-body">
+          <div class="artist-photo">
+            <img src={artist.image} alt={artist.username} onerror="this.style.display='none'" />
+          </div>
+          <div class="artist-info">
+            <h3>{artist.username}</h3>
+            {artist.intro.map((paragraph) => <p>{paragraph}</p>)}
+            <div class="artist-links">
+              {artist.links.map((link) => (
+                <a
+                  class="social-link"
+                  href={link.href}
+                  target={link.href === '#' ? undefined : '_blank'}
+                  rel={link.href === '#' ? undefined : 'noopener noreferrer'}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    ))
+  ) : (
+    <div class="win98-window">
+      <div class="win98-title">🎨 COMING SOON</div>
+      <div class="win98-content">
+        <p>Nobody here yet... check back soon.</p>
+      </div>
+    </div>
+  )}
+</SiteLayout>
+
+<style is:global>
+  /* This page has no right sidebar, so the middle column stretches across */
+  #rightSidebar {
+    display: none !important;
+  }
+  /* Keep the left menu at its normal width */
+  @media (min-width: 851px) {
+    #leftSidebar {
+      flex: 0 0 196px !important;
+    }
+  }
+</style>
+
+<style>
+  .win98-content h3 {
+    margin-top: 0;
+    color: #00ff66;
+  }
+
+  /* Each artist's card: picture on the left, introduction on the right */
+  .artist-body {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+  .artist-photo {
+    position: relative;
+    flex-shrink: 0;
+    width: 190px;
+    aspect-ratio: 1 / 1;
+    background: #000000;
+    border: 1px solid #0d4a1b;
+  }
+  .artist-photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .artist-info {
+    flex: 1;
+    min-width: 0;
+  }
+  .artist-info p {
+    margin: 0 0 10px 0;
+  }
+
+  /* Their social links, as little buttons */
+  .artist-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+  }
+  .social-link {
+    padding: 5px 14px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #88ffaa;
+    background: #051a09;
+    border: 1px solid #00ff66;
+    box-shadow: 2px 2px 0 #000000;
+  }
+  .social-link:hover {
+    background: #0d4a1b;
+    color: #ffffff;
+  }
+
+  /* On phones, put the picture above the introduction */
+  @media (max-width: 600px) {
+    .artist-body {
+      flex-direction: column;
+    }
+    .artist-photo {
+      width: 100%;
+      max-width: 260px;
+    }
+  }
+</style>
