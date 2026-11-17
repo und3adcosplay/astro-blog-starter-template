@@ -1,7 +1,7 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
 
-// One block per creator. To add an creator, copy a whole block { ... }, and paste it
+// One block per artist. To add an artist, copy a whole block { ... }, and paste it
 // right after the last one (don't forget the comma at the end of each block).
 //   username = shown in the card's title bar and as the heading
 //   image    = a picture in the public folder (a roughly square one looks best)
@@ -10,7 +10,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 //              (use '#' until you have the link)
 const artists = [
   {
-    username: '@creator_name_one',
+    username: '@artist_name_one',
     image: '/folder.png',
     intro: [
       'Hi! I am ... (their introduction goes here).',
@@ -23,7 +23,7 @@ const artists = [
     ],
   },
   {
-    username: '@creator_name_two',
+    username: '@artist_name_two',
     image: '/folder.png',
     intro: ['Hi! I am ... (their introduction goes here).'],
     links: [
@@ -33,7 +33,7 @@ const artists = [
   },
 ];
 ---
-<SiteLayout title="Creator Recs" description="Creators I recommend, with their socials.">
+<SiteLayout title="Artist Recs" description="Artists I recommend, with their socials.">
   <div class="win98-window">
     <div class="win98-title">🎨 ARTIST RECS</div>
     <div class="win98-content">
