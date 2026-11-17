@@ -1,0 +1,212 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+
+// ---------- 1. Connect the form ----------
+// Make a free account with a form service (like Formspree or Web3Forms), create a form,
+// and paste the web address it gives you here. Messages people send arrive in your inbox.
+const formEndpoint = 'https://formspree.io/f/YOUR_FORM_ID';
+
+// Only for Web3Forms: paste your access key here. Leave it empty for Formspree.
+const accessKey = '';
+
+// ---------- 2. Approved entries ----------
+// When someone signs and you like their message, copy it here as a new block,
+// ABOVE the others so the newest shows first (don't forget the comma at the end).
+//   name    = who signed
+//   date    = any text you like, like 'Nov 17, 2026'
+//   message = what they wrote (keep it inside the quote marks)
+//   reply   = optional, your answer to them (delete the line if you don't want one)
+const entries = [
+  {
+    name: 'Example Visitor',
+    date: 'Nov 17, 2026',
+    message: 'This is what an approved entry looks like. Delete me once you have real ones!',
+    reply: 'Thank you for stopping by!',
+  },
+];
+---
+<SiteLayout title="Guestbook" description="Sign my guestbook!">
+  <div class="win98-window">
+    <div class="win98-title">📖 SIGN THE GUESTBOOK</div>
+    <div class="win98-content">
+      <h3>Leave me a message!</h3>
+      <p>Say hi, tell me what you like, or share your favorite horror. Every message is read by me before it shows up here, so it may take a little while to appear.</p>
+
+      <form id="guestbook-form" method="POST" action={formEndpoint}>
+        {accessKey && <input type="hidden" name="access_key" value={accessKey} />}
+        <input type="hidden" name="subject" value="New guestbook message" />
+
+        <!-- Hidden fields that catch spam robots. Real visitors never see these. -->
+        <div class="gb-trap" aria-hidden="true">
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <label class="gb-label" for="gb-name">Your name</label>
+        <input class="gb-field" id="gb-name" name="name" type="text" maxlength="40" required />
+
+        <label class="gb-label" for="gb-message">Your message</label>
+        <textarea class="gb-field" id="gb-message" name="message" rows="5" maxlength="600" required></textarea>
+
+        <button class="gb-submit" type="submit">SIGN</button>
+        <p class="gb-note" id="gb-note" role="status"></p>
+      </form>
+    </div>
+  </div>
+
+  <div class="win98-window">
+    <div class="win98-title">💬 ENTRIES</div>
+    <div class="win98-content">
+      {entries.length > 0 ? (
+        entries.map((entry) => (
+          <div class="gb-entry">
+            <div class="gb-entry-head">
+              <strong>{entry.name}</strong>
+              <span class="gb-date">{entry.date}</span>
+            </div>
+            <p>{entry.message}</p>
+            {entry.reply && <p class="gb-reply">↳ UND3AD: {entry.reply}</p>}
+          </div>
+        ))
+      ) : (
+        <p>No entries yet. Be the first to sign!</p>
+      )}
+    </div>
+  </div>
+</SiteLayout>
+
+<script is:inline>
+  (function () {
+    var form = document.getElementById('guestbook-form');
+    var note = document.getElementById('gb-note');
+    if (!form || !note) return;
+
+    // Send the message without leaving the page, then show a thank-you
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      note.textContent = 'Sending...';
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      })
+        .then(function (response) {
+          if (response.ok) {
+            form.reset();
+            note.textContent = 'Thank you! Your message was sent and will show up here once I have read it.';
+          } else {
+            note.textContent = 'Something went wrong, sorry! Please try again in a little while.';
+          }
+        })
+        .catch(function () {
+          note.textContent = 'Something went wrong, sorry! Please try again in a little while.';
+        });
+    });
+  })();
+</script>
+
+<style is:global>
+  /* This page has no right sidebar, so the middle column stretches across */
+  #rightSidebar {
+    display: none !important;
+  }
+  /* Keep the left menu at its normal width */
+  @media (min-width: 851px) {
+    #leftSidebar {
+      flex: 0 0 196px !important;
+    }
+  }
+</style>
+
+<style>
+  .win98-content h3 {
+    margin-top: 0;
+    color: #00ff66;
+  }
+
+  /* The sign-in form */
+  .gb-trap {
+    position: absolute;
+    left: -9999px;
+  }
+  .gb-label {
+    display: block;
+    margin: 12px 0 4px 0;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #00ff66;
+  }
+  .gb-field {
+    width: 100%;
+    padding: 8px;
+    font: inherit;
+    color: #d0e0d4;
+    background: #000000;
+    border: 1px solid #0d4a1b;
+  }
+  .gb-field:focus {
+    outline: none;
+    border-color: #00ff66;
+  }
+  textarea.gb-field {
+    resize: vertical;
+  }
+  .gb-submit {
+    margin-top: 14px;
+    padding: 7px 24px;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #88ffaa;
+    background: #051a09;
+    border: 1px solid #00ff66;
+    box-shadow: 2px 2px 0 #000000;
+    cursor: pointer;
+  }
+  .gb-submit:hover {
+    background: #0d4a1b;
+    color: #ffffff;
+  }
+  .gb-note {
+    margin: 12px 0 0 0;
+    min-height: 1.4em;
+    color: #88ffaa;
+  }
+
+  /* The approved entries */
+  .gb-entry {
+    padding: 12px 0;
+    border-bottom: 1px dashed #0a3a14;
+  }
+  .gb-entry:first-child {
+    padding-top: 0;
+  }
+  .gb-entry:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .gb-entry p {
+    margin: 6px 0 0 0;
+    overflow-wrap: anywhere;
+  }
+  .gb-entry-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 6px 14px;
+  }
+  .gb-entry-head strong {
+    color: #00ff66;
+  }
+  .gb-date {
+    font-size: 0.8rem;
+    color: #8a8a8a;
+  }
+  .gb-reply {
+    color: #88ffaa;
+    font-style: italic;
+  }
+</style>
