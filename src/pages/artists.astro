@@ -35,7 +35,7 @@ const artists = [
 ---
 <SiteLayout title="Artist Recs" description="Artists I recommend, with their socials.">
   <div class="win98-window">
-    <div class="win98-title">🎨 ARTIST RECS</div>
+    <div class="win98-title"></div>
     <div class="win98-content">
 <h1 class="glow-title">Artists I Recommend</h1>
 <hr class="glow-divider" />
@@ -46,7 +46,7 @@ const artists = [
   {artists.length > 0 ? (
     artists.map((artist) => (
       <div class="win98-window artist-card">
-        <div class="win98-title">👤 {artist.username}</div>
+        <div class="win98-title">👤</div>
         <div class="win98-content artist-body">
           <div class="artist-photo">
             <img src={artist.image} alt={artist.username} onerror="this.style.display='none'" />
