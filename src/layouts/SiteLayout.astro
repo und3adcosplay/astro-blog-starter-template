@@ -10,7 +10,8 @@ interface Props {
   description?: string;
   marqueeImages?: string[];
   theme?: string;
-headerTitle?: string;
+  headerTitle?: string;
+  scrollCenter?: boolean;
 }
 
 const siteName = 'UND3AD._COSPLAY';
@@ -37,7 +38,8 @@ const {
   description = 'cosplay, art, & hobbies!',
   marqueeImages = defaultMarquee,
   theme,
-headerTitle,
+  headerTitle,
+  scrollCenter,
 } = Astro.props;
 const pageTitle = title === siteName ? siteName : `${title} | ${siteName}`;
 
@@ -439,6 +441,35 @@ const themeFontUrl = theme ? themeFonts[theme] : undefined;
 .glow-divider.red {
   border-top-color: #5a0a0a;
 }
+/* A part of the page that scrolls on its own, with a scroll bar to match the site */
+.scroll-box {
+  max-height: var(--scroll-height, 640px);
+  overflow-y: auto;
+  padding: 0 6px 4px 0;
+  scrollbar-width: thin;
+  scrollbar-color: #00ff66 #051a09;
+}
+.scroll-box::-webkit-scrollbar {
+  width: 10px;
+}
+.scroll-box::-webkit-scrollbar-track {
+  background: #051a09;
+  border-left: 1px solid #0d4a1b;
+}
+.scroll-box::-webkit-scrollbar-thumb {
+  background: #0d4a1b;
+  border: 1px solid #00ff66;
+}
+.scroll-box::-webkit-scrollbar-thumb:hover {
+  background: #00ff66;
+}
+/* On phones, scrolling inside a scrolling page is awkward, so let the page scroll normally */
+@media (max-width: 850px) {
+  .scroll-box {
+    max-height: none;
+    overflow: visible;
+  }
+}
 </style>
 </head>
 <body class={theme ? `themed theme-${theme}` : undefined}>
@@ -496,7 +527,7 @@ const themeFontUrl = theme ? themeFonts[theme] : undefined;
       </aside>
 
       <!-- MAIN CONTENT: each page puts its own content here -->
-      <main id="centerContent">
+      <main id="centerContent" class={scrollCenter ? 'scroll-box' : undefined}>
         <slot />
       </main>
 
