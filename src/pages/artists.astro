@@ -37,7 +37,8 @@ const artists = [
   <div class="win98-window">
     <div class="win98-title">🎨 ARTIST RECS</div>
     <div class="win98-content">
-      <h3>Artists I Recommend</h3>
+<h1 class="glow-title">Artists I Recommend</h1>
+<hr class="glow-divider" />
       <p>These are artists I love. Say hi, follow them, and show them some support!</p>
     </div>
   </div>
@@ -51,7 +52,8 @@ const artists = [
             <img src={artist.image} alt={artist.username} onerror="this.style.display='none'" />
           </div>
           <div class="artist-info">
-            <h3>{artist.username}</h3>
+<h2 class="glow-title small">{artist.username}</h2>
+<hr class="glow-divider" />
             {artist.intro.map((paragraph) => <p>{paragraph}</p>)}
             <div class="artist-links">
               {artist.links.map((link) => (
