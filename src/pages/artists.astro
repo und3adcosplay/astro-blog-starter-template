@@ -1,63 +1,152 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
 
-// One block per artist. To add an artist, copy a whole block { ... }, and paste it
+// One block per artist. To add an artist, copy a whole block { ... } and paste it
 // right after the last one (don't forget the comma at the end of each block).
-//   username = shown in the card's title bar and as the heading
+//
+// THE BASICS (every artist needs these)
+//   username = the heading inside their panel
 //   image    = a picture in the public folder (a roughly square one looks best)
 //   intro    = their introduction; each line in the list becomes its own paragraph
 //   links    = their socials: label = the button's words, href = the full web address
 //              (use '#' until you have the link)
+//
+// OPTIONAL SETTINGS (leave a line out and that part keeps the normal look)
+//   barTitle     = the words on the panel's top bar (use '' for no words at all).
+//                  If you leave it out, the bar shows their username.
+//   barColor     = color of the top bar
+//   barTextColor = color of the words on the top bar
+//   borderColor  = color of the panel's outline and the dashed line
+//                  (also the picture's outline, unless photoBorderColor is set)
+//   photoBorderColor = color of the outline around their picture
+//   panelColor   = color of the panel's background
+//   textColor    = color of the introduction text
+//   accentColor  = color of their glowing username and their link buttons
+//   (colors are codes in quotes, like '#c58bff')
+//   font         = font for the panel's words (type its name exactly as it appears on
+//                  fonts.google.com, like 'Special Elite')
+//   titleFont    = font for their glowing username (same rule; the normal one is Creepster)
 const artists = [
   {
+    // This one uses the normal look
     username: '@artist_name_one',
     image: '/folder.png',
     intro: [
-      'Hi! I am ...',
-      'second row example.',
+      'Hi! I am ... (their introduction goes here).',
+      'A second paragraph, if they want one.',
     ],
     links: [
       { label: 'Instagram', href: '#' },
-      { label: 'X', href: '#' },
-      { label: 'Facebook', href: '#' },
+      { label: 'Tumblr', href: '#' },
+      { label: 'Shop', href: '#' },
     ],
   },
   {
+    // This one has its own purple look
     username: '@artist_name_two',
     image: '/folder.png',
-    intro: [
-      'Hi! I am ...',
-      'second row example.',
-    ],
+    intro: ['Hi! I am ... (their introduction goes here).'],
     links: [
       { label: 'Instagram', href: '#' },
-      { label: 'X', href: '#' },
-      { label: 'Facebook', href: '#' },
+      { label: 'Twitter', href: '#' },
     ],
+    barColor: '#4b1d6b',
+    barTextColor: '#f0d9ff',
+    borderColor: '#7a3fa8',
+    panelColor: '#12081a',
+    textColor: '#e8d9f5',
+    accentColor: '#c58bff',
+    photoBorderColor: '#e6c8ff',
+    font: 'Special Elite',
+  },
+  {
+    // This one has its own red look and its own words on the top bar
+    username: '@artist_name_three',
+    image: '/folder.png',
+    intro: ['Hi! I am ... (their introduction goes here).'],
+    links: [
+      { label: 'Instagram', href: '#' },
+      { label: 'Shop', href: '#' },
+    ],
+    barTitle: '🩸 FEATURED ARTIST',
+    barColor: '#7a0f1a',
+    barTextColor: '#ffffff',
+    borderColor: '#a01020',
+    accentColor: '#ff4d5e',
+    titleFont: 'Butcherman',
+  },
+  {
+    // This one only changes the words on the top bar
+    username: '@artist_name_four',
+    image: '/folder.png',
+    intro: ['Hi! I am ... (their introduction goes here).'],
+    links: [{ label: 'Instagram', href: '#' }],
+    barTitle: '✨ NEW FIND',
   },
 ];
+
+// Turns an artist's choices into settings for their panel.
+// You don't need to change anything below this line.
+const colorSettings = (artist) =>
+  [
+    artist.barColor && `--c-bar: ${artist.barColor}`,
+    artist.barTextColor && `--c-bar-text: ${artist.barTextColor}`,
+    artist.borderColor && `--c-border: ${artist.borderColor}`,
+    artist.photoBorderColor && `--c-photo-border: ${artist.photoBorderColor}`,
+    artist.panelColor && `--c-panel: ${artist.panelColor}`,
+    artist.textColor && `--c-text: ${artist.textColor}`,
+    artist.accentColor && `--c-accent: ${artist.accentColor}`,
+    artist.font && `font-family: '${artist.font}', 'Courier New', monospace`,
+  ]
+    .filter(Boolean)
+    .join('; ');
+
+// The settings for the glowing username
+const titleSettings = (artist) =>
+  [
+    artist.accentColor && `--glow-color: ${artist.accentColor}`,
+    artist.titleFont && `font-family: '${artist.titleFont}', 'Creepster', sans-serif`,
+  ]
+    .filter(Boolean)
+    .join('; ') || undefined;
+
+// Loads each font the artists asked for, one at a time,
+// so a typo in one font's name can't stop the others from loading
+const fontNames = [
+  ...new Set(artists.flatMap((artist) => [artist.font, artist.titleFont]).filter(Boolean)),
+];
+const fontLinks = fontNames.map(
+  (name) => `https://fonts.googleapis.com/css2?family=${name.trim().replace(/\s+/g, '+')}&display=swap`,
+);
 ---
-<SiteLayout title="Artist Recs" description="Artists I recommend, with their socials.">
+<SiteLayout title="Artist Recs" description="Artists I recommend, with their socials." scrollCenter>
+  {fontLinks.map((href) => <link rel="stylesheet" href={href} />)}
+
   <div class="win98-window">
-    <div class="win98-title"></div>
+    <div class="win98-title">🎨 ARTIST RECS</div>
     <div class="win98-content">
-<h1 class="glow-title">Artists I Recommend</h1>
-<hr class="glow-divider" />
-      <p>These artists are my mutuals, friends and/or family! Say hi, follow, and show them some support!</p>
+      <h1 class="glow-title">Artists I Recommend</h1>
+      <hr class="glow-divider" />
+      <p>These are artists I love. Say hi, follow them, and show them some support!</p>
     </div>
   </div>
 
   {artists.length > 0 ? (
     artists.map((artist) => (
-      <div class="win98-window artist-card">
-        <div class="win98-title">🖤</div>
+      <div class="win98-window artist-card" style={colorSettings(artist)}>
+        <div class="win98-title">{artist.barTitle ?? `👤 ${artist.username}`}</div>
         <div class="win98-content artist-body">
           <div class="artist-photo">
             <img src={artist.image} alt={artist.username} onerror="this.style.display='none'" />
           </div>
           <div class="artist-info">
-<h2 class="glow-title small">{artist.username}</h2>
-<hr class="glow-divider" />
+            <h2
+              class="glow-title small"
+              style={titleSettings(artist)}
+            >
+              {artist.username}
+            </h2>
+            <hr class="glow-divider" />
             {artist.intro.map((paragraph) => <p>{paragraph}</p>)}
             <div class="artist-links">
               {artist.links.map((link) => (
@@ -99,12 +188,24 @@ const artists = [
 </style>
 
 <style>
-  .win98-content h3 {
-    margin-top: 0;
-    color: #00ff66;
+  /* Each artist's panel. The colors come from that artist's own settings above,
+     and fall back to the normal green look when they aren't set. */
+  .artist-card {
+    border-color: var(--c-border, #125a22);
+    background-color: var(--c-panel, #020b04);
+  }
+  .artist-card .win98-title {
+    background: var(--c-bar, #0d4a1b);
+    color: var(--c-bar-text, #00ff66);
+  }
+  .artist-card .win98-content {
+    color: var(--c-text, #d0e0d4);
+  }
+  .artist-card .glow-divider {
+    border-top-color: var(--c-border, #0d4a1b);
   }
 
-  /* Each artist's card: picture on the left, introduction on the right */
+  /* Picture on the left, introduction on the right */
   .artist-body {
     display: flex;
     gap: 18px;
@@ -116,7 +217,7 @@ const artists = [
     width: 190px;
     aspect-ratio: 1 / 1;
     background: #000000;
-    border: 1px solid #0d4a1b;
+    border: 1px solid var(--c-border, #0d4a1b);
   }
   .artist-photo img {
     position: absolute;
@@ -148,14 +249,14 @@ const artists = [
     letter-spacing: 1px;
     text-decoration: none;
     text-transform: uppercase;
-    color: #88ffaa;
+    color: var(--c-accent, #88ffaa);
     background: #051a09;
-    border: 1px solid #00ff66;
+    border: 1px solid var(--c-accent, #00ff66);
     box-shadow: 2px 2px 0 #000000;
   }
   .social-link:hover {
-    background: #0d4a1b;
-    color: #ffffff;
+    background: var(--c-accent, #0d4a1b);
+    color: var(--c-panel, #ffffff);
   }
 
   /* On phones, put the picture above the introduction */
