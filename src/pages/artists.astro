@@ -27,6 +27,31 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 //                  fonts.google.com, like 'Special Elite')
 //   titleFont    = font for their glowing username (same rule; the normal one is Creepster)
 const artists = [
+ {
+    username: '@artist_name',
+    image: '/folder.png',
+    intro: [
+      'Hi! I am...',
+      'I’m an artist...',
+      'Follow me here...',
+    ],
+    links: [
+      { label: 'Instagram', href: '#' },
+      { label: 'Tumbler', href: '#' },
+      { label: 'Facebook', href: '#' },
+    ],
+    barTitle: '🍃🐸🐍',
+    barColor: '#2e5a0e',
+    barTextColor: '#d9ff7a',
+    borderColor: '#6fa31a',
+    photoBorderColor: '#b6ff3d',
+    panelColor: '#0c1405',
+    textColor: '#e6f2cf',
+    accentColor: '#b6ff3d',
+    photoBorderColor: '#6fa31a',
+    font: 'Special Elite',
+    titleFont: 'Butcherman',
+  },
   {
     username: '@artist_name',
     image: '/folder.png',
@@ -195,8 +220,8 @@ const fontLinks = fontNames.map(
     <div class="win98-content">
       <h1 class="glow-title">Artists I Recommend</h1>
       <hr class="glow-divider" />
-      <p>These are artists/creators are my family, friends, and mutuals. Say hi, consider following them, and show them support! 💚</p>
-      <p>Everyome here is AI FREE and human made! | Every bio is written and completely customised by every indivsual.</p>
+      <p>These artists are my family, friends, and/or mutuals! Consider following and showing them support! 💚</p>
+      <p>Everyome here is AI📵FREE and proudly human made!</p>
     </div>
   </div>
 
