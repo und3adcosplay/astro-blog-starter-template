@@ -567,5 +567,29 @@ const themeFontUrl = theme ? themeFonts[theme] : undefined;
       <Footer />
     </div>
   </div>
+<script is:inline>
+  (function () {
+    var track = document.querySelector('.marquee-track');
+    if (!track) return;
+
+    // How fast the strip moves, in pixels per second. Raise it to go faster, lower it to go slower.
+    var pixelsPerSecond = 30;
+
+    // The strip holds two identical halves and slides one half's width, so time = distance / speed
+    function setSpeed() {
+      var distance = track.scrollWidth / 2;
+      if (distance > 0) {
+        track.style.animationDuration = distance / pixelsPerSecond + 's';
+      }
+    }
+
+    // Wait until the gifs have loaded, because their sizes aren't known before that
+    if (document.readyState === 'complete') {
+      setSpeed();
+    } else {
+      window.addEventListener('load', setSpeed);
+    }
+  })();
+</script>
 </body>
 </html>
