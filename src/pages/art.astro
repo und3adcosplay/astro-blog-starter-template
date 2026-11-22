@@ -17,6 +17,12 @@ const collections = [
   { image: '/folder.png', title: 'Physical Media', href: '#' },
   { image: '/folder.png', title: 'Figurines', href: '#' },
 ];
+
+const cosplays = [
+  { image: '/folder.png', title: 'Silent Hill', href: '/fandom/silent-hill' },
+  { image: '/folder.png', title: 'Resident Evil', href: '/fandom/resident-evil' },
+  { image: '/folder.png', title: 'Creepypasta', href: '/fandom/creepypasta' },
+];
 ---
 <SiteLayout title="ART & COLLECTIONS" description="Art, cross-stitch, and collections.">
   <div class="win98-window">
@@ -25,6 +31,7 @@ const collections = [
       <div class="jump-buttons">
         <a class="jump-button" href="#art">ART</a>
         <a class="jump-button" href="#collections">COLLECTIONS</a>
+        <a class="jump-button" href="#cosplay">COSPLAY</a>
       </div>
     </div>
   </div>
@@ -65,6 +72,31 @@ const collections = [
               href={item.href}
               target={item.href === '#' ? undefined : '_blank'}
               rel={item.href === '#' ? undefined : 'noopener noreferrer'}
+            >
+              <div class="gallery-img">
+                <img src={item.image} alt={item.title} onerror="this.style.display='none'" />
+              </div>
+              <span class="gallery-title">{item.title}</span>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <p>Coming soon...</p>
+      )}
+    </div>
+  </div>
+
+  <div class="win98-window" id="cosplay">
+    <div class="win98-title">🎭 COSPLAY</div>
+    <div class="win98-content">
+      {cosplays.length > 0 ? (
+        <div class="gallery-grid">
+          {cosplays.map((item) => (
+            <a
+              class="gallery-item"
+              href={item.href}
+              target={item.href.startsWith('http') ? '_blank' : undefined}
+              rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
             >
               <div class="gallery-img">
                 <img src={item.image} alt={item.title} onerror="this.style.display='none'" />
@@ -122,7 +154,8 @@ const collections = [
 
   /* The picture grids */
   #art,
-  #collections {
+  #collections,
+  #cosplay {
     scroll-margin-top: 20px;
   }
   .gallery-grid {
