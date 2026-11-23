@@ -13,7 +13,18 @@
 // Paste your Silent Hill gif list in here, one file per line, like:  '/sh-eileen.gif',
 // (If it stays empty, these pages use your normal strip instead.)
 export const silentHillGifs = [
-  // '/sh-eileen.gif',
+        '/sh-eileen.gif',
+        '/sh-hanging.gif',
+        '/sh-maria.gif',
+        '/sh-rabbit.gif',
+        '/sh-thegoat.gif',
+        '/sh-rpt.gif',
+        '/sh-heather.gif',
+        '/sh-lisa.gif',
+        '/sh-theroom.gif',
+        '/sh-down.gif',
+        '/sh-moa.gif',
+        '/sh-james.gif',
 ];
 
 export const galleryFandoms = {
