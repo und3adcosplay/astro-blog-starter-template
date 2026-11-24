@@ -16,7 +16,13 @@ export function getStaticPaths() {
 
 const { slug, fandom, galleryKey } = Astro.props;
 const gallery = fandom.galleries[galleryKey];
-const items = gallery.items ?? [];
+
+// Each item in the data file becomes one panel. An item can have a list of "photos",
+// or just a single "image" (older items with one image still work).
+const panels = (gallery.items ?? []).map((item) => ({
+  title: item.title ?? '',
+  photos: item.photos ?? (item.image ? [{ image: item.image, href: item.href }] : []),
+}));
 
 // Pictures and other websites open in a new tab, pages on this site open normally
 const opensInNewTab = (href) => href.startsWith('http') || /\.(png|jpe?g|gif|webp)$/i.test(href);
@@ -27,51 +33,46 @@ const opensInNewTab = (href) => href.startsWith('http') || /\.(png|jpe?g|gif|web
   theme={fandom.theme}
   headerTitle={fandom.name}
   marqueeImages={fandom.gifs?.length ? fandom.gifs : undefined}
+  scrollCenter
 >
-  <div class="win98-window gallery-top">
+  <div class="win98-window">
     <div class="win98-title">📁 {fandom.name.toUpperCase()} / {gallery.title.toUpperCase()}</div>
     <div class="win98-content">
-      <h3>{gallery.title}</h3>
-      {gallery.intro && <p>{gallery.intro}</p>}
       <a class="back-button" href={`/fandom/${slug}`}>← {fandom.name}</a>
     </div>
   </div>
 
-  {items.length > 0 ? (
-    items.map((item, index) => {
-      const href = item.href ?? item.image;
-      return (
-        <div class="win98-window item-card">
-          <div class="win98-title">🖼️ {gallery.title.toUpperCase()} #{index + 1}</div>
-          <div class="win98-content item-body">
-            <a
-              class="item-photo"
-              href={href}
-              target={opensInNewTab(href) ? '_blank' : undefined}
-              rel={opensInNewTab(href) ? 'noopener noreferrer' : undefined}
-            >
-              <img src={item.image} alt={item.title} onerror="this.style.display='none'" />
-            </a>
-            <div class="item-info">
-              <h3>{item.title}</h3>
-              {item.description && <p>{item.description}</p>}
-              {item.href && (
+  {panels.length > 0 ? (
+    panels.map((panel) => (
+      <div class="win98-window">
+        <div class="win98-title">🖼️ {(panel.title || gallery.title).toUpperCase()}</div>
+        <div class="win98-content photo-row">
+          {panel.photos.length > 0 ? (
+            panel.photos.map((photo) => {
+              const href = photo.href ?? photo.image;
+              return (
                 <a
-                  class="back-button"
-                  href={item.href}
-                  target={opensInNewTab(item.href) ? '_blank' : undefined}
-                  rel={opensInNewTab(item.href) ? 'noopener noreferrer' : undefined}
+                  class="photo"
+                  href={href}
+                  target={opensInNewTab(href) ? '_blank' : undefined}
+                  rel={opensInNewTab(href) ? 'noopener noreferrer' : undefined}
                 >
-                  {item.linkLabel ?? 'VIEW'}
+                  <img
+                    src={photo.image}
+                    alt={photo.alt ?? panel.title}
+                    onerror="this.style.display='none'"
+                  />
                 </a>
-              )}
-            </div>
-          </div>
+              );
+            })
+          ) : (
+            <p class="no-photos">No photos here yet...</p>
+          )}
         </div>
-      );
-    })
+      </div>
+    ))
   ) : (
-    <div class="win98-window gallery-top">
+    <div class="win98-window">
       <div class="win98-title">🖼️ {gallery.title.toUpperCase()}</div>
       <div class="win98-content">
         <p>Nothing here yet... check back soon.</p>
@@ -91,73 +92,14 @@ const opensInNewTab = (href) => href.startsWith('http') || /\.(png|jpe?g|gif|web
       flex: 0 0 196px !important;
     }
   }
-  /* The height of every panel on these pages. Change this one number to resize them all.
-     The picture is always the panel's height minus the title bar and padding. */
+  /* How big each photo is. Change this one number to make every photo bigger or smaller. */
   #centerContent {
-    --card-height: 180px;
-    --photo-size: calc(var(--card-height) - 54px);
+    --photo-size: 150px;
   }
 </style>
 
 <style>
-  .win98-content h3 {
-    margin: 0 0 6px 0;
-    color: var(--logo);
-  }
-
-  /* The top panel and every picture panel are exactly the same size */
-  .gallery-top,
-  .item-card {
-    display: flex;
-    flex-direction: column;
-    height: var(--card-height, 180px);
-    overflow: hidden;
-  }
-  .gallery-top .win98-content,
-  .item-card .win98-content {
-    flex: 1;
-    min-height: 0;
-    overflow-y: auto;
-  }
-  .gallery-top p {
-    margin: 0 0 12px 0;
-  }
-
-  /* Picture on the left, words on the right */
-  .item-body {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-  }
-  .item-photo {
-    position: relative;
-    display: block;
-    flex-shrink: 0;
-    width: var(--photo-size, 126px);
-    height: var(--photo-size, 126px);
-    background: #000000;
-    border: 1px solid var(--border);
-  }
-  .item-photo:hover {
-    border-color: var(--logo);
-  }
-  .item-photo img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .item-info {
-    flex: 1;
-    min-width: 0;
-  }
-  .item-info p {
-    margin: 0 0 10px 0;
-  }
-
-  /* The back button, and the optional link button on a picture panel */
+  /* The back button */
   .back-button {
     display: inline-block;
     padding: 5px 14px;
@@ -176,15 +118,43 @@ const opensInNewTab = (href) => href.startsWith('http') || /\.(png|jpe?g|gif|web
     color: var(--bar-text);
   }
 
-  /* On phones, let each panel grow to fit its words */
+  /* The photos sit in a row, and when they run out of room they wrap onto a new row.
+     The panel grows taller on its own to fit them. */
+  .photo-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .photo {
+    position: relative;
+    display: block;
+    flex-shrink: 0;
+    width: var(--photo-size, 150px);
+    height: var(--photo-size, 150px);
+    background: #000000;
+    border: 1px solid var(--border);
+  }
+  .photo:hover {
+    border-color: var(--logo);
+  }
+  .photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .no-photos {
+    margin: 0;
+  }
+
+  /* On phones, show two photos per row */
   @media (max-width: 600px) {
-    .gallery-top,
-    .item-card {
+    .photo {
+      width: calc(50% - 6px);
       height: auto;
-    }
-    .item-photo {
-      width: 110px;
-      height: 110px;
+      aspect-ratio: 1 / 1;
     }
   }
 </style>
