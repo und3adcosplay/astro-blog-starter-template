@@ -38,24 +38,26 @@ export const galleryFandoms = {
     galleries: {
       art: {
         title: 'Art',
+        layout: 'grid',
         intro: 'Fan art inspired by Silent Hill.',
         items: [
-          { image: '/folder.png', title: 'Fan art 1' },
-          { image: '/folder.png', title: 'Fan art 2' },
-          { image: '/folder.png', title: 'Fan art 3' },
+{ image: '/fan-art-1.jpg', title: 'Heather by Mika' },
+{ image: '/fan-art-1.jpg', title: 'Heather by Mika' },
+{ image: '/fan-art-1.jpg', title: 'Heather by Mika' },
         ],
       },
       cosplays: {
         title: 'Cosplays',
         intro: 'My Silent Hill cosplays.',
         items: [
-          { image: '/folder.png', title: 'Cosplay 1' },
-          { image: '/folder.png', title: 'Cosplay 2' },
-          { image: '/folder.png', title: 'Cosplay 3' },
+{ image: '/fan-art-1.jpg', title: 'Heather by Mika' },
+{ image: '/fan-art-1.jpg', title: 'Heather by Mika' },
+{ image: '/fan-art-1.jpg', title: 'Heather by Mika' },
         ],
       },
       merch: {
         title: 'Merch',
+        layout: 'grid',
         intro: 'My Silent Hill collection.',
         items: [
           { image: '/folder.png', title: 'Merch 1' },
