@@ -17,7 +17,21 @@ export function getStaticPaths() {
 const { slug, fandom, galleryKey } = Astro.props;
 const gallery = fandom.galleries[galleryKey];
 
-// Each item in the data file becomes one panel. An item can have a list of "photos",
+// A gallery with  layout: 'grid'  in the data file is shown as ONE big panel with
+// every photo in it and a title under each photo. Any other gallery gets one panel per item.
+const isGrid = gallery.layout === 'grid';
+
+// For the one-big-panel layout: every item is one photo with a title under it
+const gridPhotos = (gallery.items ?? [])
+  .map((item) => ({
+    image: item.image ?? item.photos?.[0]?.image,
+    title: item.title ?? '',
+    href: item.href ?? item.photos?.[0]?.href,
+    alt: item.alt,
+  }))
+  .filter((photo) => photo.image);
+
+// For the one-panel-per-item layout: each item can have a list of "photos",
 // or just a single "image" (older items with one image still work).
 const panels = (gallery.items ?? []).map((item) => ({
   title: item.title ?? '',
@@ -42,7 +56,37 @@ const opensInNewTab = (href) => href.startsWith('http') || /\.(png|jpe?g|gif|web
     </div>
   </div>
 
-  {panels.length > 0 ? (
+  {isGrid ? (
+    <div class="win98-window">
+      <div class="win98-title">🖼️ {gallery.title.toUpperCase()}</div>
+      <div class="win98-content photo-row">
+        {gridPhotos.length > 0 ? (
+          gridPhotos.map((photo) => {
+            const href = photo.href ?? photo.image;
+            return (
+              <a
+                class="grid-item"
+                href={href}
+                target={opensInNewTab(href) ? '_blank' : undefined}
+                rel={opensInNewTab(href) ? 'noopener noreferrer' : undefined}
+              >
+                <span class="photo">
+                  <img
+                    src={photo.image}
+                    alt={photo.alt ?? photo.title}
+                    onerror="this.style.display='none'"
+                  />
+                </span>
+                {photo.title && <span class="grid-title">{photo.title}</span>}
+              </a>
+            );
+          })
+        ) : (
+          <p class="no-photos">Nothing here yet... check back soon.</p>
+        )}
+      </div>
+    </div>
+  ) : panels.length > 0 ? (
     panels.map((panel) => (
       <div class="win98-window">
         <div class="win98-title">🖼️ {(panel.title || gallery.title).toUpperCase()}</div>
@@ -123,7 +167,7 @@ const opensInNewTab = (href) => href.startsWith('http') || /\.(png|jpe?g|gif|web
   .photo-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 14px;
   }
   .photo {
     position: relative;
@@ -149,12 +193,39 @@ const opensInNewTab = (href) => href.startsWith('http') || /\.(png|jpe?g|gif|web
     margin: 0;
   }
 
+  /* A photo with its title underneath (Art and Merch) */
+  .grid-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: var(--photo-size, 150px);
+    color: var(--link);
+    text-decoration: none;
+  }
+  .grid-item:hover {
+    color: var(--hover-text);
+  }
+  .grid-item:hover .photo {
+    border-color: var(--logo);
+  }
+  .grid-title {
+    font-size: 0.8rem;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+
   /* On phones, show two photos per row */
   @media (max-width: 600px) {
     .photo {
-      width: calc(50% - 6px);
+      width: calc(50% - 7px);
       height: auto;
       aspect-ratio: 1 / 1;
+    }
+    .grid-item {
+      width: calc(50% - 7px);
+    }
+    .grid-item .photo {
+      width: 100%;
     }
   }
 </style>
