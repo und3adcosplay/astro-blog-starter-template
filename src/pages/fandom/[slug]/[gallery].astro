@@ -17,7 +17,6 @@ export function getStaticPaths() {
 const { slug, fandom, galleryKey } = Astro.props;
 const gallery = fandom.galleries[galleryKey];
 const items = gallery.items ?? [];
-const siblings = Object.entries(fandom.galleries);
 
 // Pictures and other websites open in a new tab, pages on this site open normally
 const opensInNewTab = (href) => href.startsWith('http') || /\.(png|jpe?g|gif|webp)$/i.test(href);
@@ -29,53 +28,56 @@ const opensInNewTab = (href) => href.startsWith('http') || /\.(png|jpe?g|gif|web
   headerTitle={fandom.name}
   marqueeImages={fandom.gifs?.length ? fandom.gifs : undefined}
 >
-  <div class="win98-window">
+  <div class="win98-window gallery-top">
     <div class="win98-title">📁 {fandom.name.toUpperCase()} / {gallery.title.toUpperCase()}</div>
     <div class="win98-content">
       <h3>{gallery.title}</h3>
       {gallery.intro && <p>{gallery.intro}</p>}
-      <div class="gallery-nav">
-        <a class="gallery-nav-button" href={`/fandom/${slug}`}>← {fandom.name}</a>
-        {siblings.map(([key, sibling]) => (
-          <a
-            class={key === galleryKey ? 'gallery-nav-button current' : 'gallery-nav-button'}
-            href={`/fandom/${slug}/${key}`}
-            aria-current={key === galleryKey ? 'page' : undefined}
-          >
-            {sibling.title}
-          </a>
-        ))}
-      </div>
+      <a class="back-button" href={`/fandom/${slug}`}>← {fandom.name}</a>
     </div>
   </div>
 
-  <div class="win98-window">
-    <div class="win98-title">🖼️ {gallery.title.toUpperCase()}</div>
-    <div class="win98-content">
-      {items.length > 0 ? (
-        <div class="gallery-grid">
-          {items.map((item) => {
-            const href = item.href ?? item.image;
-            return (
-              <a
-                class="gallery-item"
-                href={href}
-                target={opensInNewTab(href) ? '_blank' : undefined}
-                rel={opensInNewTab(href) ? 'noopener noreferrer' : undefined}
-              >
-                <div class="gallery-img">
-                  <img src={item.image} alt={item.title} onerror="this.style.display='none'" />
-                </div>
-                <span class="gallery-title">{item.title}</span>
-              </a>
-            );
-          })}
+  {items.length > 0 ? (
+    items.map((item, index) => {
+      const href = item.href ?? item.image;
+      return (
+        <div class="win98-window item-card">
+          <div class="win98-title">🖼️ {gallery.title.toUpperCase()} #{index + 1}</div>
+          <div class="win98-content item-body">
+            <a
+              class="item-photo"
+              href={href}
+              target={opensInNewTab(href) ? '_blank' : undefined}
+              rel={opensInNewTab(href) ? 'noopener noreferrer' : undefined}
+            >
+              <img src={item.image} alt={item.title} onerror="this.style.display='none'" />
+            </a>
+            <div class="item-info">
+              <h3>{item.title}</h3>
+              {item.description && <p>{item.description}</p>}
+              {item.href && (
+                <a
+                  class="back-button"
+                  href={item.href}
+                  target={opensInNewTab(item.href) ? '_blank' : undefined}
+                  rel={opensInNewTab(item.href) ? 'noopener noreferrer' : undefined}
+                >
+                  {item.linkLabel ?? 'VIEW'}
+                </a>
+              )}
+            </div>
+          </div>
         </div>
-      ) : (
+      );
+    })
+  ) : (
+    <div class="win98-window gallery-top">
+      <div class="win98-title">🖼️ {gallery.title.toUpperCase()}</div>
+      <div class="win98-content">
         <p>Nothing here yet... check back soon.</p>
-      )}
+      </div>
     </div>
-  </div>
+  )}
 </SiteLayout>
 
 <style is:global>
@@ -89,22 +91,75 @@ const opensInNewTab = (href) => href.startsWith('http') || /\.(png|jpe?g|gif|web
       flex: 0 0 196px !important;
     }
   }
+  /* The height of every panel on these pages. Change this one number to resize them all.
+     The picture is always the panel's height minus the title bar and padding. */
+  #centerContent {
+    --card-height: 180px;
+    --photo-size: calc(var(--card-height) - 54px);
+  }
 </style>
 
 <style>
   .win98-content h3 {
-    margin-top: 0;
+    margin: 0 0 6px 0;
     color: var(--logo);
   }
 
-  /* The buttons that jump between this fandom's galleries */
-  .gallery-nav {
+  /* The top panel and every picture panel are exactly the same size */
+  .gallery-top,
+  .item-card {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 14px;
+    flex-direction: column;
+    height: var(--card-height, 180px);
+    overflow: hidden;
   }
-  .gallery-nav-button {
+  .gallery-top .win98-content,
+  .item-card .win98-content {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+  }
+  .gallery-top p {
+    margin: 0 0 12px 0;
+  }
+
+  /* Picture on the left, words on the right */
+  .item-body {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .item-photo {
+    position: relative;
+    display: block;
+    flex-shrink: 0;
+    width: var(--photo-size, 126px);
+    height: var(--photo-size, 126px);
+    background: #000000;
+    border: 1px solid var(--border);
+  }
+  .item-photo:hover {
+    border-color: var(--logo);
+  }
+  .item-photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .item-info {
+    flex: 1;
+    min-width: 0;
+  }
+  .item-info p {
+    margin: 0 0 10px 0;
+  }
+
+  /* The back button, and the optional link button on a picture panel */
+  .back-button {
+    display: inline-block;
     padding: 5px 14px;
     font-size: 0.8rem;
     font-weight: bold;
@@ -116,51 +171,20 @@ const opensInNewTab = (href) => href.startsWith('http') || /\.(png|jpe?g|gif|web
     border: 1px solid var(--border);
     box-shadow: 2px 2px 0 #000000;
   }
-  .gallery-nav-button:hover,
-  .gallery-nav-button.current {
+  .back-button:hover {
     background: var(--bar);
     color: var(--bar-text);
   }
 
-  /* The picture grid */
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 14px;
-  }
-  .gallery-item {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    min-width: 0;
-    color: var(--link);
-    text-decoration: none;
-  }
-  .gallery-item:hover {
-    color: var(--hover-text);
-  }
-  .gallery-img {
-    position: relative;
-    aspect-ratio: 1 / 1;
-    background: #000000;
-    border: 1px solid var(--border);
-  }
-  .gallery-item:hover .gallery-img {
-    border-color: var(--logo);
-  }
-  .gallery-img img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .gallery-title {
-    font-size: 0.8rem;
-    text-align: center;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+  /* On phones, let each panel grow to fit its words */
+  @media (max-width: 600px) {
+    .gallery-top,
+    .item-card {
+      height: auto;
+    }
+    .item-photo {
+      width: 110px;
+      height: 110px;
+    }
   }
 </style>
