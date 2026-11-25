@@ -66,6 +66,8 @@ export const galleryFandoms = {
               { image: '/folder.png', title: '3' },
             ],
           },
+        ],
+      },
       merch: {
         title: 'Merch',
         layout: 'grid',
