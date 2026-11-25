@@ -50,10 +50,22 @@ export const galleryFandoms = {
         title: 'Cosplays',
         intro: 'My Silent Hill cosplays.',
         items: [
-{ image: '/folder.png', title: 'Heather Mason' },
-{ image: '/folder.png', title: 'Lisa Garland' },
-        ],
-      },
+          {
+            title: 'Heather Mason',
+            photos: [
+              { image: '/folder.png', title: '1' },
+              { image: '/folder.png', title: '2' },
+              { image: '/folder.png', title: '3' },
+            ],
+          },
+          {
+            title: 'Lisa Garland',
+            photos: [
+              { image: '/folder.png', title: '1' },
+              { image: '/folder.png', title: '2' },
+              { image: '/folder.png', title: '3' },
+            ],
+          },
       merch: {
         title: 'Merch',
         layout: 'grid',
@@ -75,9 +87,30 @@ export const galleryFandoms = {
         title: 'Props',
         intro: 'Props I have made for my Silent Hill cosplays.',
         items: [
-          { image: '/folder.png', title: 'Seal of Metatron' },
-          { image: '/folder.png', title: 'Heathers Pendant' },
-          { image: '/folder.png', title: 'Silent Light' },
+          {
+            title: 'Seal of Metatron',
+            photos: [
+              { image: '/folder.png', title: 'Front view' },
+              { image: '/folder.png', title: 'Back view' },
+              { image: '/folder.png', title: 'Making of' },
+            ],
+          },
+          {
+            title: 'Heathers Pendant',
+            photos: [
+              { image: '/folder.png', title: 'Front view' },
+              { image: '/folder.png', title: 'Back view' },
+              { image: '/folder.png', title: 'Making of' },
+            ],
+          },
+          {
+            title: 'Silent Light',
+            photos: [
+              { image: '/folder.png', title: 'Front view' },
+              { image: '/folder.png', title: 'Back view' },
+              { image: '/folder.png', title: 'Making of' },
+            ],
+          },
         ],
       },
     },
