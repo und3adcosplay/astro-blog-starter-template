@@ -83,6 +83,8 @@ export const galleryFandoms = {
           { image: '/folder.png', title: 'Bloody Lisa lenticular enamel in from fangamer.com' },
           { image: '/folder.png', title: 'Bobblehead Nurse enamel in from fangamer.com' },
           { image: '/folder.png', title: 'Robbie the Rabbit enamel in from fangamer.com' },
+            ],
+          },
         ],
       },
       props: {
@@ -118,4 +120,4 @@ export const galleryFandoms = {
       },
     },
   },
-},
+};
