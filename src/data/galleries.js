@@ -13,18 +13,18 @@
 // Paste your Silent Hill gif list in here, one file per line, like:  '/sh-eileen.gif',
 // (If it stays empty, these pages use your normal strip instead.)
 export const silentHillGifs = [
-        '/sh-eileen.gif',
-        '/sh-hanging.gif',
-        '/sh-maria.gif',
-        '/sh-rabbit.gif',
-        '/sh-thegoat.gif',
-        '/sh-rpt.gif',
-        '/sh-heather.gif',
-        '/sh-lisa.gif',
-        '/sh-theroom.gif',
-        '/sh-down.gif',
-        '/sh-moa.gif',
-        '/sh-james.gif',
+  '/sh-eileen.gif',
+  '/sh-hanging.gif',
+  '/sh-maria.gif',
+  '/sh-rabbit.gif',
+  '/sh-thegoat.gif',
+  '/sh-rpt.gif',
+  '/sh-heather.gif',
+  '/sh-lisa.gif',
+  '/sh-theroom.gif',
+  '/sh-down.gif',
+  '/sh-moa.gif',
+  '/sh-james.gif',
 ];
 
 export const galleryFandoms = {
@@ -41,9 +41,9 @@ export const galleryFandoms = {
         layout: 'grid',
         intro: 'Fan art inspired by Silent Hill.',
         items: [
-{ image: '/folder.png', title: 'Lisa animation' },
-{ image: '/folder.png', title: 'Heather and Memory of Alessa animation' },
-{ image: '/folder.png', title: 'Mary animation' },
+          { image: '/folder.png', title: 'Lisa animation' },
+          { image: '/folder.png', title: 'Heather and Memory of Alessa animation' },
+          { image: '/folder.png', title: 'Mary animation' },
         ],
       },
       cosplays: {
@@ -83,8 +83,6 @@ export const galleryFandoms = {
           { image: '/folder.png', title: 'Bloody Lisa lenticular enamel in from fangamer.com' },
           { image: '/folder.png', title: 'Bobblehead Nurse enamel in from fangamer.com' },
           { image: '/folder.png', title: 'Robbie the Rabbit enamel in from fangamer.com' },
-            ],
-          },
         ],
       },
       props: {
@@ -96,15 +94,15 @@ export const galleryFandoms = {
             photos: [
               { image: '/folder.png', title: 'Front' },
               { image: '/folder.png', title: 'Back' },
-              { image: '/folder.png' title: 'Making of' },
+              { image: '/folder.png', title: 'Making of' },
             ],
           },
           {
             title: 'Heather’s Pendant',
             photos: [
               { image: '/folder.png', title: 'Front' },
-              { image: '/folder.png' title: 'Back' },
-              { image: '/folder.png' title: 'Making of' },
+              { image: '/folder.png', title: 'Back' },
+              { image: '/folder.png', title: 'Making of' },
             ],
           },
           {
@@ -112,11 +110,10 @@ export const galleryFandoms = {
             photos: [
               { image: '/folder.png', title: 'Front' },
               { image: '/folder.png', title: 'Back' },
-              { image: '/folder.png' title: 'Making of' },
+              { image: '/folder.png', title: 'Making of' },
             ],
           },
         ],
-      },
       },
     },
   },
