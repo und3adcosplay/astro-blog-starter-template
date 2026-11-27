@@ -53,8 +53,7 @@ export const galleryFandoms = {
         intro: 'My Silent Hill cosplays.',
         items: [
           {
-            title: 'Heather Mason',
-            emoji: '📻',
+            title: '📻Heather Mason📻',
             photos: [
               { image: '/folder.png', title: '1' },
               { image: '/folder.png', title: '2' },
