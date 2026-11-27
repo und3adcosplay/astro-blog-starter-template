@@ -38,7 +38,6 @@ export const galleryFandoms = {
     galleries: {
       art: {
         title: 'Art',
-        emoji: '',
         layout: 'grid',
         intro: 'Fan art inspired by Silent Hill.',
         items: [
@@ -49,7 +48,6 @@ export const galleryFandoms = {
       },
       cosplays: {
         title: 'Cosplays',
-        emoji: '',
         intro: 'My Silent Hill cosplays.',
         items: [
           {
@@ -72,7 +70,6 @@ export const galleryFandoms = {
       },
       merch: {
         title: 'Merch',
-        emoji: '',
         layout: 'grid',
         intro: 'My Silent Hill collection.',
         items: [
@@ -90,12 +87,10 @@ export const galleryFandoms = {
       },
       props: {
         title: 'Props',
-        emoji: '',
         intro: 'Props I have made for my Silent Hill cosplays.',
         items: [
           {
             title: 'Seal of Metatron',
-            emoji: '',
             photos: [
               { image: '/folder.png', title: 'Front' },
               { image: '/folder.png', title: 'Back' },
@@ -104,7 +99,6 @@ export const galleryFandoms = {
           },
           {
             title: 'Heather’s Pendant',
-            emoji: '',
             photos: [
               { image: '/folder.png', title: 'Front' },
               { image: '/folder.png', title: 'Back' },
@@ -113,7 +107,6 @@ export const galleryFandoms = {
           },
           {
             title: 'Silent Light',
-            emoji: '',
             photos: [
               { image: '/folder.png', title: 'Front' },
               { image: '/folder.png', title: 'Back' },
