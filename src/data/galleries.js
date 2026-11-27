@@ -62,8 +62,7 @@ export const galleryFandoms = {
             ],
           },
           {
-            title: 'Lisa Garland',
-            emoji: '🩸',
+            title: '🩸Lisa Garland🩸',
             photos: [
               { image: '/folder.png', title: '1' },
               { image: '/folder.png', title: '2' },
