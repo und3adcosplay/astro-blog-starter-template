@@ -31,12 +31,18 @@ const gridPhotos = (gallery.items ?? [])
   }))
   .filter((photo) => photo.image);
 
-// For the one-panel-per-item layout: each item can have a list of "photos",
+// For the one-panel-per-item layout: each item can have a list of "photos"
+// (each photo can have its own optional title, shown under it),
 // or just a single "image" (older items with one image still work).
 const panels = (gallery.items ?? []).map((item) => ({
   title: item.title ?? '',
+  emoji: item.emoji,
   photos: item.photos ?? (item.image ? [{ image: item.image, href: item.href }] : []),
 }));
+
+// Puts an emoji in front of a title bar's words. If there is no emoji, the words stand alone.
+// The emojis are set in src/data/galleries.js (an "emoji" line on a gallery or on an item).
+const withEmoji = (emoji, text) => (emoji ? `${emoji} ${text}` : text);
 
 // Pictures and other websites open in a new tab, pages on this site open normally
 const opensInNewTab = (href) => href.startsWith('http') || /\.(png|jpe?g|gif|webp)$/i.test(href);
@@ -50,15 +56,15 @@ const opensInNewTab = (href) => href.startsWith('http') || /\.(png|jpe?g|gif|web
   scrollCenter
 >
   <div class="win98-window">
-    <div class="win98-title">📁 {fandom.name.toUpperCase()} / {gallery.title.toUpperCase()}</div>
+    <div class="win98-title">{withEmoji(gallery.emoji, `${fandom.name.toUpperCase()} / ${gallery.title.toUpperCase()}`)}</div>
     <div class="win98-content">
-      <a class="back-button" href={`/fandom/${slug}`}>⬅ BACK</a>
+      <a class="back-button" href={`/fandom/${slug}`}>← {fandom.name}</a>
     </div>
   </div>
 
   {isGrid ? (
     <div class="win98-window">
-      <div class="win98-title">🖼️ {gallery.title.toUpperCase()}</div>
+      <div class="win98-title">{withEmoji(gallery.emoji, gallery.title.toUpperCase())}</div>
       <div class="win98-content photo-row">
         {gridPhotos.length > 0 ? (
           gridPhotos.map((photo) => {
@@ -89,23 +95,26 @@ const opensInNewTab = (href) => href.startsWith('http') || /\.(png|jpe?g|gif|web
   ) : panels.length > 0 ? (
     panels.map((panel) => (
       <div class="win98-window">
-        <div class="win98-title">🖼️ {(panel.title || gallery.title).toUpperCase()}</div>
+        <div class="win98-title">{withEmoji(panel.emoji, (panel.title || gallery.title).toUpperCase())}</div>
         <div class="win98-content photo-row">
           {panel.photos.length > 0 ? (
             panel.photos.map((photo) => {
               const href = photo.href ?? photo.image;
               return (
                 <a
-                  class="photo"
+                  class="grid-item"
                   href={href}
                   target={opensInNewTab(href) ? '_blank' : undefined}
                   rel={opensInNewTab(href) ? 'noopener noreferrer' : undefined}
                 >
-                  <img
-                    src={photo.image}
-                    alt={photo.alt ?? panel.title}
-                    onerror="this.style.display='none'"
-                  />
+                  <span class="photo">
+                    <img
+                      src={photo.image}
+                      alt={photo.alt ?? photo.title ?? panel.title}
+                      onerror="this.style.display='none'"
+                    />
+                  </span>
+                  {photo.title && <span class="grid-title">{photo.title}</span>}
                 </a>
               );
             })
@@ -117,7 +126,7 @@ const opensInNewTab = (href) => href.startsWith('http') || /\.(png|jpe?g|gif|web
     ))
   ) : (
     <div class="win98-window">
-      <div class="win98-title">🖼️ {gallery.title.toUpperCase()}</div>
+      <div class="win98-title">{withEmoji(gallery.emoji, gallery.title.toUpperCase())}</div>
       <div class="win98-content">
         <p>Nothing here yet... check back soon.</p>
       </div>
