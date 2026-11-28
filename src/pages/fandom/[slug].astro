@@ -332,7 +332,7 @@ export function getStaticPaths() {
       },
     },
   ];
-  return fandoms.map((fandom) => ({
+  return fandoms.filter((fandom) => !fandom.hidden).map((fandom) => ({
     params: { slug: fandom.slug },
     props: { fandom },
   }));
